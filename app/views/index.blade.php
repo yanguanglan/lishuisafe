@@ -23,7 +23,7 @@
 		<div class="topRg">
 			<ul>
 				<li><a href="">生产管理系统</a></li>
-				<li><a href="">责任管理系统</a></li>
+				<li><a href="{{ URL::route('jdtj') }}">责任管理系统</a></li>
 				<li><a href="">检测管理系统</a></li>
 				<li><a href="">信息服务系统</a></li>
 			</ul>
@@ -42,7 +42,7 @@
 		</div>
 		<div class="box">
 			<div class="info icon02">
-				<a href="">
+				<a href="{{ URL::route('jdtj') }}">
 					<span>责任管理系统</span>
 				</a>
 			</div>
