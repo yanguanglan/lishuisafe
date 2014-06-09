@@ -35,7 +35,7 @@
 	<div class="cont">
 		<div class="box">
 			<div class="info icon01">
-				<a href="">
+				<a>
 					<span>生产管理系统</span>
 				</a>
 			</div>
@@ -49,14 +49,14 @@
 		</div>
 		<div class="box">
 			<div class="info icon03">
-				<a href="">
+				<a>
 					<span>检测管理系统</span>
 				</a>
 			</div>
 		</div>
 		<div class="box">
 			<div class="info icon04">
-				<a href="">
+				<a>
 					<span>信息服务系统</span>
 				</a>
 			</div>
@@ -66,5 +66,32 @@
 <div class="footer">
 	<p>版权所有：丽水市农业投资发展有限公司   技术支持：某某科技有限公司   联系电话：400-888-8888</p>
 </div>
+<div class="loginBg"></div>
+<div class="login">
+	<div class="cont">
+		<div class="close"><img src="images/xx.png"></div>
+		<div class="info">
+			<h2>用户登录</h2>
+			<div class="inpBox"><input type="text" placeholder="用户名" class="inp01"/></div>
+			<div class="inpBox"><input type="text" placeholder="密码" class="inp01"/></div>
+			<div class="inpBox"><input type="text" placeholder="验证码" class="inp01" style="width:96px" />
+			<a href="">看不清楚，换一张</a>
+			</div>
+			<div class="inpBox"><input type="submit" value="登陆"  class="btn"/></div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	$(function(){
+		$(".box .info").click(function(){
+			$(".loginBg").show();
+			$(".login").show();
+		})
+		$(".login .close").click(function(){
+			$(".loginBg").hide();
+			$(".login").hide();
+		})
+	})
+</script>
 </body>
 </html>
