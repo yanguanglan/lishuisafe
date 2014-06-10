@@ -61,10 +61,10 @@
               <tr>
                 <td width="20%" height="39" bgcolor="#FFFFFF">{{ $zzxx[0]->seedName }}</td>
                 <td width="25%" height="39" bgcolor="#FFFFFF">{{ $zzxx[0]->typeName }}</td>
-                <td width="10%" height="39" bgcolor="#FFFFFF">{{ $zzxx[0]->ptime }}</td>
+                <td width="10%" height="39" bgcolor="#FFFFFF">@if($zzxx[0]->ptime) {{ date('Y-m-d', strtotime($zzxx[0]->ptime)) }}@endif</td>
                 <td width="15%" height="39" bgcolor="#FFFFFF">{{ $zzxx[0]->pseekpc }}</td>
                 <td width="10%" height="39" bgcolor="#FFFFFF">{{ $zzxx[0]->parea }}{{ $zzxx[0]->plantUnit}}</td>
-                <td width="10%" bgcolor="#FFFFFF">{{ $zzxx[0]->purchaseDate }}</td>
+                <td width="10%" bgcolor="#FFFFFF">@if($zzxx[0]->purchaseDate){{ date('Y-m-d', strtotime($zzxx[0]->purchaseDate)) }}@endif</td>
                 <td width="10%" height="39" bgcolor="#FFFFFF">{{ $zzxx[0]->pnum }}</td>
               </tr>
               @else
@@ -93,7 +93,7 @@
               @if($sfjl)
               @foreach ($sfjl as $v)
               <tr>
-                <td width="10%" height="39" bgcolor="#FFFFFF">{{ $v->ptime }}</td>
+                <td width="10%" height="39" bgcolor="#FFFFFF">@if($v->ptime){{ date('Y-m-d', strtotime($v->ptime)) }}@endif</td>
                 <td width="15%" height="39" bgcolor="#FFFFFF">{{ $v->pnamefei }}</td>
                 <td width="15%" height="39" bgcolor="#FFFFFF">{{ $v->pper }}</td>
                 <td width="15%" height="39" bgcolor="#FFFFFF">{{ $v->pmun }}{{ $v->unit }}</td>
@@ -125,7 +125,7 @@
               @if ($yyjl)
               @foreach($yyjj as $v)
               <tr>
-                <td width="10%" height="39" bgcolor="#FFFFFF">{{ $v->ptime }}</td>
+                <td width="10%" height="39" bgcolor="#FFFFFF">@if($v->ptime){{ date('Y-m-d', strtotime($v->ptime)) }}@endif</td>
                 <td width="15%" height="39" bgcolor="#FFFFFF">{{ $v->pnameper }}</td>
                 <td width="15%" height="39" bgcolor="#FFFFFF">{{ $v->pper }}</td>
                 <td width="15%" height="39" bgcolor="#FFFFFF">{{ $v->pfrightto }}</td>
@@ -161,7 +161,7 @@
               @if($jcjl)
               @foreach($jcjl as $v)
               <tr>
-                <td width="10%" height="39" bgcolor="#FFFFFF">{{ $v->ptime }}</td>
+                <td width="10%" height="39" bgcolor="#FFFFFF">{{ date('Y-m-d', strtotime($v->ptime)) }}</td>
                 <td width="15%" height="39" bgcolor="#FFFFFF">{{ $v->pxiangmu }}</td>
                 <td width="9%" bgcolor="#FFFFFF">{{ $v->pend }}</td>
                 <td width="8%" bgcolor="#FFFFFF">{{ $v->pafter }}</td>
@@ -198,7 +198,7 @@
               @if($cjjl)
               @foreach($cjjl as $v)
               <tr>
-                <td width="10%" height="39" bgcolor="#FFFFFF">{{ $v->ptime }}</td>
+                <td width="10%" height="39" bgcolor="#FFFFFF">@if($v->ptime) {{ date('Y-m-d', strtotime($v->ptime)) }}@endif</td>
                 <td width="15%" height="39" bgcolor="#FFFFFF">{{ $v->pname }}</td>
                 <td width="15%" height="39" bgcolor="#FFFFFF">{{ $v->pcspc }}</td>
                 <td width="15%" height="39" bgcolor="#FFFFFF">{{ $v->pcshi }}{{ $v->unit }}</td>
@@ -230,7 +230,7 @@
               @if($xsjl)
               @foreach($xsjl as $v)
               <tr>
-                <td width="10%" height="39" bgcolor="#FFFFFF">{{ $v->ptime }}</td>
+                <td width="10%" height="39" bgcolor="#FFFFFF">@if($v->ptime){{ date('Y-m-d', strtotime($v->ptime)) }}@endif</td>
                 <td width="15%" height="39" bgcolor="#FFFFFF">{{ $v->psalepc }}</td>
                 <td width="15%" height="39" bgcolor="#FFFFFF">{{ $v->pto }}</td>
                 <td width="15%" height="39" bgcolor="#FFFFFF">{{ $v->pnum }}{{ $v->unit }}</td>

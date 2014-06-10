@@ -66,33 +66,37 @@
 <div class="footer">
 	<p>版权所有：丽水市农业投资发展有限公司   技术支持：某某科技有限公司   联系电话：400-888-8888</p>
 </div>
+<form name="loginForm" id="loginForm">
 <div class="loginBg"></div>
 <div class="login">
 	<div class="cont">
-		<div class="close"><img src="images/xx.png"></div>
+		<div class="close"><img src="{{URL::asset('images/xx.png')}}"></div>
 		<div class="info">
 			<h2>用户登录</h2>
+			<div class="warning">用户名错误！</div>
 			<div class="inpBox"><input type="text" placeholder="用户名" class="inp01"/></div>
 			<div class="inpBox"><input type="text" placeholder="密码" class="inp01"/></div>
-			<div class="inpBox"><input type="text" placeholder="验证码" class="inp01" style="width:96px" />
-			<a href="">看不清楚，换一张</a>
+			<div class="labelBox">
+			<label><input type="checkbox" />记住用户名</label>
+			<label><input type="checkbox" />记住密码</label>
 			</div>
-			<div class="inpBox"><input type="submit" value="登陆"  class="btn"/></div>
+			<div class="inpBox"><input type="submit" value="登录"  class="btn"/></div>
 		</div>
 	</div>
 </div>
+</form>
 <script type="text/javascript">
 	$(function(){
-		@if (!Session::has('login'))
-		$(".box .info").click(function(){
+		var infoNum=$(".box .info");
+		infoNum.click(function(){
 			$(".loginBg").show();
 			$(".login").show();
+			return false;
 		})
 		$(".login .close").click(function(){
 			$(".loginBg").hide();
 			$(".login").hide();
 		})
-		@endif
 	})
 </script>
 </body>

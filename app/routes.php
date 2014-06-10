@@ -32,6 +32,8 @@ Route::group(array('prefix' => 'zerenguanli'), function(){
 		$type = get_type();
 		//获得数据
 
+		$city = Input::get('city', '');
+		$type = Input::get('type', '');
 		$year = Input::get('year', date('Y', time()));
 		$keyword = Input::get('keyword', '');
 
@@ -46,8 +48,8 @@ Route::group(array('prefix' => 'zerenguanli'), function(){
 
 	Route::get('/jdtjinfo',  array('as' => 'jdtjinfo', function(){
 
-		$city = Input::get('city');
-		$type = Input::get('type');
+		$city = Input::get('city', '');
+		$type = Input::get('type', '');
 		$year = Input::get('year', date('Y', time()));
 		$keyword = Input::get('keyword', '');
 
@@ -57,7 +59,41 @@ Route::group(array('prefix' => 'zerenguanli'), function(){
 	}));
 
 	Route::get('/ysctj', array('as' => 'ysctj', function(){
-		return View::make('zerenguanli.ysctj');
+		//类型品种
+		$type = get_type();
+		//获得数据
+
+		$year = Input::get('year', date('Y', time()));
+		$month = Input::get('month', '01');
+		$city = Input::get('city', '');
+		$type = Input::get('type', '');
+
+		$date = $year.'-'.$month."-01 00:00:00";
+
+		$keyword = Input::get('keyword', '');
+
+
+		//$result = DB::select('EXEC proc_plan_produce_analysis_info ?, ?, ?', array(1, $date, $keyword));
+		$result = DB::select('EXEC proc_plan_produce_analysis_info ?, ?, ?', array(2, $date, $keyword));
+		
+		//return View::make('zerenguanli.ysctj')->with('type', $type)->with('result', $result)->with('year', $year)->with('month', $month)->with('keyword', $keyword);;
+
+		return View::make('zerenguanli.ysctjinfo')->with('result', $result)->with('city', $city)->with('type', $type)->with('year', $year)->with('month', $month)->with('keyword', $keyword);
+	}));
+
+	Route::get('/ysctjinfo',  array('as' => 'ysctjinfo', function(){
+
+		$city = Input::get('city', '');
+		$type = Input::get('type', '');
+		$year = Input::get('year', date('Y', time()));
+		$month = Input::get('month', '01');
+
+		$date = $year.'-'.$month."-01 00:00:00";
+		$keyword = Input::get('keyword', '');
+
+		$result = DB::select('EXEC proc_plan_produce_analysis_info ?, ?, ?, ?, ?', array(1, $city, $type, $date, $keyword));
+
+		return View::make('zerenguanli.jdtjinfo')->with('result', $result)->with('city', $city)->with('type', $type)->with('year', $year)->with('keyword', $keyword);
 	}));
 
 	Route::get('/fsltj', array('as' => 'fsltj', function(){

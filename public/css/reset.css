@@ -271,7 +271,6 @@ body{
 .top{
 	height: 70px;
 	width: 100%;
-	background: #fff;;
 }
 .top .w85{
 	height: 70px;
@@ -281,6 +280,7 @@ body{
 	font-size: 20px;
 	line-height: 70px;
 	float: left;
+	color: #216e4d
 }
 .top .topRg{
 	float: right;
@@ -299,6 +299,7 @@ body{
 	font-size: 16px;
 	color: #7b7b7b;
 	background: url(../images/line.jpg) no-repeat center right;
+	color: #216e4d
 }
 .bootCont{
 	height: 682px;
@@ -548,8 +549,8 @@ body{
 }
 .login .cont .close{
 	position: absolute;
-	top: 2px;
-	right: 2px;
+	top: 18px;
+	right: 18px;
 }
 .login .cont .info{
 	width: 330px;
@@ -561,11 +562,10 @@ body{
 	font: normal 30px/90px "微软雅黑";
 	color: #000000;
 	text-align: center;
-	margin-bottom: 20px
 }
 .login .cont .info .inpBox{
 	height: 48px;
-	margin-top: 10px
+	margin-bottom: 15px
 }
 .login .cont .info .inpBox .inp01{
 	border: 1px solid #c2c2c2;
@@ -588,4 +588,18 @@ body{
 	border-bottom: 1px solid #0d6639;
 	font: normal 24px/48px "微软雅黑";
 	color: #fff
+}
+.login .cont .info .labelBox label{
+	width: 50%;
+	float: left;
+	margin: 10px 0 25px;
+	color: #7b7b7b
+}
+.login .cont .info .warning{
+	background: #fffacc;
+	height: 38px;
+	line-height: 38px;
+	font-size: 14px;
+	color: #d3643d;
+	text-align: center;
 }
