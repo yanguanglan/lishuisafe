@@ -1,17 +1,63 @@
-@extends('zerenguanli._layouts.default')
-@section('main')
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie ie6 lt-ie7 lt-ie8 lt-ie9"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie ie7 lt-ie8 lt-ie9"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie ie8 lt-ie9"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie ie9"> <![endif]-->
+<!--[if gt IE 9]>  <html lang="en" class="no-js ie">     <![endif]-->
+<!--[if !IE]><!--><html class="no-js">  <!--<![endif]-->
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+	<title>html</title>
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+
+</head>
+
+<body>
+<div class="header">
+	<div class="cont w85">
+		<div class="welcome">欢迎您，<span class="name">王城万</span>！   <a href="">退出</a></div>
+		<div class="address">区域：丽水市</div>
+	</div>
+</div>
+<!--/end header-->
+<div class="bread w85">
+	<ul>
+		<li><a href="jdtj.html">基地统计</a></li>
+		<li><a href="ysctj.html">预生产统计</a></li>
+		<li><a href="fcltj.html">肥饲料统计</a></li>
+		<li><a href="fztj.html">防治统计</a></li>
+		<li><a href="jctj.html">检测统计</a></li>
+		<li><a href="xstj.html">销售统计</a></li>
+		<li class="active"><a href="cpsy.html">产品溯源</a></li>
+		<li><a href="data.html">数据分析</a></li>
+		<li><a href="set.html">系统设置</a></li>
+		<li><a href="plat.html">通知公告</a></li>
+	</ul>
+</div>
+<!--/end bread-->
 <div class="wrap w85">
+
+
+
+
+
+
+
+
 <!--产品溯源-->
 <div class="block" >
-  <form>
 	<div class="search">
 		<div class="searchFr">
 			<span>溯源码查找：</span>
-			<input type="text" name="sn" value="{{ $sn }}" class="searInp" />
+			<input type="text" placeholder="" class="searInp" />
 			<input type="submit" value="查询" class="searBtn" />
 		</div>
 	</div>
-  </form>
 	<div class="cont cpsy">
 		<div class="table">
 			<h2 class="til">生产商信息</h2>
@@ -24,17 +70,7 @@
                 <td width="19%" height="39" bgcolor="#f8f8f8">地址</td>
                 <td width="11%" height="39" bgcolor="#f8f8f8">采购商</td>
               </tr>
-              @if ($scsxx)
               <tr>
-                <td width="20%" height="39" bgcolor="#FFFFFF">{{ $scsxx[0]->seedName }}</td>
-                <td width="25%" height="39" bgcolor="#FFFFFF">{{ $scsxx[0]->companyName }}</td>
-                <td width="10%" height="39" bgcolor="#FFFFFF">{{ $scsxx[0]->pfaren }}</td>
-                <td width="15%" height="39" bgcolor="#FFFFFF">{{ $scsxx[0]->pphone }}</td>
-                <td width="19%" height="39" bgcolor="#FFFFFF">{{ $scsxx[0]->paddress }}</td>
-                <td width="11%" height="39" bgcolor="#FFFFFF">{{ $scsxx[0]->salerName }}</td>
-              </tr>
-              @else
-               <tr>
                 <td width="20%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
                 <td width="25%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
                 <td width="10%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
@@ -42,10 +78,9 @@
                 <td width="19%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
                 <td width="11%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
               </tr>
-              @endif
             </table>
 	  </div>
-    <div class="table">
+      <div class="table">
 		<h2 class="til">种子信息</h2>
 		  	<table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#e3e3e3">
               <tr class="top">
@@ -57,17 +92,6 @@
                 <td width="10%" bgcolor="#f8f8f8">采购日期</td>
                 <td width="10%" height="39" bgcolor="#f8f8f8">采购量</td>
               </tr>
-              @if ($zzxx)
-              <tr>
-                <td width="20%" height="39" bgcolor="#FFFFFF">{{ $zzxx[0]->seedName }}</td>
-                <td width="25%" height="39" bgcolor="#FFFFFF">{{ $zzxx[0]->typeName }}</td>
-                <td width="10%" height="39" bgcolor="#FFFFFF">{{ $zzxx[0]->ptime }}</td>
-                <td width="15%" height="39" bgcolor="#FFFFFF">{{ $zzxx[0]->pseekpc }}</td>
-                <td width="10%" height="39" bgcolor="#FFFFFF">{{ $zzxx[0]->parea }}{{ $zzxx[0]->plantUnit}}</td>
-                <td width="10%" bgcolor="#FFFFFF">{{ $zzxx[0]->purchaseDate }}</td>
-                <td width="10%" height="39" bgcolor="#FFFFFF">{{ $zzxx[0]->pnum }}</td>
-              </tr>
-              @else
               <tr>
                 <td width="20%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
                 <td width="25%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
@@ -77,7 +101,6 @@
                 <td width="10%" bgcolor="#FFFFFF">&nbsp;</td>
                 <td width="10%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
               </tr>
-              @endif
             </table>
 	  </div>
       <div class="table">
@@ -90,17 +113,6 @@
                 <td width="15%" height="39" bgcolor="#f8f8f8">用量</td>
                 <td width="45%" height="39" bgcolor="#f8f8f8">备注</td>
               </tr>
-              @if($sfjl)
-              @foreach ($sfjl as $v)
-              <tr>
-                <td width="10%" height="39" bgcolor="#FFFFFF">{{ $v->ptime }}</td>
-                <td width="15%" height="39" bgcolor="#FFFFFF">{{ $v->pnamefei }}</td>
-                <td width="15%" height="39" bgcolor="#FFFFFF">{{ $v->pper }}</td>
-                <td width="15%" height="39" bgcolor="#FFFFFF">{{ $v->pmun }}{{ $v->unit }}</td>
-                <td width="45%" height="39" bgcolor="#FFFFFF">{{ $v->pbeizhu }}</td>
-              </tr>
-              @endforeach
-              @else
               <tr>
                 <td width="10%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
                 <td width="15%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
@@ -108,7 +120,20 @@
                 <td width="15%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
                 <td width="45%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
               </tr>
-               @endif
+              <tr>
+                <td width="10%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
+                <td width="15%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
+                <td width="15%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
+                <td width="15%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
+                <td width="45%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
+              </tr>
+              <tr>
+                <td width="10%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
+                <td width="15%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
+                <td width="15%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
+                <td width="15%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
+                <td width="45%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
+              </tr>
             </table>
 	  </div>
       <div class="table">
@@ -122,18 +147,6 @@
                 <td width="15%" height="39" bgcolor="#f8f8f8">用量</td>
                 <td width="30%" height="39" bgcolor="#f8f8f8">备注</td>
               </tr>
-              @if ($yyjl)
-              @foreach($yyjj as $v)
-              <tr>
-                <td width="10%" height="39" bgcolor="#FFFFFF">{{ $v->ptime }}</td>
-                <td width="15%" height="39" bgcolor="#FFFFFF">{{ $v->pnameper }}</td>
-                <td width="15%" height="39" bgcolor="#FFFFFF">{{ $v->pper }}</td>
-                <td width="15%" height="39" bgcolor="#FFFFFF">{{ $v->pfrightto }}</td>
-                <td width="15%" height="39" bgcolor="#FFFFFF">{{ $v->pmun }}{{ $v->unit }}</td>
-                <td width="30%" height="39" bgcolor="#FFFFFF">{{ $v->pbeizhu }}</td>
-              </tr>
-              @endforeach
-              @else
               <tr>
                 <td width="10%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
                 <td width="15%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
@@ -142,7 +155,30 @@
                 <td width="15%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
                 <td width="30%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
               </tr>
-              @endif
+              <tr>
+                <td width="10%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
+                <td width="15%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
+                <td width="15%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
+                <td width="15%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
+                <td width="15%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
+                <td width="30%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
+              </tr>
+              <tr>
+                <td width="10%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
+                <td width="15%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
+                <td width="15%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
+                <td width="15%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
+                <td width="15%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
+                <td width="30%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
+              </tr>
+              <tr>
+                <td width="10%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
+                <td width="15%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
+                <td width="15%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
+                <td width="15%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
+                <td width="15%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
+                <td width="30%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
+              </tr>
             </table>
 	  </div>
       <div class="table">
@@ -157,21 +193,7 @@
                 <td width="10%" height="39" bgcolor="#f8f8f8">样品数</td>
                 <td width="14%" height="39" bgcolor="#f8f8f8">取样地点</td>
                 <td width="20%" height="39" bgcolor="#f8f8f8">备注</td>
-              </tr>            
-              @if($jcjl)
-              @foreach($jcjl as $v)
-              <tr>
-                <td width="10%" height="39" bgcolor="#FFFFFF">{{ $v->ptime }}</td>
-                <td width="15%" height="39" bgcolor="#FFFFFF">{{ $v->pxiangmu }}</td>
-                <td width="9%" bgcolor="#FFFFFF">{{ $v->pend }}</td>
-                <td width="8%" bgcolor="#FFFFFF">{{ $v->pafter }}</td>
-                <td width="14%" height="39" bgcolor="#FFFFFF">{{ $v->testType }}</td>
-                <td width="10%" height="39" bgcolor="#FFFFFF">{{ $v->pcshi }}{{ $v->unit }}</td>
-                <td width="14%" height="39" bgcolor="#FFFFFF">{{ $v->pstate }}</td>
-                <td width="20%" height="39" bgcolor="#FFFFFF">{{ $v->pbeizhu }}</td>
               </tr>
-              @endforeach
-              @else
               <tr>
                 <td width="10%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
                 <td width="15%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
@@ -182,7 +204,6 @@
                 <td width="14%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
                 <td width="20%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
               </tr>
-              @endif
             </table>
 	  </div>
       <div class="table">
@@ -195,17 +216,6 @@
                 <td width="15%" height="39" bgcolor="#f8f8f8">数量</td>
                 <td width="45%" height="39" bgcolor="#f8f8f8">备注</td>
               </tr>
-              @if($cjjl)
-              @foreach($cjjl as $v)
-              <tr>
-                <td width="10%" height="39" bgcolor="#FFFFFF">{{ $v->ptime }}</td>
-                <td width="15%" height="39" bgcolor="#FFFFFF">{{ $v->pname }}</td>
-                <td width="15%" height="39" bgcolor="#FFFFFF">{{ $v->pcspc }}</td>
-                <td width="15%" height="39" bgcolor="#FFFFFF">{{ $v->pcshi }}{{ $v->unit }}</td>
-                <td width="45%" height="39" bgcolor="#FFFFFF">{{ $v->pbeizhu }}</td>
-              </tr>
-              @endforeach
-              @else
               <tr>
                 <td width="10%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
                 <td width="15%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
@@ -213,7 +223,20 @@
                 <td width="15%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
                 <td width="45%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
               </tr>
-              @endif
+              <tr>
+                <td width="10%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
+                <td width="15%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
+                <td width="15%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
+                <td width="15%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
+                <td width="45%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
+              </tr>
+              <tr>
+                <td width="10%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
+                <td width="15%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
+                <td width="15%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
+                <td width="15%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
+                <td width="45%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
+              </tr>
         </table>
 	  </div>
       <div class="table">
@@ -227,18 +250,6 @@
                 <td width="10%" height="39" bgcolor="#f8f8f8">规格</td>
                 <td width="35%" height="39" bgcolor="#f8f8f8">备注</td>
               </tr>
-              @if($xsjl)
-              @foreach($xsjl as $v)
-              <tr>
-                <td width="10%" height="39" bgcolor="#FFFFFF">{{ $v->ptime }}</td>
-                <td width="15%" height="39" bgcolor="#FFFFFF">{{ $v->psalepc }}</td>
-                <td width="15%" height="39" bgcolor="#FFFFFF">{{ $v->pto }}</td>
-                <td width="15%" height="39" bgcolor="#FFFFFF">{{ $v->pnum }}{{ $v->unit }}</td>
-                <td width="10%" height="39" bgcolor="#FFFFFF">{{ $v->pclass }}</td>
-                <td width="35%" height="39" bgcolor="#FFFFFF">{{ $v->pbeizhu }}</td>
-              </tr>
-              @endforeach
-              @else
               <tr>
                 <td width="10%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
                 <td width="15%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
@@ -247,11 +258,55 @@
                 <td width="10%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
                 <td width="35%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
               </tr>
-              @endif
+              <tr>
+                <td width="10%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
+                <td width="15%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
+                <td width="15%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
+                <td width="15%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
+                <td width="10%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
+                <td width="35%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
+              </tr>
+              <tr>
+                <td width="10%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
+                <td width="15%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
+                <td width="15%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
+                <td width="15%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
+                <td width="10%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
+                <td width="35%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
+              </tr>
+              <tr>
+                <td width="10%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
+                <td width="15%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
+                <td width="15%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
+                <td width="15%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
+                <td width="10%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
+                <td width="35%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
+              </tr>
         </table>
 	  </div>
 	</div>
 </div>
 <!--/end 产品溯源-->
+
+
+
+
+
+
+
 </div>
-@stop
+<!--/end wrap-->
+<div class="footer">
+	<p>版权所有：丽水市农业投资发展有限公司   技术支持：某某科技有限公司   联系电话：400-888-8888</p>
+</div>
+<script type="text/javascript">
+	$(function(){
+		//基本统计 隔行换色
+		$(".jdtj table tr:even").css("backgroundColor","#fbfbfb");
+		$(".jdtj table tr:odd").css("backgroundColor","#ffffff"); 
+		
+
+	})
+</script>
+</body>
+</html>

@@ -12,8 +12,8 @@
 	<title>html</title>
 	<meta name="keywords" content="" />
 	<meta name="description" content="" />
-	<link rel="stylesheet" type="text/css" href="{{ URL::asset('css/reset.css') }}">
-	<script type="text/javascript" src="{{ URL::asset('js/jquery-1.7.2.min.js') }}"></script>
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
 </head>
 
 <body class="bootPage">
@@ -23,7 +23,7 @@
 		<div class="topRg">
 			<ul>
 				<li><a href="">生产管理系统</a></li>
-				<li><a href="{{ URL::route('jdtj') }}">责任管理系统</a></li>
+				<li><a href="jdtj.html">责任管理系统</a></li>
 				<li><a href="">检测管理系统</a></li>
 				<li><a href="">信息服务系统</a></li>
 			</ul>
@@ -35,14 +35,14 @@
 	<div class="cont">
 		<div class="box">
 			<div class="info icon01">
-				<a href="">
+				<a>
 					<span>生产管理系统</span>
 				</a>
 			</div>
 		</div>
 		<div class="box">
 			<div class="info icon02">
-				<a href="{{ URL::route('jdtj') }}">
+				<a href="jdtj.html">
 					<span>责任管理系统</span>
 				</a>
 			</div>
@@ -83,7 +83,6 @@
 </div>
 <script type="text/javascript">
 	$(function(){
-		@if (!Session::has('login'))
 		$(".box .info").click(function(){
 			$(".loginBg").show();
 			$(".login").show();
@@ -92,7 +91,6 @@
 			$(".loginBg").hide();
 			$(".login").hide();
 		})
-		@endif
 	})
 </script>
 </body>

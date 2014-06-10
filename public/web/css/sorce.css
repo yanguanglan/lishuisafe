@@ -1,0 +1,220 @@
+/*产品溯源*/
+
+.search,
+.platC {
+    background: #f2f2f2;
+    height: 60px;
+    border-radius: 6px 6px 0 0;
+    -webkit-border-radius: 6px 6px 0 0;
+    -moz-border-radius: 6px 6px 0 0;
+}
+.sInfo,
+.platT {
+    float: right;
+    margin: 15px 30px 0 0;
+}
+.sInfo span {
+    color: #393939;
+    font-size: 16px;
+}
+.text {
+    border: 1px solid #d6d6d6;
+    width: 240px;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 5px;
+}
+.btn {
+    width: 96px;
+    text-align: center;
+    height: 31px;
+    line-height: 31px;
+    border: none;
+    border-bottom: 1px solid #226439;
+    background: #227f57;
+    color: #fff;
+    margin-left: 6px;
+    cursor: pointer;
+}
+.sTab {
+    border: 1px solid #cee1d9;
+    border-top: 1px solid #e4e4e4;
+    border-bottom: none;
+    padding: 25px 25px 65px 25px;
+}
+.sTab h2 {
+    color: #434343;
+    font-size: 18px;
+}
+.sTab table,
+.platInfo table {
+    width: 100%;
+    margin: 25px 0;
+    border: 1px solid #eaeaea;
+    border-collapse: collapse;
+}
+.sTab thead,
+.platInfo thead {
+    background: #f8f8f8;
+}
+.sTab thead th,
+.sTab tbody td,
+.platInfo thead th,
+.platInfo tbody td {
+    height: 50px;
+    line-height: 50px;
+    border: 1px solid #eaeaea;
+    text-align: center;
+}
+.sTab .line {
+    border-top: 1px solid #eaeaea;
+    margin: 30px 0 25px 0;
+}
+.footer {
+    background: #0d3f3a;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    clear: both;
+}
+.footer p {
+    color: #246a5a;
+    font-size: 12px;
+}
+/*监管平台*/
+
+.notice {
+    width: 20%;
+    float: left;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border: 1px solid #cee1d9;
+    border-top: none;
+    border-bottom: 1px solid #b3c3bc;
+    background: #f2f2f2;
+    padding-top: 5px;
+}
+.notice ul {
+    margin: 0 auto;
+    width: 80%;
+    padding-bottom: 120px;
+}
+.notice ul li {
+    border-bottom: 1px solid #d9d9d9;
+    height: 58px;
+    line-height: 58px;
+}
+.notice ul li a {
+    color: #4c4c4c;
+    font-size: 16px;
+}
+.notice ul .active a {
+    color: #227f57;
+    font-weight: bold;
+}
+.platWp {
+    margin-left: 1%;
+    float: left;
+    width: 57%;
+}
+.platC {
+    border: 1px solid #e4e4e4;
+    border-left: 1px solid #cee1d9;
+    border-top: none;
+}
+.platT {
+    border-right: 1px solid #e3e3e3;
+}
+.platInfo {
+    background: #fff;
+    border-left: 1px solid #cee1d9;
+    padding: 25px;
+}
+.platInfo h2 {
+    color: #696969;
+    font-size: 16px;
+    padding-bottom: 8px;
+}
+.platInfo p {
+    margin-bottom: 10px;
+}
+.platInfo p input {
+    background: #f9f9f9;
+    border: 1px solid #d7d7d7;
+    width: 100%;
+    height: 43px;
+    line-height: 43px;
+    text-indent: 1em;
+    font-size: 16px;
+    color: #777;
+}
+.platInfo textarea {
+    background: #f9f9f9;
+    border: 1px solid #d7d7d7;
+    width: 100%;
+    line-height: 22px;
+    text-indent: 1em;
+    font-size: 16px;
+    color: #777;
+    padding-top: 10px;
+    resize: none;
+}
+.platInfo .info1 {
+    height: 125px;
+}
+.platInfo .info2 {
+    height: 65px;
+}
+.platR {
+    width: 20%;
+    margin-left: 1%;
+    float: left;
+}
+.platR h2 {
+    background: #f2f2f2;
+    height: 60px;
+    line-height: 60px;
+    padding-left: 10px;
+    font-size: 16px;
+    color: #4c4c4c;
+    border-bottom: 1px solid #d7d7d7;
+    border-left: 1px solid #cee1d9;
+    border-radius: 6px 6px 0 0;
+    -webkit-border-radius: 6px 6px 0 0;
+    -moz-border-radius: 6px 6px 0 0;
+}
+.platR ul {
+    background: #fff;
+    padding-bottom: 120px;
+    border: 1px solid #cee1d9;
+    border-bottom: 1px solid #b3c3bc;
+    border-top: none;
+}
+.platR ul li {
+    padding: 15px 0 0 20px;
+    font-size: 16px;
+    color: #4c4c4c;
+}
+.platR ul li p {
+    text-indent: 2em;
+    margin-top: 3px;
+    font-size: 14px;
+}
+/*系统设置*/
+
+.setS {
+    float: left;
+    margin: 15px 0 0 30px;
+}
+.setInfo{
+    padding: 20px;
+    min-height: 500px;
+}
+.setInfo table{
+    margin: 0px;
+}
+.setInfo table a{
+    margin: 0 5px;
+    color: #2e71c3;
+}

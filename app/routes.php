@@ -78,7 +78,24 @@ Route::group(array('prefix' => 'zerenguanli'), function(){
 
 
 	Route::get('/cpsy', array('as' => 'cpsy', function(){
-		return View::make('zerenguanli.cpsy');
+
+		$sn = Input::get('sn', '');
+		#生产商信息
+		$scsxx = DB::select('EXEC proc_farm_product_sale_info ?', array($sn));
+		#种子信息
+		$zzxx = DB::select('EXEC proc_seed_info ?', array($sn));
+		#施肥记录
+		$sfjl = DB::select('EXEC proc_fertilizer_apply_info ?', array($sn));
+		#用药记录
+		$yyjl = DB::select('EXEC proc_pesticide_apply_info ?', array($sn));
+		#检测记录
+		$jcjl = DB::select('EXEC proc_sample_test_info ?', array($sn));
+		#采集记录
+		$cjjl = DB::select('EXEC proc_collection_info ?', array($sn));
+		#销售记录
+		$xsjl = DB::select('EXEC proc_sale_info ?', array($sn));
+		
+		return View::make('zerenguanli.cpsy')->with('sn', $sn)->with('scsxx', $scsxx)->with('zzxx', $zzxx)->with('sfjl', $sfjl)->with('yyjl', $yyjl)->with('jcjl', $jcjl)->with('cjjl', $cjjl)->with('xsjl', $xsjl);
 	}));
 
 	Route::get('/sjfx', array('as' => 'sjfx', function(){
