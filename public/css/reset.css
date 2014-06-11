@@ -308,19 +308,34 @@ body{
 .bootCont .cont{
 	display: table-cell;
 	vertical-align: middle;
+	_padding-top:150px;
 }
 .bootCont .cont .box{
-	width: 25%;
+	width: 24%;
 	height: 340px;
 	float: left;
+	position: relative;
 }
 .bootCont .cont .box .info{
 	margin: 0 10px;
 	height: 340px;
-	background-color: rgba(255,255,255,0.85);
 	background-position: center 63px;
 	background-repeat: no-repeat;
 	cursor: pointer;
+	position: relative;
+	z-index: 2
+}
+.bootCont .cont .box  .bg{
+	margin: 0 10px;
+	height: 340px;
+	position: absolute;
+	top: 0;
+	left: 0px;
+	right: 0px;
+	z-index: 0;
+	background-color: #fff;
+	filter:alpha(opacity=85);
+	opacity: 0.85
 }
 .bootCont .cont .box .info span{
 	display: block;
@@ -330,10 +345,12 @@ body{
 	padding-top: 250px;
 }
 
-.bootCont .cont .box .info.active,.bootCont .cont .box .info:hover{
-	background-color: rgba(19,108,67,0.85);
+.bootCont .cont .box:hover .bg{
+	background-color: #136c43;
+	filter:alpha(opacity=100);
+	opacity: 1
 }
-.bootCont .cont .box .info.active span,.bootCont .cont .box .info:hover span{
+.bootCont .cont .box:hover span{
 	color: #fff;;
 }
 .icon01{

@@ -39,6 +39,7 @@
 					<span>生产管理系统</span>
 				</a>
 			</div>
+			<div class="bg"></div>
 		</div>
 		<div class="box">
 			<div class="info icon02" state="1">
@@ -46,6 +47,7 @@
 					<span>责任管理系统</span>
 				</a>
 			</div>
+			<div class="bg"></div>
 		</div>
 		<div class="box">
 			<div class="info icon03" state="2">
@@ -53,6 +55,7 @@
 					<span>检测管理系统</span>
 				</a>
 			</div>
+			<div class="bg"></div>
 		</div>
 		<div class="box">
 			<div class="info icon04">
@@ -60,6 +63,7 @@
 					<span>信息服务系统</span>
 				</a>
 			</div>
+			<div class="bg"></div>
 		</div>
 	</div>
 </div>

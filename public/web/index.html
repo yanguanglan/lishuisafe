@@ -23,8 +23,8 @@
 		<div class="topRg">
 			<ul>
 				<li><a href="">生产管理系统</a></li>
-				<li><a href="jdtj.html">责任管理系统</a></li>
-				<li><a href="monitor01.html">检测管理系统</a></li>
+				<li><a href="">责任管理系统</a></li>
+				<li><a href="">检测管理系统</a></li>
 				<li><a href="">信息服务系统</a></li>
 			</ul>
 		</div>
@@ -35,31 +35,35 @@
 	<div class="cont">
 		<div class="box">
 			<div class="info icon01">
-				<a>
+				<a href="jdtj.html">
 					<span>生产管理系统</span>
 				</a>
 			</div>
+			<div class="bg"></div>
 		</div>
 		<div class="box">
 			<div class="info icon02">
-				<a href="jdtj.html">
+				<a href="ysctj.html">
 					<span>责任管理系统</span>
 				</a>
 			</div>
+			<div class="bg"></div>
 		</div>
 		<div class="box">
 			<div class="info icon03">
-				<a href="monitor01.html">
+				<a href="fcltj.html">
 					<span>检测管理系统</span>
 				</a>
 			</div>
+			<div class="bg"></div>
 		</div>
 		<div class="box">
 			<div class="info icon04">
-				<a>
+				<a href="fztj.html">
 					<span>信息服务系统</span>
 				</a>
 			</div>
+			<div class="bg"></div>
 		</div>
 	</div>
 </div>
@@ -72,10 +76,12 @@
 		<div class="close"><img src="images/xx.png"></div>
 		<div class="info">
 			<h2>用户登录</h2>
+			<div class="warning">用户名错误！</div>
 			<div class="inpBox"><input type="text" placeholder="用户名" class="inp01"/></div>
 			<div class="inpBox"><input type="text" placeholder="密码" class="inp01"/></div>
-			<div class="inpBox"><input type="text" placeholder="验证码" class="inp01" style="width:96px" />
-			<a href="">看不清楚，换一张</a>
+			<div class="labelBox">
+			<label><input type="checkbox" />记住用户名</label>
+			<label><input type="checkbox" />记住密码</label>
 			</div>
 			<div class="inpBox"><input type="submit" value="登陆"  class="btn"/></div>
 		</div>
@@ -83,9 +89,11 @@
 </div>
 <script type="text/javascript">
 	$(function(){
-		$(".box .info").click(function(){
+		var infoNum=$(".box .info");
+		infoNum.click(function(){
 			$(".loginBg").show();
 			$(".login").show();
+			return false;
 		})
 		$(".login .close").click(function(){
 			$(".loginBg").hide();
