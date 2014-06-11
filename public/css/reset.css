@@ -308,7 +308,7 @@ body{
 .bootCont .cont{
 	display: table-cell;
 	vertical-align: middle;
-	_padding-top:150px;
+	*padding-top:150px;
 }
 .bootCont .cont .box{
 	width: 24%;
