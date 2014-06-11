@@ -33,11 +33,17 @@ App::after(function($request, $response)
 |
 */
 
-Route::filter('auth', function()
+Route::filter('auth.zerenguanli', function()
 {
-	if (Auth::guest()) return Redirect::guest('login');
+	//if (Auth::guest()) return Redirect::guest('login');
+	if(!Session::has('userid') || Session::get('pstate')==2) return Redirect::to('/');
 });
 
+Route::filter('auth.jianceguanli', function()
+{
+	//if (Auth::guest()) return Redirect::guest('login');
+	if(!Session::has('userid') || Session::get('pstate')==1) return Redirect::to('/');
+});
 
 Route::filter('auth.basic', function()
 {

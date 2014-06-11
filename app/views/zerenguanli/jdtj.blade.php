@@ -27,7 +27,7 @@
                 <span  class="hy">行业</span>
                 <span class="xq">县区</span>
             </td>
-            @foreach ($type as $typeItem)
+            @foreach ($types as $typeItem)
 
             <td height="65" align="center" bgcolor="#f7f7f7"><a href="{{ URL::route('jdtjinfo', array('city'=>0, 'type'=>$typeItem->ID, 'year'=>$year, 'keyword'=>$keyword)) }}" target="_blank">{{$typeItem->pname}}</a></td>
            @endforeach
@@ -40,7 +40,7 @@
           @foreach ($result as $item)
           <tr>
             <td width="91" height="39" align="center" class="td01"><a href="{{ URL::route('jdtjinfo', array('city'=>$item->cityID, 'type'=>0, 'year'=>$year, 'keyword'=>$keyword)) }}" target="_blank">{{ $item->cityName }}</a></td>
-            @foreach (check_type($type, $item->countInfo) as $key => $val)
+            @foreach (check_type($types, $item->countInfo) as $key => $val)
             <td height="39" align="center"><a href="{{ URL::route('jdtjinfo', array('city'=>$item->cityID, 'type'=>$key, 'year'=>$year, 'keyword'=>$keyword)) }}" target="_blank">{{ $val }}</a></td>
             <?php
             if (isset($total[$key])) {
