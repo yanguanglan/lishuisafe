@@ -14,7 +14,7 @@ class Userscontroller extends \BaseController {
 
 		//$result = DB::select('EXEC proc_login ?, ?', array($account, $password));
 		//$result = DB::select('select * from zuserlogin');
-		$result = DB::select('EXEC proc_farm_analysis_info ?, ?, ?', array(1, 2014, '1'));
+		$result = DB::select('EXEC proc_farm_analysis_info ?, ?, ?', array('1', '2014', ''));
 		//$result = DB::select('EXEC proc_farm_analysis_info ?, ?, ?', array(, 201, ''));
 		dd($result);
 		//get_type();
