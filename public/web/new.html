@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie ie6 lt-ie7 lt-ie8 lt-ie9"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie ie7 lt-ie8 lt-ie9"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie ie8 lt-ie9"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie ie9"> <![endif]-->
+<!--[if gt IE 9]>  <html lang="en" class="no-js ie">     <![endif]-->
+<!--[if !IE]><!-->
+<html class="no-js">
+<!--<![endif]-->
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <title>监管平台</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/sorce.css">
+</head>
+
+<body>
+    <div class="header">
+        <div class="cont w85">
+            <div class="welcome">欢迎您，<span class="name">王城万</span>！ <a href="">退出</a>
+            </div>
+            <div class="address">区域：丽水市</div>
+        </div>
+    </div>
+    <!--/end header-->
+    <div class="bread w85">
+	<ul>
+		<li><a href="zzjg.html">责任网格</a></li>
+		<li><a href="jdtj.html">基地统计</a></li>
+		<li><a href="ysctj.html">预生产统计</a></li>
+		<li><a href="fztj.html">投入品管理</a></li>
+		<li><a href="jctj.html">检测统计</a></li>
+		<li><a href="xstj.html">销售统计</a></li>
+		<li><a href="cpsy.html">产品溯源</a></li>
+		<li><a href="data.html">数据分析</a></li>
+		<li><a href="set.html">系统设置</a></li>
+		<li class="active"><a href="plat.html">通知公告</a></li>
+	</ul>
+</div>
+    <!--/end bread-->
+    <div class="w85">
+        <div class="notice">
+            <ul>
+                <li class="active"><a href="">新发通知</a>
+                </li>
+                <li><a>已发通知</a>
+                </li>
+                <li><a>历史发送</a>
+                </li>
+            </ul>
+        </div>
+        <div class="platWp platO">
+            <div class="platInfo addInfo">
+                <h2 class="newsT">福建漳州芗城区农业局开展水产品质量安全宣传活动</h2>
+                <p>发起人：农业局    审核人：张晓芳</p>
+                <div class="infoWp">
+                    <p>你的印象笔记帐户已准备就绪！ <br>想更充分利用印象笔记吗？那就把它安装在家里和办公室的电脑上，自己的手机和平板上，随时随地轻松访问吧！</p>
+                <p>在电脑、手机或平板上打开这封电子邮件，并点击以下链接。我们将会根据你所使用的设备为你提供相应的印象笔记版本。</p>
+                <p>你的印象笔记帐户已准备就绪！<br>
+想更充分利用印象笔记吗？那就把它安装在家里和办公室的电脑上，自己的手机和平板上，随时随地轻松访问吧！</p>
+                    <p>你的印象笔记帐户已准备就绪！ <br>想更充分利用印象笔记吗？那就把它安装在家里和办公室的电脑上，自己的手机和平板上，随时随地轻松访问吧！</p>
+                <p>在电脑、手机或平板上打开这封电子邮件，并点击以下链接。我们将会根据你所使用的设备为你提供相应的印象笔记版本。</p>
+                <p>你的印象笔记帐户已准备就绪！<br>
+想更充分利用印象笔记吗？那就把它安装在家里和办公室的电脑上，自己的手机和平板上，随时随地轻松访问吧！</p>
+                <ul class="tag">
+                    <li><a href="">最新工作安排表</a></li>
+                    <li><a href="">二期工程施工图纸</a></li>
+                </ul>
+                <div class="starWp">
+                    <ul>
+                        <li><input type="radio" name="" />通过</li>
+                        <li><input type="radio" name="" />不通过</li>
+                        <li onmouseover="rate(this,event)">评分：  <img src="images/star.gif" title="很差" />
+                                    <img src="images/star.gif" title="一般" />
+                                    <img src="images/star.gif" title="不错" />
+                                    <img src="images/star.gif" title="好评" />
+                                    <img src="images/star.gif" title="赞一个" />
+                        </li>
+                    </ul>
+                    <p>审核意见</p>
+                    <textarea class="text"></textarea>
+                    <input type="submit" value="提交" class="btn">
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/end wrap-->
+    <div class="footer">
+        <p>
+            版权所有：丽水市农业投资发展有限公司 技术支持：某某科技有限公司 联系电话：400-888-8888
+        </p>
+    </div>
+<script type="text/javascript"> 
+function rate(obj,oEvent){ 
+
+    var imgSrc = 'images/star.gif'; 
+    var imgSrc_2 = 'images/star-hover.gif'; 
+
+    if(obj.rateFlag) return; 
+    var e = oEvent || window.event; 
+    var target = e.target || e.srcElement;  
+    var imgArray = obj.getElementsByTagName("img"); 
+    for(var i=0;i<imgArray.length;i++){ 
+        imgArray[i]._num = i; 
+        imgArray[i].onclick=function(){ 
+            if(obj.rateFlag)
+            return; 
+            obj.rateFlag=true; 
+            //alert(this._num+1); 
+        }; 
+    } 
+    
+    if(target.tagName=="IMG"){ 
+        for(var j=0;j<imgArray.length;j++){ 
+            if(j<=target._num){ 
+                imgArray[j].src=imgSrc_2; 
+            }else{ 
+                imgArray[j].src=imgSrc; 
+            } 
+        } 
+    }else{ 
+        for(var k=0;k<imgArray.length;k++){ 
+            imgArray[k].src=imgSrc; 
+        } 
+    } 
+    
+} 
+</script> 
+
+</body>
+
+</html>

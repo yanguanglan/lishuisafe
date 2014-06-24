@@ -225,7 +225,7 @@ body{
  	margin: 11px 0 0 30px;
  	display: inline;
  }
-.search .searchFl select{
+.search .searchFl select,.search .inp02{
 	border: 0;
 	border-top:1px solid #eaeaea;
 	padding: 0 10px;
@@ -235,6 +235,12 @@ body{
 	font-size: 14px;
 	color: #8b8b8b;
 	font-family: "微软雅黑";
+}
+.search .searchFl select{
+	padding: 0px;
+}
+.wrap .block{
+	padding-bottom: 30px;
 }
 .wrap .cpsy{
 	border: 1px solid #cee1d9;
@@ -246,7 +252,6 @@ body{
 	margin-left: auto;
 	margin-right: auto;
 	padding-bottom: 30px;
-	border-bottom: 1px solid #e3e3e3;
 }
 .wrap .cpsy .table h2.til{
 	height: 50px;
@@ -530,7 +535,6 @@ body{
 	margin: 5px 5px 0 0;
 }
 .cont table tr td a{
-	color: #dc6181;
 }
 .chart{
 	width: 95%;
@@ -621,4 +625,81 @@ body{
 	font-size: 14px;
 	color: #d3643d;
 	text-align: center;
+}
+.towns span{
+	vertical-align: 15px;
+}
+.power{
+	position: relative;
+	display: inline-block;
+	padding-left: 10px;
+}
+.power i{
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+	background: #ff0011;
+	text-align: center;
+	line-height: 20px;
+	font-size: 10px;
+	color: #fff;
+	border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	position: absolute;
+	top: -5px;
+	right: -10px;
+}
+.jg{
+	width: 30px;
+	height: 27px;
+	vertical-align: 8px;
+	margin-left: 10px;	
+}
+.jgs{
+	width: 30px;
+	height: 27px;
+	vertical-align: -8px;
+	margin-left: 10px;		
+}
+.towns .line{
+	display: inline-block;
+	padding: 0 20px 0 35px;
+	vertical-align: 15px;
+}
+
+.towns .share{
+	background: url(../images/share.png) center right no-repeat;	
+	background-size: 24px 24px;
+	width: 24px;
+	height: 24px;
+	padding: 0 10px;
+	vertical-align: -5px;
+}
+.msg{
+	background: url(../images/msg.png) center center no-repeat;
+	width: 40px;
+	height: 40px;
+	background-size: 40px 40px;
+	vertical-align: -12px;
+	display: inline-block;
+}	
+.searchFl .label{
+	padding-right: 20px;
+	font-size: 18px;	
+}
+.search .spe{
+	float: right;
+	margin-right: 30px;
+}
+.fri{
+	padding-right: 30px;
+}
+.search .calendar span{
+	margin: 0px 0 0 10px;
+}
+.search .calendar span input{
+	height: 34px;
+	line-height: 34px;	
+	padding-left: 5px;
 }

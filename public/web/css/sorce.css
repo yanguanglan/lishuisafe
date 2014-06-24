@@ -66,6 +66,22 @@
     border: 1px solid #eaeaea;
     text-align: center;
 }
+.platInfo tbody td .nomal{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: url(../images/star.gif);
+    vertical-align: text-top;
+    margin-right: 8px;
+}
+.platInfo tbody td .spec{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: url(../images/star-hover.gif);
+    vertical-align: text-top;
+    margin-right: 8px;
+}
 .sTab .line {
     border-top: 1px solid #eaeaea;
     margin: 30px 0 25px 0;
@@ -108,6 +124,7 @@
 .notice ul li a {
     color: #4c4c4c;
     font-size: 16px;
+    line-height: 28px;
 }
 .notice ul .active a {
     color: #227f57;
@@ -201,6 +218,9 @@
     margin-top: 3px;
     font-size: 14px;
 }
+.platR ul li input{
+    margin:0 10px;
+}
 /*系统设置*/
 
 .setS {
@@ -217,4 +237,115 @@
 .setInfo table a{
     margin: 0 5px;
     color: #2e71c3;
+}
+
+
+
+
+.platO{
+    width: 78%;
+}
+.pagination{
+    margin: 20px 0;
+}
+.pagination ul{
+    float: right;
+}
+.pagination ul li{
+    display: inline;
+}
+.pagination ul li a{
+    float: left;
+    padding: 4px 12px;
+    line-height: 20px;
+    text-decoration: none;
+    background: #fff;
+    border: 1px solid #ddd;
+    margin: 0 5px;
+}
+.pagination ul li a:hover{
+    background: #227f57;
+    color: #fff;
+}
+.notice .otherU li{
+    height: auto;
+    line-height: 22px;
+    text-align: center;
+    padding: 5px 0;
+}
+.notice .otherU li .active{
+    color: #227f57;
+    font-weight: bold;
+}
+.platR .otherR{
+    padding-bottom: 10px;
+}
+.otherR li select{
+    height: 30px;
+    line-height: 30px;
+    padding-left: 10px;
+    background: #fff;
+}
+.infoShow{
+    background: #fff;
+    padding: 20px;
+}
+.infoShow p{
+    padding: 3px 0;
+}
+.infoWp{
+    border-top: 1px solid #dbdbdb;
+    margin: 20px 0;
+    padding: 15px 0;
+}
+.platInfo .newsT{
+    font-size: 18px;
+    color: #4b4b4b;
+    font-weight: bold;
+}
+.infoWp p{
+    font-size: 16px;
+    color: #767676;
+}
+.infoWp .tag{
+    margin: 40px 0;
+}
+.infoWp .tag li{
+    padding-bottom: 15px;
+}
+.infoWp .tag li a{
+    background: url(../images/tag.png) no-repeat;
+    color: #426caa;
+    padding-left: 25px;
+}
+.starWp{
+    background: #fafafa;
+    border-top: 1px solid #ededed;
+    padding: 10px 0 20px 20px;
+}
+.starWp ul{
+    padding-bottom: 25px;
+    overflow: hidden;
+}
+.starWp ul li{
+    float: left;
+    color: #767676;
+    font-size: 16px;
+    margin-right: 15px;
+}
+.starWp ul li input{
+    margin-right: 5px;
+}
+.starWp p{
+    clear: both;
+    font-size: 14px;
+    color: #444;
+    padding-left: 15px;
+}
+.starWp .text{
+    border: 1px solid #ededed;
+    width: 96%;
+    margin-bottom: 20px;
+    background: #fff;
+    min-height: 60px;
 }

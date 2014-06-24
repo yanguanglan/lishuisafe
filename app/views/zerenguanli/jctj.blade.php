@@ -5,17 +5,16 @@
 <div class="block">
 	<div class="search">
 		<div class="searchFl">
-			<select>
-				<option value="2014年度">2014年度</option>
-				<option value="2013年度">2013年度</option>
-				<option value="2012年度">2012年度</option>
-				<option value="2011年度">2011年度</option>
-			</select>
+			<select name="year">
+                @foreach (get_year() as $v)
+        <option value="{{$v}}" @if ($v == $year) selected="selected" @endif>{{$v}}年度</option>
+                @endforeach
+      </select>
 			
 		</div>
 		<div class="searchFr">
 			<span>农业企业关键字：</span>
-			<input type="text" placeholder="" class="searInp" />
+			<input name="keyword" type="text" value="{{ $keyword }}" class="searInp" />
 			<input type="submit" value="查询" class="searBtn" />
 		</div>
 	</div>
@@ -26,147 +25,21 @@
                 <span  class="hy">行业</span>
                 <span class="xq">县区</span>
             </td>
-            <td height="65" align="center" bgcolor="#f7f7f7"><a href="jctjInfo.html" target="_blank">蔬菜</a></td>
-            <td height="65" align="center" bgcolor="#f7f7f7"><a href="jctjInfo.html" target="_blank">水果</a></td>
-            <td height="65" align="center" bgcolor="#f7f7f7"><a href="jctjInfo.html" target="_blank">茶叶</a></td>
-            <td height="65" align="center" bgcolor="#f7f7f7"><a href="jctjInfo.html" target="_blank">食用菌</a></td>
-            <td height="65" align="center" bgcolor="#f7f7f7"><a href="jctjInfo.html" target="_blank">水产</a></td>
-            <td height="65" align="center" bgcolor="#f7f7f7"><a href="jctjInfo.html" target="_blank">畜禽</a></td>
-            <td height="65" align="center" bgcolor="#f7f7f7"><a href="jctjInfo.html" target="_blank">粮油</a></td>
-            <td height="65" align="center" bgcolor="#f7f7f7"><a href="jctjInfo.html" target="_blank">林特</a></td>
-            <td height="65" align="center" bgcolor="#f7f7f7"><a href="jctjInfo.html" target="_blank">中药材</a></td>
-            <td height="65" align="center" bgcolor="#f7f7f7"><a href="jctjInfo.html" target="_blank">合计</a></td>
+            @foreach ($types as $typeItem)
+
+            <td height="65" align="center" bgcolor="#f7f7f7"><a href="{{ URL::route('jctjinfo', array('city'=>0, 'type'=>$typeItem->ID, 'year'=>$year, 'keyword'=>$keyword)) }}" target="_blank">{{$typeItem->pname}}</a></td>
+           @endforeach
+            <td height="65" align="center" bgcolor="#f7f7f7">合计</td>
           </tr>
+          @foreach ($result as $item)
           <tr>
-            <td width="91" height="39" align="center" class="td01"><a href="jctjInfo.html" target="_blank">莲都区</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
+            <td width="91" height="39" align="center" class="td01"><a href="{{ URL::route('jctjinfo', array('city'=>$item->cityID, 'type'=>0, 'year'=>$year, 'keyword'=>$keyword)) }}" target="_blank">{{ $item->cityName }}</a></td>
+            @foreach (check_type($types, $item->numInfo) as $key => $val)
+            <td height="39" align="center"><a href="{{ URL::route('jctjinfo', array('city'=>$item->cityID, 'type'=>$key, 'year'=>$year, 'keyword'=>$keyword)) }}" target="_blank">{{ $val }}</a></td>
+            @endforeach
+             <td height="39" align="center"><a href="{{ URL::route('jctjinfo', array('city'=>$item->cityID, 'type'=>0, 'year'=>$year, 'keyword'=>$keyword)) }}" target="_blank">{{ $item->totalNum }}</a></td>
           </tr>
-          <tr>
-            <td width="91" height="39" align="center" class="td01"><a href="jctjInfo.html" target="_blank">莲都区</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-          </tr>
-          <tr>
-            <td width="91" height="39" align="center" class="td01"><a href="jctjInfo.html" target="_blank">莲都区</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-          </tr>
-          <tr>
-            <td width="91" height="39" align="center" class="td01"><a href="jctjInfo.html" target="_blank">莲都区</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-          </tr>
-          <tr>
-            <td width="91" height="39" align="center" class="td01"><a href="jctjInfo.html" target="_blank">莲都区</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-          </tr>
-         <tr>
-            <td width="91" height="39" align="center" class="td01"><a href="jctjInfo.html" target="_blank">莲都区</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-          </tr>
-          <tr>
-            <td width="91" height="39" align="center" class="td01"><a href="jctjInfo.html" target="_blank">莲都区</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-          </tr>
-          <tr>
-            <td width="91" height="39" align="center" class="td01"><a href="jctjInfo.html" target="_blank">莲都区</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-          </tr>
-          <tr>
-            <td width="91" height="39" align="center" class="td01"><a href="jctjInfo.html" target="_blank">莲都区</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-          </tr>
-          <tr>
-            <td width="91" height="39" align="center" class="td01"><a href="jctjInfo.html" target="_blank">莲都区</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-            <td height="39" align="center"><a href="jctjInfo.html" target="_blank">2</a></td>
-          </tr>
+          @endforeach
         </table>
 
 	</div>

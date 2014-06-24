@@ -5,32 +5,20 @@
 <div class="block">
 <form>
     <div class="search">
-		<div class="searchFl">
-			<select name="year">
-                @foreach (get_year() as $v)
-				<option value="{{$v}}" @if ($v == $year) selected="selected" @endif>{{$v}}年度</option>
-                @endforeach
-			</select>
-			 <select name="month">
-                @for($i=1; $i<=12; $i++)
-                <?php
-                $j = $i;
-                if ($i<10) {
-                    $j = '0'.$i;
-                }
-                ?>
-         <option value="{{$j}}" @if ($j == $month) selected="selected" @endif>{{$i}}月份</option>       
-                @endfor
-      </select>
-		</div>
-		<div class="searchFr">
-			<span>相关农产品：</span>
-			<input name="keyword" type="text" value="{{ $keyword }}" class="searInp" />
-			<input name="city" type="hidden" value="{{ $city }}" class="searInp" />
-			<input name="type" type="hidden" value="{{ $type }}" class="searInp" />
-			<input type="submit" value="查询" class="searBtn" />
-		</div>
-	</div>
+    <div class="searchFl">
+      <div class="calendar">
+                <em style="padding: 0;float:left;margin-top:5px;">预收时间：</em>
+  <span>
+    <input name="startDate" type="text" id="control_date" size="15"
+                       maxlength="10" onclick="new Calendar().show(this);" readonly="readonly" value="{{ $startDate }}">至</span>
+
+               <span>
+                   <input name="endTime" type="text" id="control_date2" size="15"
+                       maxlength="10" onclick="new Calendar().show(this);" readonly="readonly" value="{{ $endTime }}" /></span>          
+      <input type="submit" value="查询" class="searBtn"/>
+      </div> 
+    </div>
+  </div>
 </form>
 <div class="cont jdtj jdtj02">
     <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#e3e3e3">

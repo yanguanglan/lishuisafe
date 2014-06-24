@@ -14,6 +14,7 @@
 	<meta name="description" content="" />
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
 	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="js/calendar.js"></script>
 </head>
 
 <body>
@@ -26,10 +27,10 @@
 <!--/end header-->
 <div class="bread w85">
 	<ul>
+		<li><a href="zzjg.html">责任网格</a></li>
 		<li><a href="jdtj.html">基地统计</a></li>
 		<li><a href="ysctj.html">预生产统计</a></li>
-		<li><a href="fcltj.html">肥饲料统计</a></li>
-		<li><a href="fztj.html">防治统计</a></li>
+		<li><a href="fztj.html">投入品管理</a></li>
 		<li><a href="jctj.html">检测统计</a></li>
 		<li class="active"><a href="xstj.html">销售统计</a></li>
 		<li><a href="cpsy.html">产品溯源</a></li>
@@ -51,12 +52,23 @@
 <div class="block">
 	<div class="search">
 		<div class="searchFl">
-			<select>
+<!-- 			<select>
 				<option value="2014年度">2014年度</option>
 				<option value="2013年度">2013年度</option>
 				<option value="2012年度">2012年度</option>
 				<option value="2011年度">2011年度</option>
-			</select>
+			</select> -->
+<div class="calendar">
+  <span>
+    <input name="control_date" type="text" id="control_date" size="10"
+                       maxlength="10" onclick="new Calendar().show(this);" readonly="readonly" value="">
+  <!-- <input type="button" name="button" id="button" value="" onclick="new Calendar().show(this.form.control_date);" /> -->至</span>
+
+               <span>
+                   <input name="control_date2" type="text" id="control_date2" size="10"
+                       maxlength="10" onclick="new Calendar().show(this);" readonly="readonly"/>
+          <!-- <input type="button" name="button" id="button1" value="" onclick="new Calendar().show(this.form.control_date2);" /> --></span>            
+            </div>             
 			
 		</div>
 		<div class="searchFr">
@@ -71,10 +83,10 @@
     <td height="65" align="center" bgcolor="#efefef" >品种</td>
     <td height="65" bgcolor="#efefef">企业名称</td>
     <td height="65" bgcolor="#efefef">时间</td>
-    <td height="65" bgcolor="#efefef">品名</td>
     <td height="65" bgcolor="#efefef">产品批次</td>
     <td height="65" bgcolor="#efefef">数量</td>
     <td height="65" bgcolor="#efefef">单价</td>
+    <td height="65" bgcolor="#efefef">合计</td>    
     <td height="65" bgcolor="#efefef">采购商</td>
     <td height="65" bgcolor="#efefef">采购商电话</td>
   </tr>
@@ -191,11 +203,18 @@
 </div>
 <script type="text/javascript">
     $(function(){
-        /*var _num=$(".bread ul li"),
-            _block=$(".")*/
         //基本统计 隔行换色
         $(".jdtj table tr:even").css("backgroundColor","#fbfbfb");
         $(".jdtj table tr:odd").css("backgroundColor","#ffffff"); 
+        var d = new Date(),
+        vYear = d.getFullYear(),
+        vMon = d.getMonth() + 1,
+        vDay = d.getDate();
+        end=vYear+"-"+(vMon<10 ? "0" + vMon : vMon)+"-"+(vDay<10 ? "0"+ vDay : vDay);
+        star=vYear+"-"+(vMon<10 ? "0" + vMon : vMon)+"-"+1;
+        $("#control_date2").val(end);
+        $("#control_date").val(star);
+        
     })
 </script>
 </body>

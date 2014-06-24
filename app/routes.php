@@ -64,40 +64,89 @@ Route::group(array('prefix' => 'zerenguanli', 'before' => 'auth.zerenguanli'), f
 		$types = get_type();
 		//获得数据
 
-		$year = Input::get('year', date('Y', time()));
-		$month = Input::get('month', '01');
+		#当前月
+
+		$startDate = Input::get('startDate', date('Y-m-01', time()));
+		$endTime = Input::get('endTime', date('Y-m-d', time()));
 		$city = Input::get('city', '');
 		$type = Input::get('type', '');
 
-		$date = $year.'-'.$month."-01 00:00:00";
-
-		$keyword = Input::get('keyword', '');
+		//$keyword = Input::get('keyword', '');
 
 
-		$result = DB::select('EXEC proc_plan_produce_analysis_info ?, ?, ?', array(Session::get('userid'), $date, $keyword));
+		$result = DB::select('EXEC proc_plan_produce_analysis_info ?, ?, ?', array(Session::get('userid'), $startDate, $endTime));
 		//$result = DB::select('EXEC proc_plan_produce_analysis_info ?, ?, ?', array(2, $date, $keyword));
 		if(Session::get('type') == 8) {
-			return View::make('zerenguanli.ysctj')->with('types', $types)->with('result', $result)->with('year', $year)->with('month', $month)->with('keyword', $keyword);;
+			return View::make('zerenguanli.ysctj')->with('types', $types)->with('result', $result)->with('startDate', $startDate)->with('endTime', $endTime);
 		}else {
-			return View::make('zerenguanli.ysctjinfo')->with('result', $result)->with('city', $city)->with('type', $type)->with('year', $year)->with('month', $month)->with('keyword', $keyword);
+			return View::make('zerenguanli.ysctjinfo')->with('result', $result)->with('city', $city)->with('type', $type)->with('startDate', $startDate)->with('endTime', $endTime);
 		}
 		
 	}));
 
 	Route::get('/ysctjinfo',  array('as' => 'ysctjinfo', function(){
 
+		$startDate = Input::get('startDate', '');
+		$endTime = Input::get('endTime', '');
 		$city = Input::get('city', '');
 		$type = Input::get('type', '');
-		$year = Input::get('year', date('Y', time()));
-		$month = Input::get('month', '01');
 
-		$date = $year.'-'.$month."-01 00:00:00";
+		//$keyword = Input::get('keyword', '');
+
+		$result = DB::select('EXEC proc_plan_produce_type_info ?, ?, ?, ?, ?', array(Session::get('userid'), $city, $type, $startDate, $endTime));
+
+		return View::make('zerenguanli.ysctjinfo')->with('result', $result)->with('city', $city)->with('type', $type)->with('startDate', $startDate)->with('endTime', $endTime);
+	}));
+	#责任网格
+	Route::get('/zrwg', array('as' => 'zrwg', function(){
+
+		$cityID = Input::get('cityID', 0);
+
+		$area = DB::select('EXEC proc_duty_grid_city_list ?', array(Session::get('userid')));
+		$city = DB::select('EXEC proc_duty_grid_bigcity_detail_list ?', array(Session::get('userid')));
+		$county = DB::select('EXEC proc_duty_grid_city_detail_list ?, ?', array(Session::get('userid'), $cityID));
+		$town = DB::select('EXEC proc_duty_grid_town_detail_list ?, ?', array(Session::get('userid'), $cityID));
+		return View::make('zerenguanli.zrwg')->with('city', $city)->with('county', $county)->with('town', $town)->with('area', $area)->with('cityID', $cityID);
+	}));
+
+	Route::get('/tlpgl', array('as' => 'tlpgl', function(){
+		
+		$startDate = Input::get('startDate', '');
+		$endTime = Input::get('endTime', '');
+		$way = Input::get('way', '');
 		$keyword = Input::get('keyword', '');
 
-		$result = DB::select('EXEC proc_plan_produce_type_info ?, ?, ?, ?, ?', array(Session::get('userid'), $city, $type, $date, $keyword));
+		$result = DB::select('EXEC proc_inputs_analysis_info ?, ?, ?, ?, ?', array(Session::get('userid'), $startDate, $endTime, $way, $keyword));
 
-		return View::make('zerenguanli.ysctjinfo')->with('result', $result)->with('city', $city)->with('type', $type)->with('year', $year)->with('month', $month)->with('keyword', $keyword);
+		return View::make('zerenguanli.tlpgl')->with('result', $result)->with('startDate', $startDate)->with('endTime', $endTime)->with('way', $way)->with('keyword', $keyword);
 	}));
+	#投入品采购
+	Route::get('/tlpglcginfo', array('as' => 'tlpglcginfo', function(){
+		
+		$startDate = Input::get('startDate', '');
+		$endTime = Input::get('endTime', '');
+		$way = Input::get('way', '');
+		$keyword = Input::get('keyword', '');
+		$productID = Input::get('productID', '');
+
+		$result = DB::select('EXEC proc_inputs_type_info ?, ?, ?, ?, ?, ?', array(Session::get('userid'), $startDate, $endTime, $way, $keyword, $productID));
+
+		return View::make('zerenguanli.cginfo')->with('result', $result)->with('startDate', $startDate)->with('endTime', $endTime)->with('way', $way)->with('keyword', $keyword);
+	}));
+
+	#投入品使用
+	Route::get('/tlpglsyinfo', array('as' => 'tlpglsyinfo', function(){
+		
+		$startDate = Input::get('startDate', '');
+		$endTime = Input::get('endTime', '');
+		$way = Input::get('way', '');
+		$keyword = Input::get('keyword', '');
+
+		$result = DB::select('EXEC proc_inputs_type_info ?, ?, ?, ?, ?', array(Session::get('userid'), $startDate, $endTime, $way, $keyword));
+
+		return View::make('zerenguanli.syinfo')->with('result', $result)->with('startDate', $startDate)->with('endTime', $endTime)->with('way', $way)->with('keyword', $keyword);
+	}));
+
 
 	Route::get('/fsltj', array('as' => 'fsltj', function(){
 		return View::make('zerenguanli.fsltj');
@@ -108,12 +157,64 @@ Route::group(array('prefix' => 'zerenguanli', 'before' => 'auth.zerenguanli'), f
 	}));
 
 	Route::get('/jctj', array('as' => 'jctj', function(){
-		return View::make('zerenguanli.jctj');
+
+		//类型品种
+		$types = get_type();
+		//获得数据
+		$city = Input::get('city', '');
+		$type = Input::get('type', '');
+		$year = Input::get('year', date('Y', time()));
+		$keyword = Input::get('keyword', '');
+		$result = DB::select('EXEC proc_sample_test_analysis_info ?, ?, ?', array(Session::get('userid'), $year, $keyword));
+
+		return View::make('zerenguanli.jctj')->with('types', $types)->with('result', $result)->with('year', $year)->with('keyword', $keyword);
 	}));
 
-	Route::get('/xstj', array('as' => 'xstj', function(){
-		return View::make('zerenguanli.xstj');
+	Route::get('/jctjinfo', array('as' => 'jctjinfo', function(){
+
+		$city = Input::get('city', '');
+		$type = Input::get('type', '');
+		$year = Input::get('year', date('Y', time()));
+		$keyword = Input::get('keyword', '');
+
+		$result = DB::select('EXEC proc_sample_test_type_info ?, ?, ?, ?, ?', array(Session::get('userid'), $city, $type, $year, $keyword));
+
+		return View::make('zerenguanli.jctjinfo')->with('result', $result)->with('city', $city)->with('type', $type)->with('year', $year)->with('keyword', $keyword);
 	}));
+
+
+	Route::get('/xstj', array('as' => 'xstj', function(){
+		//类型品种
+		$types = get_type();
+		//获得数据
+
+		$city = Input::get('city', '');
+		$type = Input::get('type', '');
+		$year = Input::get('year', date('Y', time()));
+		$keyword = Input::get('keyword', '');
+		$result = DB::select('EXEC proc_sale_analysis_info ?, ?, ?', array(Session::get('userid'), $year, $keyword));
+		if(Session::get('type') == 8) {
+			return View::make('zerenguanli.xstj')->with('types', $types)->with('result', $result)->with('year', $year)->with('keyword', $keyword);
+		//$result = DB::select('EXEC proc_farm_analysis_info ?, ?, ?', array(2, $year, $keyword));
+		} else {
+			return View::make('zerenguanli.xstjinfo')->with('result', $result)->with('city', $city)->with('type', $type)->with('year', $year)->with('keyword', $keyword);
+		}
+		//
+	}));
+
+	Route::get('/xstjinfo', array('as' => 'xstjinfo', function(){
+		//类型品种
+		$types = get_type();
+		//获得数据
+
+		$city = Input::get('city', '');
+		$type = Input::get('type', '');
+		$year = Input::get('year', date('Y', time()));
+		$keyword = Input::get('keyword', '');
+		$result = DB::select('EXEC proc_sale_type_info ?, ?, ?, ?, ?', array(Session::get('userid'), $city, $type, $year, $keyword));
+		return View::make('zerenguanli.xstjinfo')->with('result', $result)->with('city', $city)->with('type', $type)->with('year', $year)->with('keyword', $keyword);
+	}));
+
 
 
 	Route::get('/cpsy', array('as' => 'cpsy', function(){
