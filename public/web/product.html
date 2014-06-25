@@ -39,7 +39,7 @@
 	<div class="proInfo">
 		<div class="proL">
 			<h2>绿色食品质量安全追溯查询</h2>
-			<p class="searchBig"><input type="text" placeholder="" class="text"><input type="button" value="立即查询" class="btn"></p>
+			<div class="searchBig"><p class="text"></p><input type="button" value="立即查询" class="btn"></div>
 			<div class="phoneId">
 				<ul>
 					<li class="phone1"><a href="javascript:;" dataId="1">1</a></li>
@@ -53,7 +53,7 @@
 					<li class="phone9"><a href="javascript:;" dataId="9">9</a></li>
 					<li class="phone0"><a href="javascript:;" dataId="0">0</a></li>
 					<li class="delete"><a href="javascript:;"></a></li>
-					<li class="back"><a href="javascript:;"></a></li>
+					 <li class="back"><a href="javascript:;"></a></li>  
 				</ul>
 				<div class="down">
 					<h3>点击链接下载手机查询客户端</h3>
@@ -298,8 +298,14 @@ var oCompany = $("#company li").length,
 			var oId = "dataId";
 			if($(obj).attr(oId)!= null && $(obj).attr(oId)!=""){				
 				var sThisid = $(obj).attr(oId);	
-				$(".searchBig .text").val(sThisid);
-			}
+				$(".searchBig .text").append(sThisid);
+			}	
+		})
+		$(".delete").click(function(){
+			$(".searchBig .text").empty();
+		})
+		$(".back").click(function(){
+			$(".searchBig .text").empty();
 		})
 	})
 </script>

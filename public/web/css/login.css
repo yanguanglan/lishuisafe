@@ -252,6 +252,8 @@ body{
 	width: 410px;
 	padding-left: 8px;
 	margin-right: 10px;
+	display: inline-block;
+	float: left;
 }
 .searchBig .btn{
 	width: 190px;
