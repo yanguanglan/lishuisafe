@@ -52,67 +52,34 @@
 <!--防治统计-->
 <div class="block">
 	<div class="search">
-		<div class="searchFl">
-<!-- 			<select>
-				<option value="2014年度">2014年度</option>
-				<option value="2013年度">2013年度</option>
-				<option value="2012年度">2012年度</option>
-				<option value="2011年度">2011年度</option>
-			</select>
-			<select>
-				<option value="1月">1月</option>
-				<option value="1月">1月</option>
-				<option value="1月">1月</option>
-				<option value="1月">1月</option>
-			</select>
-			<select>
-				<option value="1日">1日</option>
-				<option value="1日">1日</option>
-				<option value="1日">1日</option>
-				<option value="1日">1日</option>
-			</select>
-			至
-			<select>
-				<option value="2014年度">2014年度</option>
-				<option value="2013年度">2013年度</option>
-				<option value="2012年度">2012年度</option>
-				<option value="2011年度">2011年度</option>
-			</select>
-			<select>
-				<option value="1月">1月</option>
-				<option value="1月">1月</option>
-				<option value="1月">1月</option>
-				<option value="1月">1月</option>
-			</select>
-			<select>
-				<option value="1日">1日</option>
-				<option value="1日">1日</option>
-				<option value="1日">1日</option>
-				<option value="1日">1日</option>
-			</select> -->
-<div class="calendar">
-  <span>
-    <input name="control_date" type="text" id="control_date" size="10"
-                       maxlength="10" onclick="new Calendar().show(this);" readonly="readonly" value="">
-  <!-- <input type="button" name="button" id="button" value="" onclick="new Calendar().show(this.form.control_date);" /> -->至</span>
-
-               <span>
-                   <input name="control_date2" type="text" id="control_date2" size="10"
-                       maxlength="10" onclick="new Calendar().show(this);" readonly="readonly"/>
-          <!-- <input type="button" name="button" id="button1" value="" onclick="new Calendar().show(this.form.control_date2);" /> --></span>
-                
-			<em>行业：</em>
-			<select>
-				<option value="肥料">肥料</option>
-				<option value="饲料">饲料</option>
-				<option value="农药">农药</option>
-				<option value="兽药">兽药</option>
-				<option value="管制类药品">管制类药品</option>
-				<option value="物品批次">物品批次</option>
-			</select>
-			<input type="text" placeholder="" class="inp02" />
-			<input type="submit" value="查询" class="searBtn"/>
-</div>             
+		<div class="searchFl speFr">
+        <div class="calendar">
+          <em style="padding: 0;float:left;margin-top:5px;">投入品采购时间：</em>
+          <span>
+            <input name="control_date" type="text" id="control_date" size="10"
+                               maxlength="10" onclick="new Calendar().show(this);" readonly="readonly" value=""></span>
+                           <span>至</span>    
+                       <span>
+                           <input name="control_date2" type="text" id="control_date2" size="10"
+                               maxlength="10" onclick="new Calendar().show(this);" readonly="readonly"/></span>
+                        
+        			<em>行业：</em>
+              <div class="seBox">
+                <input type="text" value="肥料" class="selVa" readonly="readonly">
+                <ul class="seWp">
+                  <li>肥料</li>
+                  <li>饲料</li>
+                  <li>农药</li>
+                  <li>兽药</li>
+                  <li>管制肥料</li>
+                  <li>管制药品</li>
+                  <li>物品批次</li>
+                </ul>
+              </div>
+        			<input type="text" placeholder="" class="inp02" />
+        			<input type="submit" value="查询" class="searBtn"/>
+              <span class="searBtn review speRe">待审核<em>25</em></span>
+        </div>             
 		</div>
 		
 	</div>
@@ -132,32 +99,32 @@
             <td height="39" align="center">50斤/包</td>
             <td height="39" align="center"><a href="fzypInfo.html">5000斤</a></td>
             <td height="39" align="center"><a href="usedInfo.html">5000斤</a></td>
-            <td height="39" align="left">备注备注备注备注备注备注备注</td>
+            <td height="39" align="left"> </td>
           </tr>
           <tr>
-            <td height="39" align="center">尿素</td>
+            <td height="39" align="center">碳酸氢铵</td>
             <td height="39" align="center">50斤/包</td>
             <td height="39" align="center"><a href="fzypInfo.html">5000斤</a></td>
             <td height="39" align="center"><a href="usedInfo.html">5000斤</a></td>
-            <td height="39" align="left">备注备注备注备注备注备注备注</td>
+            <td height="39" align="left"> </td>
           </tr><tr>
-            <td height="39" align="center">尿素</td>
+            <td height="39" align="center">氯化铵</td>
             <td height="39" align="center">50斤/包</td>
             <td height="39" align="center"><a href="fzypInfo.html">5000斤</a></td>
             <td height="39" align="center"><a href="usedInfo.html">5000斤</a></td>
-            <td height="39" align="left">备注备注备注备注备注备注备注</td>
+            <td height="39" align="left"> </td>
           </tr><tr>
-            <td height="39" align="center">尿素</td>
+            <td height="39" align="center">氨水</td>
             <td height="39" align="center">50斤/包</td>
             <td height="39" align="center"><a href="fzypInfo.html">5000斤</a></td>
             <td height="39" align="center"><a href="usedInfo.html">5000斤</a></td>
-            <td height="39" align="left">备注备注备注备注备注备注备注</td>
+            <td height="39" align="left"> </td>
           </tr><tr>
-            <td height="39" align="center">尿素</td>
+            <td height="39" align="center">硝酸钠</td>
             <td height="39" align="center">50斤/包</td>
             <td height="39" align="center"><a href="fzypInfo.html">5000斤</a></td>
             <td height="39" align="center"><a href="usedInfo.html">5000斤</a></td>
-            <td height="39" align="left">备注备注备注备注备注备注备注</td>
+            <td height="39" align="left"> </td>
           </tr><tr>
             <td height="39" align="center">合计</td>
             <td height="39" align="center"></td>
@@ -165,37 +132,37 @@
             <td height="39" align="center"></td>
             <td height="39" align="left"></td>
           </tr><tr>
-            <td width="91" height="39" align="center" class="td01" rowspan="6">氮肥</td>
-            <td height="39" align="center">尿素</td>
+            <td width="91" height="39" align="center" class="td01" rowspan="6">复合肥</td>
+            <td height="39" align="center">高钾复合肥</td>
             <td height="39" align="center">50斤/包</td>
             <td height="39" align="center"><a href="fzypInfo.html">5000斤</a></td>
             <td height="39" align="center"><a href="usedInfo.html">5000斤</a></td>
-            <td height="39" align="left">备注备注备注备注备注备注备注</td>
+            <td height="39" align="left">限制肥料</td>
           </tr>
           <tr>
-            <td height="39" align="center">尿素</td>
+            <td height="39" align="center">高氮复合肥</td>
             <td height="39" align="center">50斤/包</td>
             <td height="39" align="center"><a href="fzypInfo.html">5000斤</a></td>
             <td height="39" align="center"><a href="usedInfo.html">5000斤</a></td>
-            <td height="39" align="left">备注备注备注备注备注备注备注</td>
+            <td height="39" align="left"> </td>
           </tr><tr>
             <td height="39" align="center">尿素</td>
             <td height="39" align="center">50斤/包</td>
             <td height="39" align="center"><a href="fzypInfo.html">5000斤</a></td>
             <td height="39" align="center"><a href="usedInfo.html">5000斤</a></td>
-            <td height="39" align="left">备注备注备注备注备注备注备注</td>
+            <td height="39" align="left"> </td>
           </tr><tr>
             <td height="39" align="center">尿素</td>
             <td height="39" align="center">50斤/包</td>
             <td height="39" align="center"><a href="fzypInfo.html">5000斤</a></td>
             <td height="39" align="center"><a href="usedInfo.html">5000斤</a></td>
-            <td height="39" align="left">备注备注备注备注备注备注备注</td>
+            <td height="39" align="left"> </td>
           </tr><tr>
             <td height="39" align="center">尿素</td>
             <td height="39" align="center">50斤/包</td>
             <td height="39" align="center"><a href="fzypInfo.html">5000斤</a></td>
             <td height="39" align="center"><a href="usedInfo.html">5000斤</a></td>
-            <td height="39" align="left">备注备注备注备注备注备注备注</td>
+            <td height="39" align="left"> </td>
           </tr><tr>
             <td height="39" align="center">合计</td>
             <td height="39" align="center"></td>
@@ -239,9 +206,19 @@
         end=vYear+"-"+(vMon<10 ? "0" + vMon : vMon)+"-"+(vDay<10 ? "0"+ vDay : vDay);
         star=vYear+"-"+(vMon<10 ? "0" + vMon : vMon)+"-"+1;
         $("#control_date2").val(end);
-        $("#control_date").val(star);
-        
+        $("#control_date").val(star);        
 	})
+</script>
+<script>
+$(document).ready(function(){
+    $(".selVa").click(function(){
+        $(".seWp").show();
+        })
+    $(".seWp li").click(function(){
+        $(".seWp").hide();
+        $(".selVa").val(($(this).text()));     
+        })   
+    })
 </script>
 </body>
 </html>

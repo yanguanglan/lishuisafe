@@ -1,4 +1,4 @@
-/*
+﻿/*
  ************************样式格式化
  */
 *{
@@ -171,7 +171,9 @@ body{
 	color: #ffd555;
 	background: #1d734d;
 }
-
+.bread ul .active{
+	*width:9.5%;
+}
 /*
  ************************wrap
  */
@@ -190,7 +192,7 @@ body{
 .wrap .search span,.wrap .search .searInp,.wrap .search .searBtn{
 	float: left;
 	height: 32px;
-	margin-top: 14px;
+	margin-top: 12px;
 }
 .wrap .search span{
 	line-height: 32px;
@@ -201,7 +203,7 @@ body{
 	float: right;
 }
 .search .searchFr .searInp{
-	height: 30px;
+	height: 36px;
 	width: 235px;
 	border: 1px solid #d6d6d6;
 	background: #fff;
@@ -210,11 +212,11 @@ body{
 }
 .wrap .search .searBtn{
 	width: 96px;
-	height: 31px;
+	height: 38px;
 	background: #227f57;
 	border: 0;
 	border-bottom: 1px solid #226439;
-	margin: 14px 30px 0 8px;
+	margin: 12px 30px 0 8px;
 	display: inline;
 	cursor: pointer;
 	color: #e5fff4;
@@ -222,7 +224,7 @@ body{
 }
  .search .searchFl{
  	float: left;
- 	margin: 11px 0 0 30px;
+ 	margin: 11px 30px 0 0px;
  	display: inline;
  }
 .search .searchFl select,.search .inp02{
@@ -238,6 +240,44 @@ body{
 }
 .search .searchFl select{
 	padding: 0px;
+}
+.seBox{
+	position: relative;
+	display: inline-block;
+	*display: inline;
+	zoom:1;
+	z-index: 5;
+}
+.seBox .selVa{
+	width: 95px;
+	height: 37px;
+	border: none;
+	border-top: 1px solid #eaeaea;
+	font-size: 14px;
+	color: #484848;
+	padding-left: 5px;
+	cursor: pointer;
+	line-height: 37px;
+	*margin-right: 5px;
+}
+.seWp{
+	position: absolute;
+	top: 38px;
+	left: 0px;
+	background: #fff;
+	border: 1px solid #eaeaea;	
+	display: none;
+}
+.search .seWp li{
+	float: left;
+	width: 98px;
+	*width:100px;
+	height: 30px;
+	line-height: 30px;
+	font-size: 14px;
+	color: #484848;
+	font-weight: normal;
+	border-bottom: 1px solid #eaeaea;
 }
 .wrap .block{
 	padding-bottom: 30px;
@@ -480,14 +520,17 @@ body{
 }
 .searchFl em{
 	padding-left: 20px;
-	font-size: 14px;
+	font-size: 16px;
 }
-.wrap .search .searchFl .searBtn{
+.search .searchFl .searBtn{
 	float: none;
 	height: 38px;
 	line-height: 38px;
 	margin-right: 0;
 	margin-top: 0;
+}
+.search .speFr .searBtn{
+	margin-right: 30px;
 }
 .white table tr td,.white table tr td a{
 	white-space: nowrap;
@@ -702,4 +745,39 @@ body{
 	height: 34px;
 	line-height: 34px;	
 	padding-left: 5px;
+}
+.search .speFr{
+	float: right;
+}
+.wrap .search .review{
+	position: relative;
+	margin-right: 40px;
+	width: 96px;
+	text-align: center;
+	font-size: 14px;
+	display: inline-block;
+	*display: inline;
+	zoom:1;
+	height: 38px;
+	line-height: 38px;
+}
+.review em{
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+	background: #ff0011;
+	text-align: center;
+	line-height: 20px;
+	font-size: 10px;
+	color: #fff;
+	border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	position: absolute;
+	top: -6px;
+	right: -10px;
+	padding: 0;	
+}
+.wrap .search .speRe{
+	margin-right: 0;
 }

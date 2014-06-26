@@ -322,9 +322,9 @@
     background: #fafafa;
     border-top: 1px solid #ededed;
     padding: 10px 0 20px 20px;
+    margin-bottom: 20px;
 }
 .starWp ul{
-    padding-bottom: 25px;
     overflow: hidden;
 }
 .starWp ul li{
@@ -333,6 +333,11 @@
     font-size: 16px;
     margin-right: 15px;
 }
+.starWp ul li span{
+    vertical-align: top;
+    font-size: 16px;
+    color: #767676;
+}
 .starWp ul li input{
     margin-right: 5px;
 }
@@ -340,7 +345,11 @@
     clear: both;
     font-size: 14px;
     color: #444;
-    padding-left: 15px;
+    margin-top: 25px;
+}
+.starWp .newR{
+    margin-top: 5px;
+    color: #2f2f2f;
 }
 .starWp .text{
     border: 1px solid #ededed;
@@ -348,4 +357,19 @@
     margin-bottom: 20px;
     background: #fff;
     min-height: 60px;
+}
+.starWp .tag{
+    padding-bottom: 10px;
+    margin: 20px 0;
+}
+.starWp .tag li{
+    float: none;
+}
+.starWp .tag li span{
+    float: right;
+}
+.starWp .upload{
+    display: block;
+    margin: -10px 0 20px 0;
+    color: #6584b6;
 }

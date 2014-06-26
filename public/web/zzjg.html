@@ -54,17 +54,15 @@
 <div class="search">
 		<div class="searchFl spe">
         <em class="label">县区</em>
-			<select>
-				<option value="2014年度">莲都区</option>
-				<option value="2013年度">景宁县</option>
-				<option value="2012年度">云和县</option>
-				<option value="2011年度">龙泉市</option>
-				<option value="1">庆元县</option>
-				<option value="2">松阳县</option>
-				<option value="3">遂昌县</option>
-				<option value="4">缙云县</option>
-				<option value="5">青田县</option>
-			</select>
+              <div class="seBox">
+                <input type="text" value="莲都区" class="selVa" readonly="readonly">
+                <ul class="seWp">
+                  <li>莲都区</li>
+                  <li>缙云县</li>
+                  <li>遂昌县</li>
+                  <li>静宁县</li>
+                </ul>
+              </div>
 			<input type="submit" value="查询" class="searBtn">
 		</div>
 	</div>
@@ -106,7 +104,7 @@
         <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#e3e3e3">
         <thead class="towns">
         	<tr>
-            	<th width="125" height="85" align="center" bgcolor="#f7f7f7"><span>莲都区</span></th>
+            	<th width="125" height="85" align="center" bgcolor="#f7f7f7"><span>XX县区</span></th>
             	<th height="85" align="right" bgcolor="#f7f7f7" colspan="6" class="fri"><span class="power">局长：XXX电话：XXXXXXXXXXX<a class="msg" href="other.html"></a><i>28</i></span><img src="images/jg.png" class="jg"/><span class="line">|</span><span class="power">质管科：XX  电话：XXXXXXXXXXX<a class="msg" href="other.html"></a><i>22</i></span><img src="images/jg.png" class="jg"/></th>
             </tr>
         </thead>
@@ -194,6 +192,17 @@
 		
 
 	})
+</script>
+<script>
+$(document).ready(function(){
+    $(".selVa").click(function(){
+        $(".seWp").show();
+        })
+    $(".seWp li").click(function(){
+        $(".seWp").hide();
+        $(".selVa").val(($(this).text()));     
+        })   
+    })
 </script>
 </body>
 </html>

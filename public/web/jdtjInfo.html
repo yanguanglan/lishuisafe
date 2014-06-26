@@ -50,16 +50,20 @@
 <!--基地统计-->
 <div class="block">
 	<div class="search">
-		<div class="searchFl">
-			<select>
-				<option value="2014年度">2014年度</option>
-				<option value="2013年度">2013年度</option>
-				<option value="2012年度">2012年度</option>
-				<option value="2011年度">2011年度</option>
-			</select>
-			
-		</div>
 		<div class="searchFr">
+        <div class="searchFl">
+            <em style="padding: 0;float:left;margin-top:5px;">年度：</em>
+              <div class="seBox">
+                <input type="text" value="2015年度" class="selVa" readonly="readonly">
+                <ul class="seWp">
+                  <li>2013年度</li>
+                  <li>2013年度</li>
+                  <li>2014年度</li>
+                  <li>2013年度</li>
+                </ul>
+              </div>
+            
+        </div>            
 			<span>农业企业关键字：</span>
 			<input type="text" placeholder="" class="searInp" />
 			<input type="submit" value="查询" class="searBtn" />
@@ -170,6 +174,17 @@
 		$(".jdtj table tr:even").css("backgroundColor","#fbfbfb");
 		$(".jdtj table tr:odd").css("backgroundColor","#ffffff"); 
 	})
+</script>
+<script>
+$(document).ready(function(){
+    $(".selVa").click(function(){
+        $(".seWp").show();
+        })
+    $(".seWp li").click(function(){
+        $(".seWp").hide();
+        $(".selVa").val(($(this).text()));     
+        })   
+    })
 </script>
 </body>
 </html>

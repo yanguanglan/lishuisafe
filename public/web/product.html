@@ -13,18 +13,24 @@
 	<meta name="keywords" content="" />
 	<meta name="description" content="" />
 	<link rel="stylesheet" type="text/css" href="css/login.css">
+	<link rel="stylesheet" type="text/css" href="css/skitter.css">
 	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
-	<script type="text/javascript" src="js/jquery.iosslider.min.js"></script>
+	<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+	<script type="text/javascript" src="js/jquery.skitter.min.js"></script>
 
 </head>
 
 <body>
 <div class="content">
-	<div class="proHead">
+	<div class="box_skitter box_skitter_large">
 		<ul>
-			<li><img src="images/syba.jpg"></li>
-			<li><img src="images/syba1.jpg"></li>
-			<li><img src="images/syba.jpg"></li>
+			<li><img src="images/b1.jpg"></li>
+			<li><img src="images/b2.jpg"></li>
+			<li><img src="images/b3.jpg"></li>
+			<li><img src="images/b4.jpg"></li>
+			<li><img src="images/b5.jpg"></li>
+			<li><img src="images/b6.jpg"></li>	
+			<li><img src="images/b7.jpg"></li>		
 		</ul>
 	</div>
 	<div class="navAd">
@@ -39,21 +45,23 @@
 	<div class="proInfo">
 		<div class="proL">
 			<h2>绿色食品质量安全追溯查询</h2>
-			<div class="searchBig"><p class="text"></p><input type="button" value="立即查询" class="btn"></div>
+			<div class="searchBig">
+				<form name="calculator"><textarea  class="text" style="resize:none" id="total"></textarea></form>
+				<input type="button" value="立即查询" class="btn"></div>
 			<div class="phoneId">
 				<ul>
-					<li class="phone1"><a href="javascript:;" dataId="1">1</a></li>
-					<li class="phone2"><a href="javascript:;" dataId="2">2</a></li>
-					<li class="phone3"><a href="javascript:;" dataId="3">3</a></li>
-					<li class="phone4"><a href="javascript:;" dataId="4">4</a></li>
-					<li class="phone5"><a href="javascript:;" dataId="5">5</a></li>
-					<li class="phone6"><a href="javascript:;" dataId="6">6</a></li>
-					<li class="phone7"><a href="javascript:;" dataId="7">7</a></li>
-					<li class="phone8"><a href="javascript:;" dataId="8">8</a></li>
-					<li class="phone9"><a href="javascript:;" dataId="9">9</a></li>
-					<li class="phone0"><a href="javascript:;" dataId="0">0</a></li>
-					<li class="delete"><a href="javascript:;"></a></li>
-					 <li class="back"><a href="javascript:;"></a></li>  
+					<li class="phone1"><button value="1" class="calc_int">1</button></li>
+					<li class="phone2"><button value="2" class="calc_int">2</button></li>
+					<li class="phone3"><button value="3" class="calc_int">3</button></li>
+					<li class="phone4"><button value="4" class="calc_int">4</button></li>
+					<li class="phone5"><button value="5" class="calc_int">5</button></li>
+					<li class="phone6"><button value="6" class="calc_int">6</button></li>
+					<li class="phone7"><button value="7" class="calc_int">7</button></li>
+					<li class="phone8"><button value="8" class="calc_int">8</button></li>
+					<li class="phone9"><button value="9" class="calc_int">9</button></li>
+					<li class="phone0"><button value="0" class="calc_int">0</button></li>
+					<li class="delete"><button id="calc_clear"></button></li>
+					<li class="back"><button id="calc_back"></button></li>
 				</ul>
 				<div class="down">
 					<h3>点击链接下载手机查询客户端</h3>
@@ -180,10 +188,12 @@
 </div>
 </div>
 </div>	
+</div>
 <div class="footer">
 	<p>版权所有：丽水市农业投资发展有限公司   技术支持：某某科技有限公司   联系电话：400-888-8888</p>
 </div>
 <script type="text/javascript">
+//连续滚动
 	$.fn.imgscroll = function(o){
 	var defaults = {
 		speed: 40,
@@ -265,50 +275,165 @@ var oCompany = $("#company li").length,
 });
 </script>
 <script type="text/javascript">
-			$(document).ready(function() {
-			
-				$('.proHead').iosSlider({
-					scrollbar: true,
-					snapToChildren: true,
-					desktopClickDrag: true,
-					autoSlide: true,
-					responsiveSlideWidth: true,
-					// navSlideSelector: $('.banNum .button'),
-					infiniteSlider: true,
-					startAtSlide: '2',
-					onSlideChange: slideContentChange,
-					onSlideComplete: slideContentChange,
-					onSliderLoaded: slideContentChange
-
-				});
-				
-				function slideContentChange(args) {
-					
-					/* indicator */
-					$(args.sliderObject).parent().find('.banNum .button').removeClass('selected');
-					$(args.sliderObject).parent().find('.banNum .button:eq(' + (args.currentSlideNumber - 1) + ')').addClass('selected');
-					
-				}
-				
+//banner滚动
+		$(document).ready(function() {
+			$('.box_skitter_large').skitter({
+				theme: 'clean',
+				numbers_align: 'center',
+				progressbar: true, 
+				dots: true, 
+				preview: true
 			});
+		});
 </script>
 <script type="text/javascript">
-	$(".phoneId ul li a").each(function(index,obj){
-		$(obj).on("click",function(){
-			var oId = "dataId";
-			if($(obj).attr(oId)!= null && $(obj).attr(oId)!=""){				
-				var sThisid = $(obj).attr(oId);	
-				$(".searchBig .text").append(sThisid);
-			}	
-		})
-		$(".delete").click(function(){
-			$(".searchBig .text").empty();
-		})
-		$(".back").click(function(){
-			$(".searchBig .text").empty();
-		})
-	})
-</script>
+//计算器
+var a = 0,
+  b = 0,
+  is_a = true,
+  is_b = false,
+  o = 'nil',
+  answer = 0,
+  first_a = true,
+  first_b = true,
+  is_submission = false,
+  soft_sub = false,
+  display = jQuery('#total');
+function write(x) {
+  console.log(x);
+}
+// add int to current display value
+function changeDisplayVal(i) {
+  display.text(display.text() + i);
+}
+// make * into ×
+function  visOps(x) {
+  if ( x === '*' ) {
+    // return 'u00D7';
+    return '×';
+  } else if ( x === '/' ) {
+    // return 'u00F7';
+    return '÷';
+  } else {
+    return x;
+  }
+}
+// set display value
+function setDisplayVal(x) {
+  display.text( visOps(x));
+}
 
+// setting a
+function set_a(i) {
+  if ( is_a ) {
+    // nothing if a duplicate decimal
+    if ( i === '.' && a.toString().indexOf('.') !== -1 ) {
+      write('Duplicate Decimal');
+      i = '';
+    } else if ( i === '.' && first_a ) {
+      i = '0.';
+    }
+    // first_a time, we need to clear the display
+    if ( first_a === true ) {
+      if ( i === '0' ) {
+        i = '';
+      } else {
+        // set display value
+        setDisplayVal(i);
+        // no longer first_a
+        first_a = false;
+      }
+    } else {
+      // add int to current display value
+      changeDisplayVal(i);
+    }
+
+    a = display.text();
+
+    write('Set "a" to ' + a);
+  }
+}
+// resetting calculator
+function reset_calc() {
+  a = 0;
+  b = 0;
+  o = 'nil';
+  answer = 0;
+  is_a = true;
+  is_b = false;
+  first_a = true;
+  first_b = true;
+  is_submission = false;
+  soft_sub = false;
+  display.text("");
+
+  // reset display value
+  setDisplayVal();
+
+  write('Calculator Reset');
+}
+
+// backspacing value
+function backspace() {
+  if ( display.text() !== '' && display.text() !== '0' ) {
+    display.text( display.text().substring(0, display.text().length - 1) );
+    if ( is_a === true ) {
+        a = parseFloat(a.toString().substring(0, a.toString().length - 1 ));
+    } else {
+        b = parseFloat(b.toString().substring(0, b.toString().length - 1 ));
+    }
+  } else {
+    write('Nothing Left to Backspace');
+  }
+}
+// click integers
+jQuery('.calc_int').each(function() {
+  jQuery(this).click(function() {
+    var value = jQuery(this).val();
+    if ( is_submission === false ) {
+      if ( is_a === true ) {
+        set_a(value);
+      } else {
+        set_b(value);
+      }
+    } else {
+      reset_calc();
+      set_a(value);
+    }
+  });
+});
+// click clear
+jQuery('#calc_clear').click(function() {
+  reset_calc();
+});
+
+// click backspace
+jQuery('#calc_back').click(function() {
+  backspace();
+});
+
+// keydown for backspace and return
+jQuery(document).keydown(function (e) {
+
+  // the character code
+  var charCode = e.which;
+
+  // backspace
+  if ( charCode === 8 ) {
+    backspace();
+    animateButton(jQuery('#calc_back'));
+    return false;
+  }
+
+  // clear
+  if ( charCode === 12 ) {
+    reset_calc();
+    animateButton(jQuery('#calc_clear'));
+    return false;
+  }
+});
+
+
+</script>
 </body>
 </html>
