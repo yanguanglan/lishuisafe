@@ -220,7 +220,6 @@ body{
 	display: inline;
 	cursor: pointer;
 	color: #e5fff4;
-	font-family: "微软雅黑";
 }
  .search .searchFl{
  	float: left;
@@ -236,7 +235,6 @@ body{
 	background: #ffffff;
 	font-size: 14px;
 	color: #8b8b8b;
-	font-family: "微软雅黑";
 }
 .search .searchFl select{
 	padding: 0px;
@@ -322,13 +320,15 @@ body{
 	overflow: hidden;
 }
 .top .topLf{
-	font-size: 20px;
+	font-size: 34px;
 	line-height: 70px;
 	float: left;
-	color: #216e4d
+	color: #216e4d;
+	font-family: "楷体";
 }
 .top .topRg{
 	float: right;
+	display: none;
 }
 .top .topRg ul{
 	overflow: hidden;
@@ -347,19 +347,19 @@ body{
 	color: #216e4d
 }
 .bootCont{
-	height: 682px;
-	display: table;
+	height: 600px;
 }
 .bootCont .cont{
-	display: table-cell;
-	vertical-align: middle;
-	*padding-top:150px;
+	width: 80%;
+	overflow: hidden;
+	margin: 150px auto 0 auto;
 }
 .bootCont .cont .box{
-	width: 24%;
-	height: 340px;
+	width: 25%;
+	height: 300px;
 	float: left;
 	position: relative;
+	*width: 24%;
 }
 .bootCont .cont .box .info{
 	margin: 0 10px;
@@ -385,9 +385,10 @@ body{
 .bootCont .cont .box .info span{
 	display: block;
 	text-align: center;
-	font-size: 24px;
+	font-size: 20px;
 	color: #212121;
-	padding-top: 250px;
+	padding-top: 240px;
+	font-family: "楷体";
 }
 
 .bootCont .cont .box:hover .bg{
@@ -516,7 +517,7 @@ body{
 	width: 11.11%;
 }
 .search .searchFl01{
-	margin-left: 10px;
+	float: right;
 }
 .searchFl em{
 	padding-left: 20px;
@@ -557,7 +558,7 @@ body{
 .model .cont .articel h1{
 	height: 60px;
 	text-align: center;
-	font: normal 20px/60px "微软雅黑";
+	font: normal 20px/60px;
 }
 .model .cont .articel .des{
 	padding-bottom: 10px;
@@ -625,7 +626,7 @@ body{
 .login .cont .info h2{
 	height: 90px;
 	border-bottom: 1px solid #e5e5e5;
-	font: normal 30px/90px "微软雅黑";
+	font: normal 30px/90px;
 	color: #000000;
 	text-align: center;
 }
@@ -652,7 +653,7 @@ body{
 	background:#12774d;
 	border: 0;
 	border-bottom: 1px solid #0d6639;
-	font: normal 24px/48px "微软雅黑";
+	font: normal 24px/48px;
 	color: #fff
 }
 .login .cont .info .labelBox label{
@@ -780,4 +781,12 @@ body{
 }
 .wrap .search .speRe{
 	margin-right: 0;
+}
+.row{
+    font-style: normal;
+    color: #999;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 11px;
 }

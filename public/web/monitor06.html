@@ -14,6 +14,7 @@
 	<meta name="description" content="" />
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
 	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="js/calendar.js"></script>
 
 </head>
 
@@ -29,7 +30,7 @@
 	<ul>                         
 		<li><a href="monitor01.html">监测任务</a></li>
 		<li><a href="monitor02.html">监督监测</a></li>
-		<li><a href="monitor03.html">乡镇检测</a></li>
+		<li><a href="monitor03.html">企业送检</a></li>
 		<li><a href="monitor04.html">企业自检</a></li>
 		<li><a href="monitor05.html">综合统计</a></li>
 		<li class="active"><a href="monitor06.html">按场所统计</a></li>
@@ -49,43 +50,42 @@
 
 <!--防治统计-->
 <div class="block">
-	<div class="search">
+<div class="search">
 		<div class="searchFl searchFl01">
 			<em>区域：</em>
-			<select>
-				<option value="全部">全部</option>
-				<option value="全部">全部</option>
-				<option value="全部">全部</option>
-				<option value="全部">全部</option>
-			</select>
-			<em>检测类型：</em>
-			<select>
-				<option value="检测类型">检测类型</option>
-				<option value="1月">1月</option>
-				<option value="1月">1月</option>
-				<option value="1月">1月</option>
-			</select>
-			<em>选择年份：</em>
-			<select>
-				<option value="选择年份">选择年份</option>
-				<option value="全部">全部</option>
-				<option value="全部">全部</option>
-				<option value="全部">全部</option>
-			</select>
-			<em>选择季度：</em>
-			<select>
-				<option value="选择季度">选择季度</option>
-				<option value="全部">全部</option>
-				<option value="全部">全部</option>
-				<option value="全部">全部</option>
-			</select>
-			
-			<input type="submit" value="统计" class="searBtn"/>
-			<input type="submit" value="Excel" class="searBtn" />
+				<div class="seBox address">
+	                <input type="text" value="莲都区" class="selVa" readonly="readonly">
+	                <cite class="row">▼</cite>
+	                <ul class="seWp">
+	                  <li>莲都区</li>
+	                  <li>莲都区s</li>
+	                  <li>莲都区r</li>
+	                  <li>莲都区e</li>
+	                  <li>莲都区w</li>
+	                </ul>
+               </div>
+                <div class="calendar" style="display:inline;">
+                    <em style="padding: 0;float:left;margin-top:5px;">预收时间：</em>
+                    <span>
+                    <input name="control_date" type="text" id="control_date" size="10" maxlength="10" onclick="new Calendar().show(this);" readonly="readonly" value=""></span>
+                     <span>至</span>
+                     <span>
+                       <input name="control_date2" type="text" id="control_date2" size="10" maxlength="10" onclick="new Calendar().show(this);" readonly="readonly"></span>            
+                </div> 
+			<em>检测性质：</em>
+				<div class="seBox check">
+	                <input type="text" value="例行检查" class="selVa" readonly="readonly">
+	                <cite class="row">▼</cite>
+	                <ul class="seWp">
+	                  <li>监督抽检</li>
+	                  <li>专项检测</li>
+	                </ul>
+               </div>			
+			<input type="submit" value="统计" class="searBtn">
+			<input type="submit" value="Excel导出" class="searBtn">
 		</div>
 		
-	</div>
-	
+	</div>		
 	<div class="cont jdtj white">
 		<table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#e3e3e3">
                     <tr class="top">
@@ -95,90 +95,107 @@
                         <td height="65" align="center"  bgcolor="#efefef">不合格数(份)</td>
                         <td height="65" align="center"  bgcolor="#efefef">合格率</td>
                         <td height="65" align="center"  bgcolor="#efefef">总合格率</td>
-                        <td height="65" align="center"  bgcolor="#efefef">不合格清单 </td>
+                        
                     </tr>
                     <tr>
-                        <td height="39" align="center"  >种植产品</td>
+                        <td height="39" align="center" rowspan="4" >蔬菜</td>
                         <td height="39" align="center" >生产基地</td>
                         <td height="39" align="center"  >301</td>
                         <td height="39" align="center"  >5</td>
                         <td height="39" align="center"  >95.55%</td>
                         <td height="39" align="center" >&nbsp;</td>
-                        <td height="39" align="center"  ><a >查看</a></td>
+                        
                     </tr><tr>
-                        <td height="39" align="center"  >&nbsp;</td>
-                        <td height="39" align="center" >生产基地</td>
+                       
+                        <td height="39" align="center" >农贸市场</td>
                         <td height="39" align="center"  >301</td>
                         <td height="39" align="center"  >5</td>
                         <td height="39" align="center"  >95.55%</td>
                         <td height="39" align="center" >&nbsp;</td>
-                        <td height="39" align="center"  ><a >查看</a></td>
+                         
                     </tr><tr>
-                        <td height="39" align="center"  >&nbsp;</td>
-                        <td height="39" align="center" >生产基地</td>
+                      
+                        <td height="39" align="center" >批发市场</td>
                         <td height="39" align="center"  >301</td>
                         <td height="39" align="center"  >5</td>
                         <td height="39" align="center"  >95.55%</td>
                         <td height="39" align="center" >&nbsp;</td>
-                        <td height="39" align="center"  ><a >查看</a></td>
+                        
                     </tr><tr>
-                        <td height="39" align="center"  >&nbsp;</td>
-                        <td height="39" align="center" >生产基地</td>
+                        
+                        <td height="39" align="center" >超市</td>
                         <td height="39" align="center"  >301</td>
                         <td height="39" align="center"  >5</td>
                         <td height="39" align="center"  >95.55%</td>
                         <td height="39" align="center" >&nbsp;</td>
-                        <td height="39" align="center"  ><a >查看</a></td>
-                    </tr><tr>
-                        <td height="39" align="center"  >&nbsp;</td>
-                        <td height="39" align="center" >生产基地</td>
-                        <td height="39" align="center"  >301</td>
-                        <td height="39" align="center"  >5</td>
-                        <td height="39" align="center"  >95.55%</td>
-                        <td height="39" align="center" >5%</td>
-                        <td height="39" align="center"  ><a >查看</a></td>
-                    </tr><tr>
-                        <td height="39" align="center"  >种植产品</td>
-                        <td height="39" align="center" >生产基地</td>
-                        <td height="39" align="center"  >301</td>
-                        <td height="39" align="center"  >5</td>
-                        <td height="39" align="center"  >95.55%</td>
-                        <td height="39" align="center" >&nbsp;</td>
-                        <td height="39" align="center"  ><a >查看</a></td>
-                    </tr><tr>
-                        <td height="39" align="center"  >&nbsp;</td>
-                        <td height="39" align="center" >生产基地</td>
-                        <td height="39" align="center"  >301</td>
-                        <td height="39" align="center"  >5</td>
-                        <td height="39" align="center"  >95.55%</td>
-                        <td height="39" align="center" >&nbsp;</td>
-                        <td height="39" align="center"  ><a >查看</a></td>
-                    </tr><tr>
-                        <td height="39" align="center"  >&nbsp;</td>
-                        <td height="39" align="center" >生产基地</td>
-                        <td height="39" align="center"  >301</td>
-                        <td height="39" align="center"  >5</td>
-                        <td height="39" align="center"  >95.55%</td>
-                        <td height="39" align="center" >&nbsp;</td>
-                        <td height="39" align="center"  ><a >查看</a></td>
-                    </tr><tr>
-                        <td height="39" align="center"  >&nbsp;</td>
-                        <td height="39" align="center" >生产基地</td>
-                        <td height="39" align="center"  >301</td>
-                        <td height="39" align="center"  >5</td>
-                        <td height="39" align="center"  >95.55%</td>
-                        <td height="39" align="center" >&nbsp;</td>
-                        <td height="39" align="center"  ><a >查看</a></td>
-                    </tr><tr>
-                        <td height="39" align="center"  >&nbsp;</td>
-                        <td height="39" align="center" >生产基地</td>
-                        <td height="39" align="center"  >301</td>
-                        <td height="39" align="center"  >5</td>
-                        <td height="39" align="center"  >95.55%</td>
-                        <td height="39" align="center" >5%</td>
-                        <td height="39" align="center"  ><a >查看</a></td>
+                        
                     </tr>
-                    
+                     <tr>
+                        <td height="39" align="center" rowspan="4" >水果</td>
+                        <td height="39" align="center" >生产基地</td>
+                        <td height="39" align="center"  >301</td>
+                        <td height="39" align="center"  >5</td>
+                        <td height="39" align="center"  >95.55%</td>
+                        <td height="39" align="center" >&nbsp;</td>
+                        
+                    </tr><tr>
+                       
+                        <td height="39" align="center" >农贸市场</td>
+                        <td height="39" align="center"  >301</td>
+                        <td height="39" align="center"  >5</td>
+                        <td height="39" align="center"  >95.55%</td>
+                        <td height="39" align="center" >&nbsp;</td>
+                         
+                    </tr><tr>
+                      
+                        <td height="39" align="center" >批发市场</td>
+                        <td height="39" align="center"  >301</td>
+                        <td height="39" align="center"  >5</td>
+                        <td height="39" align="center"  >95.55%</td>
+                        <td height="39" align="center" >&nbsp;</td>
+                        
+                    </tr><tr>
+                        
+                        <td height="39" align="center" >超市</td>
+                        <td height="39" align="center"  >301</td>
+                        <td height="39" align="center"  >5</td>
+                        <td height="39" align="center"  >95.55%</td>
+                        <td height="39" align="center" >&nbsp;</td>
+                        
+                    </tr>
+                    <tr>  
+                        <td height="39" align="center" rowspan="4" >菌菇</td>
+                        <td height="39" align="center" >生产基地</td>
+                        <td height="39" align="center"  >301</td>
+                        <td height="39" align="center"  >5</td>
+                        <td height="39" align="center"  >95.55%</td>
+                        <td height="39" align="center" >&nbsp;</td>
+                        
+                    </tr><tr>
+                       
+                        <td height="39" align="center" >农贸市场</td>
+                        <td height="39" align="center"  >301</td>
+                        <td height="39" align="center"  >5</td>
+                        <td height="39" align="center"  >95.55%</td>
+                        <td height="39" align="center" >&nbsp;</td>
+                         
+                    </tr><tr>
+                      
+                        <td height="39" align="center" >批发市场</td>
+                        <td height="39" align="center"  >301</td>
+                        <td height="39" align="center"  >5</td>
+                        <td height="39" align="center"  >95.55%</td>
+                        <td height="39" align="center" >&nbsp;</td>
+                        
+                    </tr><tr>
+                        
+                        <td height="39" align="center" >超市</td>
+                        <td height="39" align="center"  >301</td>
+                        <td height="39" align="center"  >5</td>
+                        <td height="39" align="center"  >95.55%</td>
+                        <td height="39" align="center" >&nbsp;</td>
+                        
+                    </tr> 
                 </table>
 
 	</div>
@@ -229,9 +246,31 @@
 		$(".model .cont .close").click(function(){
 			$(".model").fadeOut();
 		})
-		
-
 	})
+$(function(){
+        var d = new Date(),
+        vYear = d.getFullYear(),
+        vMon = d.getMonth() + 1,
+        vDay = d.getDate();
+        end=vYear+"-"+(vMon<10 ? "0" + vMon : vMon)+"-"+(vDay<10 ? "0"+ vDay : vDay);
+        star=vYear+"-"+(vMon<10 ? "0" + vMon : vMon)+"-"+1;
+        $("#control_date2").val(end);
+        $("#control_date").val(star);	
+})	
+$(document).ready(function(){
+    $(".selVa").click(function(){
+        var nIndex = $(".selVa").index(this);
+        $(".seWp").eq(nIndex).show();
+        })
+   		$(".address .seWp li").click(function(){
+	        $(".seWp").hide();
+	        $(".address .selVa").val(($(this).text()));     
+        }) 
+   		$(".check .seWp li").click(function(){
+	        $(".seWp").hide();
+	        $(".check .selVa").val(($(this).text()));     
+        })             
+})	
 </script>
 </body>
 </html>

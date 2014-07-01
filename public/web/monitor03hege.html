@@ -28,9 +28,9 @@
 <!--/end header-->
 <div class="bread monitorBread w85">
 	<ul>                         
-		<li class="active"><a href="monitor01.html">监测任务</a></li>
-		<li><a href="monitor02.html">监督监测</a></li>
-		<li><a href="monitor03.html">企业送检</a></li>
+		<li><a href="monitor01.html">监测任务</a></li>
+		<li ><a href="monitor02.html">监督监测</a></li>
+		<li class="active"><a href="monitor03.html">企业送检</a></li>
 		<li><a href="monitor04.html">企业自检</a></li>
 		<li><a href="monitor05.html">综合统计</a></li>
 		<li><a href="monitor06.html">按场所统计</a></li>
@@ -64,6 +64,16 @@
 	                  <li>莲都区w</li>
 	                </ul>
                </div>
+			<em>行业：</em>
+				<div class="seBox check">
+	                <input type="text" value="蔬菜" class="selVa" readonly="readonly">
+	                <cite class="row">▼</cite>
+	                <ul class="seWp">
+	                  <li>水果</li>
+	                  <li>畜禽</li>
+	                  <li>菌菇</li>
+	                </ul>
+               </div>			
                 <div class="calendar" style="display:inline;">
                     <em style="padding: 0;float:left;margin-top:5px;">预收时间：</em>
                     <span>
@@ -73,90 +83,97 @@
                      <span>
                        <input name="control_date2" type="text" id="control_date2" size="10"
                            maxlength="10" onclick="new Calendar().show(this);" readonly="readonly"/></span>            
-                </div> 
-			<em>检测性质：</em>
-				<div class="seBox check">
-	                <input type="text" value="例行检查" class="selVa" readonly="readonly">
-	                <cite class="row">▼</cite>
-	                <ul class="seWp">
-	                  <li>监督抽检</li>
-	                  <li>专项检测</li>
-	                </ul>
-               </div>			
-			<input type="submit" value="查询" class="searBtn"/>
-			<input type="submit" value="Excel导出" class="searBtn" />
+                </div>
+	 
+			 
+			<input type="submit" value="Excel" class="searBtn" />
+		 
 		</div>
 		
-	</div>
-	
+	</div>	
 	<div class="cont jdtj white">
 		<table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#e3e3e3">
                     <tr class="top">
-                        <td width="10%" height="65" bgcolor="#efefef">任务发布</td>
-                        <td width="8%" height="65" bgcolor="#efefef">区域</td>
-                        <td width="22" height="65" bgcolor="#efefef">任务标题</td>
-                        <td width="8" height="65" bgcolor="#efefef">状态</td>
-                           <td width="8" height="65" bgcolor="#efefef">检测性质</td>
-                        <td width="26" height="65" bgcolor="#efefef">任务内容</td>
-                        <td width="26" height="65" bgcolor="#efefef">监测结论 </td>
+                        <td height="65" bgcolor="#efefef">检测日期</td>
+                        <td height="65" bgcolor="#efefef">区域</td>
+                        <td height="65" bgcolor="#efefef">检测机构</td>
+                       <td height="65" bgcolor="#efefef">被检单位</td>
+                        <td height="65" bgcolor="#efefef">送检人</td>
+                        <td height="65" bgcolor="#efefef">样品行业</td>
+                      
+                        <td height="65" bgcolor="#efefef">样品名称</td>
+                        <td height="65" bgcolor="#efefef">检测项目 </td>
+                         <td height="65" bgcolor="#efefef">检测值 </td>
+                        <td height="65" bgcolor="#efefef">检测结论</td>
+                     
+                        
                     </tr>
                     <tr>
                         <td height="39" >2013-06-07</td>
-                        <td height="39" >丽水</td>
-                        <td height="39" >2013年茶叶全市质量安全专项检测</td>
-                        <td height="39" >进行中</td>
-                        <td height="39" >例行监测</td>
-                        <td height="39" >根据安排对丽水整个区域的茶叶制品进</td>
-                        <td height="39" >本次监测了云和、庆元、遂昌、景宁、松阳5个</td>                 
-                    </tr>
-                    <tr>
-                        <td height="39" >2013-06-07</td>
-                        <td height="39" >丽水</td>
-                        <td height="39" >2013年茶叶全市质量安全专项检测</td>
-                          <td height="39" >进行中</td>
-                        <td height="39" >例行监测</td>
-                        <td height="39" >根据安排对丽水整个区域的茶叶制品进</td>
-                        <td height="39" >本次监测了云和、庆元、遂昌、景宁、松阳5个</td>                 
+                        <td height="39" >莲都区</td>
+                        <td height="39" >莲都区监测站</td>
+                        <td height="39" >春天蔬菜基地</td>
+                        <td height="39" >张开平</td>
+                        <td height="39" >蔬菜</td>
+                        <td height="39" >毛毛菜</td>
+                        <td height="39" >农药残留</td>
+                        <td height="39" >26</td>
+                       <td height="39" >合格</td>
                     </tr><tr>
-                        <td height="39" >2013-06-07</td>
-                        <td height="39" >丽水</td>
-                        <td height="39" >2013年茶叶全市质量安全专项检测</td>
-                          <td height="39" >进行中</td>
-                        <td height="39" >例行监测</td>
-                        <td height="39" >根据安排对丽水整个区域的茶叶制品进</td>
-                        <td height="39" >本次监测了云和、庆元、遂昌、景宁、松阳5个</td>                 
+                           <td height="39" >2013-06-07</td>
+                        <td height="39" >莲都区</td>
+                        <td height="39" >莲都区监测站</td>
+                        <td height="39" >春天蔬菜基地</td>
+                        <td height="39" >张开平</td>
+                        <td height="39" >蔬菜</td>
+                        <td height="39" >毛毛菜</td>
+                        <td height="39" >农药残留</td>
+                        <td height="39" >26</td>
+                       <td height="39" >合格</td>
                     </tr><tr>
-                        <td height="39" >2013-06-07</td>
-                        <td height="39" >丽水</td>
-                        <td height="39" >2013年茶叶全市质量安全专项检测</td>
-                         <td height="39" >进行中</td>
-                        <td height="39" >例行监测</td>
-                        <td height="39" >根据安排对丽水整个区域的茶叶制品进</td>
-                        <td height="39" >本次监测了云和、庆元、遂昌、景宁、松阳5个</td>                 
+                          <td height="39" >2013-06-07</td>
+                        <td height="39" >莲都区</td>
+                        <td height="39" >莲都区监测站</td>
+                        <td height="39" >春天蔬菜基地</td>
+                        <td height="39" >张开平</td>
+                        <td height="39" >蔬菜</td>
+                        <td height="39" >毛毛菜</td>
+                        <td height="39" >农药残留</td>
+                        <td height="39" >26</td>
+                       <td height="39" >合格</td>
                     </tr><tr>
-                        <td height="39" >2013-06-07</td>
-                        <td height="39" >丽水</td>
-                        <td height="39" >2013年茶叶全市质量安全专项检测</td>
-                        <td height="39" >进行中</td>
-                       <td height="39" >专项检测</td>
-                        <td height="39" >根据安排对丽水整个区域的茶叶制品进</td>
-                        <td height="39" >本次监测了云和、庆元、遂昌、景宁、松阳5个</td>                 
+                          <td height="39" >2013-06-07</td>
+                        <td height="39" >莲都区</td>
+                        <td height="39" >莲都区监测站</td>
+                        <td height="39" >春天蔬菜基地</td>
+                        <td height="39" >张开平</td>
+                        <td height="39" >蔬菜</td>
+                        <td height="39" >毛毛菜</td>
+                        <td height="39" >农药残留</td>
+                        <td height="39" >26</td>
+                       <td height="39" >合格</td>
                     </tr><tr>
-                        <td height="39" >2013-06-07</td>
-                        <td height="39" >丽水</td>
-                        <td height="39" >2013年茶叶全市质量安全专项检测</td>
-                        <td height="39" >进行中</td>
-                         <td height="39" >监督抽检</td>
-                        <td height="39" >根据安排对丽水整个区域的茶叶制品进</td>
-                        <td height="39" >本次监测了云和、庆元、遂昌、景宁、松阳5个</td>                 
+                          <td height="39" >2013-06-07</td>
+                        <td height="39" >莲都区</td>
+                        <td height="39" >莲都区监测站</td>
+                        <td height="39" >春天蔬菜基地</td>
+                        <td height="39" >张开平</td>
+                        <td height="39" >蔬菜</td>
+                        <td height="39" >毛毛菜</td>
+                        <td height="39" >农药残留</td>
+                        <td height="39" >26</td>
+                       <td height="39" >合格</td>
                     </tr><tr>
-                        <td height="39" >2013-06-07</td>
-                        <td height="39" >丽水</td>
-                        <td height="39" >2013年茶叶全市质量安全专项检测</td>
-                          <td height="39" >完结</td>
-                        <td height="39" >例行监测</td>
-                        <td height="39" >根据安排对丽水整个区域的茶叶制品进</td>
-                        <td height="39" >本次监测了云和、庆元、遂昌、景宁、松阳5个</td>                 
+                          <td height="39" >2013-06-07</td>
+                        <td height="39" >莲都区</td>
+                        <td height="39" >莲都区监测站</td>
+                        <td height="39" >春天蔬菜基地</td>
+                        <td height="39" >张开平</td>
+                        <td height="39" >蔬菜</td>
+                        <td height="39" >毛毛菜</td>
+                        <td height="39" >农药残留</td>
+                        <td height="39" >26</td>
+                       <td height="39" >合格</td>
                     </tr>
                 </table>
 
@@ -191,6 +208,9 @@
 </div>
 <script type="text/javascript">
 	$(function(){
+		//基本统计 隔行换色
+		$(".jdtj table tr:even").css("backgroundColor","#fbfbfb");
+		$(".jdtj table tr:odd").css("backgroundColor","#ffffff"); 
 		//模态框
 			
 		$(".cont table tr:not(:first)").click(function(){
@@ -206,6 +226,16 @@
 			$(".model").fadeOut();
 		})
 	})
+$(function(){
+        var d = new Date(),
+        vYear = d.getFullYear(),
+        vMon = d.getMonth() + 1,
+        vDay = d.getDate();
+        end=vYear+"-"+(vMon<10 ? "0" + vMon : vMon)+"-"+(vDay<10 ? "0"+ vDay : vDay);
+        star=vYear+"-"+(vMon<10 ? "0" + vMon : vMon)+"-"+1;
+        $("#control_date2").val(end);
+        $("#control_date").val(star);	
+})	
 $(document).ready(function(){
     $(".selVa").click(function(){
         var nIndex = $(".selVa").index(this);
@@ -219,21 +249,7 @@ $(document).ready(function(){
 	        $(".seWp").hide();
 	        $(".check .selVa").val(($(this).text()));     
         })             
-})
-    $(function(){
-        //基本统计 隔行换色
-        $(".jdtj table tr:even").css("backgroundColor","#fbfbfb");
-        $(".jdtj table tr:odd").css("backgroundColor","#ffffff"); 
-        var d = new Date(),
-        vYear = d.getFullYear(),
-        vMon = d.getMonth() + 1,
-        vDay = d.getDate();
-        end=vYear+"-"+(vMon<10 ? "0" + vMon : vMon)+"-"+(vDay<10 ? "0"+ vDay : vDay);
-        star=vYear+"-"+(vMon<10 ? "0" + vMon : vMon)+"-"+1;
-        $("#control_date2").val(end);
-        $("#control_date").val(star);
-        
-    })
+})		
 </script>
 </body>
 </html>

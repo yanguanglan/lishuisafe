@@ -211,6 +211,9 @@ body{
 	overflow: hidden;
 	position: relative;
 }
+.proHead i{
+	display: none;
+}
 .navAd{
 	background: #b6dcf4;
 	margin: 20px 0;
@@ -252,6 +255,11 @@ body{
 	width: 410px;
 	padding-left: 8px;
 	margin-right: 10px;
+	display: inline-block;
+	float: left;
+	font-size: 16px;
+	font-weight: bold;
+	font-family: "黑体";
 }
 .searchBig .btn{
 	width: 190px;
@@ -276,6 +284,16 @@ body{
 	width: 60px;
 	height: 60px;
 	margin:0 15px 20px 5px;
+}
+.phoneId ul li button{
+	background: none;
+	border: none;
+	text-indent: -999em;
+	width: 60px;
+	height: 60px;
+}
+.phoneId ul li button:focus{
+	outline-style:none;
 }
 .phoneId ul li a{
 	text-indent: -999em;

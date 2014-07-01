@@ -17,6 +17,7 @@
     <meta name="description" content="" />
     <link rel="stylesheet" type="text/css" href="css/reset.css">
     <link rel="stylesheet" type="text/css" href="css/sorce.css">
+    <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
 </head>
 
 <body>
@@ -59,15 +60,7 @@
                 <li><a href="">投入品管理</a>
                 </li>    
                 <li><a href="">单位管理</a>
-                	
                 </li>
-               <li><a href="">个人信息</a>
-                	
-                </li>
-<li><a href="">登录日志</a>
-                	
-                </li>
-
             </ul>
         </div>
         <div class="platWp" style="width: 78%;">
@@ -77,7 +70,7 @@
                     <input type="button" value="搜索" class="btn" />
                 </div>
                 <div class="platT">
-                    <input type="button" value="+新增" class="btn">
+                    <input type="button" value="+新增" class="btn" id="add">
                 </div>
             </div>
             <div class="platInfo setInfo">
@@ -111,6 +104,13 @@
             版权所有：丽水市农业投资发展有限公司 技术支持：某某科技有限公司 联系电话：400-888-8888
         </p>
     </div>
+<script type="text/javascript">
+    $(function(){
+        $("#add").click(function(){
+            window.location.href="addSet.html";
+        })        
+    })
+</script>    
 </body>
 
 </html>

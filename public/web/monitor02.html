@@ -14,6 +14,7 @@
 	<meta name="description" content="" />
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
 	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="js/calendar.js"></script>
 
 </head>
 
@@ -29,7 +30,7 @@
 	<ul>                         
 		<li><a href="monitor01.html">监测任务</a></li>
 		<li class="active"><a href="monitor02.html">监督监测</a></li>
-		<li><a href="monitor03.html">乡镇检测</a></li>
+		<li><a href="monitor03.html">企业送检</a></li>
 		<li><a href="monitor04.html">企业自检</a></li>
 		<li><a href="monitor05.html">综合统计</a></li>
 		<li><a href="monitor06.html">按场所统计</a></li>
@@ -52,42 +53,41 @@
 	<div class="search">
 		<div class="searchFl searchFl01">
 			<em>区域：</em>
-			<select>
-				<option value="全部">全部</option>
-				<option value="全部">全部</option>
-				<option value="全部">全部</option>
-				<option value="全部">全部</option>
-			</select>
-			<em>选择年份：</em>
-			<select>
-				<option value="2014年">2014年</option>
-				<option value="1月">1月</option>
-				<option value="1月">1月</option>
-				<option value="1月">1月</option>
-			</select>
-			<em>检测机构：</em>
-			<select>
-				<option value="全部">全部</option>
-				<option value="全部">全部</option>
-				<option value="全部">全部</option>
-				<option value="全部">全部</option>
-			</select>
-			<em>检测性质：</em>
-			<select>
-				<option value="全部">全部</option>
-				<option value="全部">全部</option>
-				<option value="全部">全部</option>
-				<option value="全部">全部</option>
-			</select>
-			<em>样品类型：</em>
-			<select>
-				<option value="全部">全部</option>
-				<option value="全部">全部</option>
-				<option value="全部">全部</option>
-				<option value="全部">全部</option>
-			</select>
+				<div class="seBox address">
+	                <input type="text" value="莲都区" class="selVa" readonly="readonly">
+	                <cite class="row">▼</cite>
+	                <ul class="seWp">
+	                  <li>莲都区</li>
+	                  <li>莲都区s</li>
+	                  <li>莲都区r</li>
+	                  <li>莲都区e</li>
+	                  <li>莲都区w</li>
+	                </ul>
+               </div>
+                <div class="calendar" style="display:inline;">
+                    <em style="padding: 0;float:left;margin-top:5px;">预收时间：</em>
+                    <span>
+                    <input name="control_date" type="text" id="control_date" size="10"
+                           maxlength="10" onclick="new Calendar().show(this);" readonly="readonly" value=""></span>
+                     <span>至</span>
+                     <span>
+                       <input name="control_date2" type="text" id="control_date2" size="10"
+                           maxlength="10" onclick="new Calendar().show(this);" readonly="readonly"/></span>            
+                </div> 
+	 
+			<em>样品行业：</em>
+				<div class="seBox check">
+	                <input type="text" value="蔬菜" class="selVa" readonly="readonly">
+	                <cite class="row">▼</cite>
+	                <ul class="seWp">
+	                  <li>水果</li>
+	                  <li>畜禽</li>
+	                  <li>菌菇</li>
+	                </ul>
+               </div>			
 			<input type="submit" value="统计" class="searBtn"/>
 			<input type="submit" value="Excel" class="searBtn" />
+			 
 		</div>
 		
 	</div>
@@ -95,80 +95,62 @@
 	<div class="cont jdtj white">
 		<table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#e3e3e3">
                     <tr class="top">
-                        <td height="65" bgcolor="#efefef">执行时间</td>
-                        <td height="65" bgcolor="#efefef">区域</td>
-                        <td height="65" bgcolor="#efefef">样品大类</td>
-                        <td height="65" bgcolor="#efefef">样品类型</td>
-                        <td height="65" bgcolor="#efefef">样品名称</td>
-                        <td height="65" bgcolor="#efefef">检测项目 </td>
-                        <td height="65" bgcolor="#efefef">检测结论</td>
-                        <td height="65" bgcolor="#efefef">抽样地点</td>
-                        <td height="65" bgcolor="#efefef">被检单位</td>
                         <td height="65" bgcolor="#efefef">检测机构</td>
-                        <td height="65" bgcolor="#efefef">项目详情 </td>
+                        <td height="65" bgcolor="#efefef">区域</td>
+                        <td height="65" bgcolor="#efefef">行业</td>
+                        <td height="65" bgcolor="#efefef">检测次数</td>
+                        <td height="65" bgcolor="#efefef">合格次数</td>
+                        <td height="65" bgcolor="#efefef">不合格次数 </td>
+                      
                     </tr>
                     <tr>
-                        <td height="39" >201306-07</td>
-                        <td height="39" >丽水</td>
-                        <td height="39" >种植品</td>
+                          <td height="39" >莲都区检查大队</td>
+                        <td height="39" >莲都区</td>
                         <td height="39" >蔬菜</td>
-                        <td height="39" >毛毛菜</td>
-                        <td height="39" >农药残留</td>
-                        <td height="39" >合格</td>
-                        <td height="39" >生产基地</td>
-                        <td height="39" >龙泉春树蔬菜基地</td>
-                        <td height="39" >丽水市农产品质量安全检测中心</td>
-                        <td height="39" ><a >查看</a></td>
-                    </tr><tr>
-                        <td height="39" >201306-07</td>
-                        <td height="39" >丽水</td>
-                        <td height="39" >种植品</td>
-                        <td height="39" >蔬菜</td>
-                        <td height="39" >毛毛菜</td>
-                        <td height="39" >农药残留</td>
-                        <td height="39" >合格</td>
-                        <td height="39" >生产基地</td>
-                        <td height="39" >龙泉春树蔬菜基地</td>
-                        <td height="39" >丽水市农产品质量安全检测中心</td>
-                        <td height="39" ><a >查看</a></td>
-                    </tr><tr>
-                        <td height="39" >201306-07</td>
-                        <td height="39" >丽水</td>
-                        <td height="39" >种植品</td>
-                        <td height="39" >蔬菜</td>
-                        <td height="39" >毛毛菜</td>
-                        <td height="39" >农药残留</td>
-                        <td height="39" >合格</td>
-                        <td height="39" >生产基地</td>
-                        <td height="39" >龙泉春树蔬菜基地</td>
-                        <td height="39" >丽水市农产品质量安全检测中心</td>
-                        <td height="39" ><a >查看</a></td>
-                    </tr><tr>
-                        <td height="39" >201306-07</td>
-                        <td height="39" >丽水</td>
-                        <td height="39" >种植品</td>
-                        <td height="39" >蔬菜</td>
-                        <td height="39" >毛毛菜</td>
-                        <td height="39" >农药残留</td>
-                        <td height="39" >合格</td>
-                        <td height="39" >生产基地</td>
-                        <td height="39" >龙泉春树蔬菜基地</td>
-                        <td height="39" >丽水市农产品质量安全检测中心</td>
-                        <td height="39" ><a >查看</a></td>
-                    </tr><tr>
-                        <td height="39" >201306-07</td>
-                        <td height="39" >丽水</td>
-                        <td height="39" >种植品</td>
-                        <td height="39" >蔬菜</td>
-                        <td height="39" >毛毛菜</td>
-                        <td height="39" >农药残留</td>
-                        <td height="39" >合格</td>
-                        <td height="39" >生产基地</td>
-                        <td height="39" >龙泉春树蔬菜基地</td>
-                        <td height="39" >丽水市农产品质量安全检测中心</td>
-                        <td height="39" ><a >查看</a></td>
+                        <td height="39" ><a href="monitor02hege.html">234</a></td>
+                        <td height="39" ><a href="monitor02hege.html">233</a></td>
+                        <td height="39" ><a href="monitor02hege.html">1</a></td>
                     </tr>
-                    
+                         <tr>
+                        <td height="39" >缙云县检查大队</td>
+                        <td height="39" >缙云县</td>
+                        <td height="39" >蔬菜</td>
+                        <td height="39" ><a href="monitor02hege.html">234</a></td>
+                        <td height="39" ><a href="monitor02hege.html">233</a></td>
+                        <td height="39" ><a href="monitor02hege.html">1</a></td>
+                        
+                    </tr>
+                      <tr>
+                        <td height="39" >青田县检查大队</td>
+                        <td height="39" >青田县</td>
+                        <td height="39" >蔬菜</td>
+                        <td height="39" ><a href="monitor02hege.html">234</a></td>
+                        <td height="39" ><a href="monitor02hege.html">233</a></td>
+                        <td height="39" ><a href="monitor02hege.html">1</a></td>
+                        
+                    </tr>      <tr>
+                         <td height="39" >遂昌县检查大队</td>
+                        <td height="39" >遂昌县</td>
+                        <td height="39" >蔬菜</td>
+                        <td height="39" ><a href="monitor02hege.html">234</a></td>
+                        <td height="39" ><a href="monitor02hege.html">233</a></td>
+                        <td height="39" ><a href="monitor02hege.html">1</a></td>
+                        
+                    </tr>   <tr>
+                          <td height="39" >云和县检查大队</td>
+                        <td height="39" >云和县</td>
+                        <td height="39" >蔬菜</td>
+                        <td height="39" ><a href="monitor02hege.html">234</a></td>
+                        <td height="39" ><a href="monitor02hege.html">233</a></td>
+                        <td height="39" ><a href="monitor02hege.html">1</a></td>
+                    </tr>  <tr>
+                          <td height="39" >云和县检查大队</td>
+                        <td height="39" >云和县</td>
+                        <td height="39" >水果</td>
+                        <td height="39" ><a href="monitor02hege.html">234</a></td>
+                        <td height="39" ><a href="monitor02hege.html">233</a></td>
+                        <td height="39" ><a href="monitor02hege.html">1</a></td>
+                    </tr>
                 </table>
 
 	</div>
@@ -219,9 +201,31 @@
 		$(".model .cont .close").click(function(){
 			$(".model").fadeOut();
 		})
-		
-
 	})
+$(function(){
+        var d = new Date(),
+        vYear = d.getFullYear(),
+        vMon = d.getMonth() + 1,
+        vDay = d.getDate();
+        end=vYear+"-"+(vMon<10 ? "0" + vMon : vMon)+"-"+(vDay<10 ? "0"+ vDay : vDay);
+        star=vYear+"-"+(vMon<10 ? "0" + vMon : vMon)+"-"+1;
+        $("#control_date2").val(end);
+        $("#control_date").val(star);	
+})	
+$(document).ready(function(){
+    $(".selVa").click(function(){
+        var nIndex = $(".selVa").index(this);
+        $(".seWp").eq(nIndex).show();
+        })
+   		$(".address .seWp li").click(function(){
+	        $(".seWp").hide();
+	        $(".address .selVa").val(($(this).text()));     
+        }) 
+   		$(".check .seWp li").click(function(){
+	        $(".seWp").hide();
+	        $(".check .selVa").val(($(this).text()));     
+        })             
+})
 </script>
 </body>
 </html>
