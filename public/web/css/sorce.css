@@ -409,7 +409,7 @@
     font-size: 14px;
     color: #494949;
 }
-.orga ul .active a{
+.orga ul .active a span,.sp ul .active a{
     color: #0a7648;
 }
 .orga p{

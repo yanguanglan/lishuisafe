@@ -53,34 +53,34 @@
         <div class="orga">
             <h3>丽水市农业局</h3>
             <ul>
-               <li class="active"><a href="javascript:" class="tab"><i>+</i>莲都区农业局</a>
+               <li class="active"><a href="javascript:changes(1)" class="tab"><i>+</i><span id="chang1">莲都区农业局</span></a>
                     <div class="sub" style="display:none">
-                        <span>乡镇农业局</span>
-                        <span>乡镇农业局</span>
-                        <span>乡镇农业局</span>
+                        <span onclick="chang(1)">乡镇农业局1</span>
+                        <span onclick="chang(2)">乡镇农业局2</span>
+                        <span onclick="chang(3)">乡镇农业局3</span>
                     </div>
                </li> 
-               <li><a href="javascript:;" class="tab"><i>+</i>xx镇农业局</a>
+               <li><a  href="javascript:changes(2)"  class="tab"><i>+</i><span id="chang2">xx镇农业局</span></a>
                     <div class="sub" style="display:none">
-                        <span>乡镇农业局</span>
-                        <span>乡镇农业局</span>
-                        <span>乡镇农业局</span>
+                        <span onclick="chang(4)">乡镇农业局4</span>
+                        <span onclick="chang(5)">乡镇农业局5</span>
+                        <span onclick="chang(6)">乡镇农业局6</span>
                     </div>
                </li> 
             </ul>
             <p><a href="">机构编辑</a><a href="javascript:;" class="addJg">机构增加</a></p>
         </div>
-        <div class="orga noB">
-            <h3>丽水市农业局的部门</h3>
+        <div class="orga noB sp">
+            <h3 id="tech3">丽水市农业局的部门</h3>
             <ul>
-               <li class="active"><a href="">监管部 </a></li> 
-               <li><a href="">质量检查大队</a></li> 
-              <li><a href="">防疫科</a></li> 
+               <li class="active"><a class="active1" onclick="checks(this)">监管部1 </a></li> 
+               <li ><a class="active1" onclick="checks(this)"></a></li> 
+              <li ><a class="active1" onclick="checks(this)">防疫科1</a></li> 
             </ul>
             <p><a href="">部门编辑</a><a href="javascript:;" class="addBm">部门增加</a></p>
         </div>  
         <div class="tech">
-            <h3>丽水莲都区农业局<span>监察局</span></h3>
+            <h3><span id="tech2">丽水莲都区农业局</span><span id="tech1">监察局</span></h3>
             <table>
                 <thead>
                     <tr>
@@ -345,7 +345,7 @@ var _scrollHeight =  $(document).scrollTop(),//获取当前窗口距离页面顶
         })
 }); 
 $(function(){
-    getTab();
+     getTab();
 })
 function getTab(){
     $(".tab").click(function(){
@@ -361,6 +361,47 @@ function getTab(){
             $(this).parent().find("i").html("+");
         }
     })
+    $(".orga ul li").click(function(){
+        var nIndex = $(".orga ul li").index(this);
+        $(this).addClass("active").siblings().removeClass("active");
+    })
+}
+
+function  chang(k)
+{
+	$(".noB .active1").each(function(z){
+		if(z==1)
+		{
+			$(this).html("质量检查大队"+k)
+			$("#tech2").html("乡镇农业局"+k)
+			$("#tech3").html("乡镇农业局"+k)
+		}
+		else if(z==2)
+		{
+			$(this).html("防疫科"+k)
+			$("#tech2").html("乡镇农业局"+k)
+			$("#tech3").html("乡镇农业局"+k)
+		}
+		else
+		{
+			$(this).html("监管部"+k)
+			$("#tech2").html("乡镇农业局"+k)
+			$("#tech3").html("乡镇农业局"+k)
+		}
+		
+	});
+	
+}
+
+function changes(k)
+{
+	$("#tech2").html($("#chang"+k).html())
+	$("#tech3").html($("#chang"+k).html())	
+}
+
+function checks(k)
+{
+	$("#tech1").html($(k).html())
 }
 </script> 
 </body>
