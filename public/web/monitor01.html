@@ -65,7 +65,7 @@
 	                </ul>
                </div>
                 <div class="calendar" style="display:inline;">
-                    <em style="padding: 0;float:left;margin-top:5px;">预收时间：</em>
+                    <em style="padding: 0;float:left;margin-top:5px;">检查时间：</em>
                     <span>
                     <input name="control_date" type="text" id="control_date" size="10"
                            maxlength="10" onclick="new Calendar().show(this);" readonly="readonly" value=""></span>
@@ -85,6 +85,7 @@
                </div>			
 			<input type="submit" value="查询" class="searBtn"/>
 			<input type="submit" value="Excel导出" class="searBtn" />
+			<input type="submit" value="发起检测任务" class="searBtn faqi" />
 		</div>
 		
 	</div>
@@ -96,7 +97,7 @@
                         <td width="8%" height="65" bgcolor="#efefef">区域</td>
                         <td width="22" height="65" bgcolor="#efefef">任务标题</td>
                         <td width="8" height="65" bgcolor="#efefef">状态</td>
-                           <td width="8" height="65" bgcolor="#efefef">检测性质</td>
+                        <td width="8" height="65" bgcolor="#efefef">检测性质</td>
                         <td width="26" height="65" bgcolor="#efefef">任务内容</td>
                         <td width="26" height="65" bgcolor="#efefef">监测结论 </td>
                     </tr>
@@ -190,20 +191,9 @@
 	<p>版权所有：丽水市农业投资发展有限公司   技术支持：某某科技有限公司   联系电话：400-888-8888</p>
 </div>
 <script type="text/javascript">
-	$(function(){
-		//模态框
-			
+	$(function(){	
 		$(".cont table tr:not(:first)").click(function(){
-			$(".model").fadeIn();
-			var modelHeight=parseInt($(".model .cont").outerHeight());
-			var	winHeight=parseInt($(window).height());
-			var marTop=(winHeight - modelHeight) / 2;
-			$(".model .cont").css({
-				marginTop:marTop + "px"
-			})
-		})
-		$(".model .cont .close").click(function(){
-			$(".model").fadeOut();
+			window.location.href="monnew.html";
 		})
 	})
 $(document).ready(function(){
@@ -234,6 +224,9 @@ $(document).ready(function(){
         $("#control_date").val(star);
         
     })
+$(".faqi").click(function(){
+    window.location.href="faqi.html";
+})    
 </script>
 </body>
 </html>

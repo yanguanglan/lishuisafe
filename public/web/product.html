@@ -47,7 +47,7 @@
 			<h2>绿色食品质量安全追溯查询</h2>
 			<div class="searchBig">
 				<form name="calculator"><textarea  class="text" style="resize:none" id="total"></textarea></form>
-				<input type="button" value="立即查询" class="btn"></div>
+				<input type="button" value="立即查询" class="btn" id="chaxun"></div>
 			<div class="phoneId">
 				<ul>
 					<li class="phone1"><button value="1" class="calc_int">1</button></li>
@@ -432,7 +432,9 @@ jQuery(document).keydown(function (e) {
     return false;
   }
 });
-
+$("#chaxun").click(function(){
+	window.location.href="cx.html";
+})
 
 </script>
 </body>

@@ -17,6 +17,7 @@
       <span>单位（家）农业企业关键字：</span>
       <input name="keyword" type="text" value="{{ $keyword }}" class="searInp" />
       <input type="submit" value="查询" class="searBtn" />
+      <span class="searBtn review">待审核<em>{{ $pending[0]->totalNum | 0 }}</em></span>
     </div>
   </div>
 </form>
@@ -68,4 +69,18 @@
 </div>
 <!--/end 基地统计-->
 </div>
+<script>
+$(document).ready(function(){
+    $(".selVa").click(function(){
+        $(".seWp").show();
+        })
+    $(".seWp li").click(function(){
+        $(".seWp").hide();
+        $(".selVa").val(($(this).text()));     
+        })   
+    })
+$(".review").click(function(){
+    window.location.href="{{ URL::route('jdtjsh') }}";
+})
+</script>
 @stop

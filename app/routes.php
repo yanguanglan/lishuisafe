@@ -38,13 +38,22 @@ Route::group(array('prefix' => 'zerenguanli', 'before' => 'auth.zerenguanli'), f
 		$year = Input::get('year', date('Y', time()));
 		$keyword = Input::get('keyword', '');
 		$result = DB::select('EXEC proc_farm_analysis_info ?, ?, ?', array(Session::get('userid'), $year, $keyword));
+		$pending = DB::select('EXEC proc_farm_check_num ?', array(Session::get('userid')));
+
 		if(Session::get('type') == 8) {
-			return View::make('zerenguanli.jdtj')->with('types', $types)->with('result', $result)->with('year', $year)->with('keyword', $keyword);
+			return View::make('zerenguanli.jdtj')->with('types', $types)->with('result', $result)->with('year', $year)->with('keyword', $keyword)->with('pending', $pending);
 		//$result = DB::select('EXEC proc_farm_analysis_info ?, ?, ?', array(2, $year, $keyword));
 		} else {
 			return View::make('zerenguanli.jdtjinfo')->with('result', $result)->with('city', $city)->with('type', $type)->with('year', $year)->with('keyword', $keyword);
 		}
 		//
+	}));
+
+	Route::get('/jdtjsh',  array('as' => 'jdtjsh', function(){
+		//基地统计审核
+		$result = DB::select('EXEC proc_farm_check_list ?', array(Session::get('userid')));
+
+		return View::make('zerenguanli.jdtjsh')->with('result', $result);
 	}));
 
 	Route::get('/jdtjinfo',  array('as' => 'jdtjinfo', function(){

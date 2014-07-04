@@ -303,6 +303,13 @@
     color: #4b4b4b;
     font-weight: bold;
 }
+.platInfo .newsT a{
+    float: right;
+    background: #227f57;
+    display: block;
+    padding: 10px 13px;
+    color: #fff;
+}
 .infoWp p{
     font-size: 16px;
     color: #767676;
@@ -589,4 +596,49 @@
 }
 .orga ul li i{
     margin-right: 5px;
+}
+.listBox{
+    overflow: hidden;
+}
+.listL{
+    float: left;
+    width: 200px;
+}
+.listL input{
+    border:1px solid #e3e3e3;
+    height: 30px;
+    line-height: 30px;
+    width: 190px;
+}
+.listL ul{
+    margin-top: 5px;
+    max-height: 200px;
+    overflow-y: auto;
+}
+.listL ul li{
+    padding:5px 0;
+}
+.listL ul li span{
+    font-size: 14px;
+    color: #494949;
+}
+.listL ul li i{
+    font-size: 12px;
+    margin: 0 5px;
+    vertical-align: 3px;
+}
+.listL .sub{
+    display: none;
+}
+.listL .sub p{
+    padding: 3px 0;
+}
+.listR{
+    float: right;
+}
+.listR p{
+    margin: 10px 0;
+}
+.listR ul li{
+    padding: 3px 0;
 }
