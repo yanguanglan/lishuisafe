@@ -6,12 +6,11 @@
 <form>
     <div class="search">
 		<div class="searchFl">
-			<select name="year">
+ <select name="year">
                 @foreach (get_year() as $v)
-				<option value="{{$v}}" @if ($v == $year) selected="selected" @endif>{{$v}}年度</option>
+        <option value="{{$v}}" @if ($v == $year) selected="selected" @endif>{{$v}}年度</option>
                 @endforeach
-			</select>
-			
+      </select>			
 		</div>
 		<div class="searchFr">
 			<span>农业企业关键字：</span>

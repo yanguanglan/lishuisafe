@@ -1,9 +1,9 @@
 @extends('zerenguanli._layouts.default')
 @section('main')
 <div class="wrap w85">
-<!--基地统计审核-->
+<!--投入品审核-->
 <div class="block">
-	<div class="cont jdtj">
+    <div class="cont jdtj">
                 <table class="shWp">
                     <thead>
                         <tr>
@@ -17,20 +17,20 @@
                         </tr>
                     </thead>
                     <tbody>
-                    	@foreach($result as $value)
+                        @foreach($result as $value)
                         <tr>
                             <td>{{ $value->townName }}</td>
                             <td>{{date('Y-m-d', strtotime($value->paddtime)) }}</td>
                             <td>{{ $value->companyName }}</td>
                             <td>{{ $value->paddress }}</td>
                             <td>{{ $value->pfaren }}</td>
-                            <td>{{ $value->pphone }}</td>                            
-                            <td><a href="">通过</a><a href="" >不通过</a></td>
+                            <td>{{ $value->pphone }}</td>                      
+                            <td><a href="{{ URL::route('jdtjsh', array('status'=>1, 'companyID'=>$value->companyID)) }}">通过</a><a href="{{ URL::route('jdtjsh', array('status'=>-1, 'companyID'=>$value->companyID)) }}">不通过</a></td>
                         </tr>
-                       	@endforeach                                               
+                        @endforeach                                               
                     </tbody>
                 </table>        
-	</div>
+    </div>
 </div>
-<!--/end 基地统计审核-->
+<!--/end 投入品审核-->
 @stop

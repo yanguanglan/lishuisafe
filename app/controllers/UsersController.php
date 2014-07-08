@@ -21,6 +21,92 @@ class Userscontroller extends \BaseController {
 
 	}
 
+	public function getJianceUserLogin()
+	{
+		return View::make('jianceguanli.login');
+	}
+
+	public function postJianceUserLogin()
+	{
+
+		$account = Input::get('account');
+		$password = Input::get('password');
+		$state = Input::get('state');
+
+		$rules =  array('captcha' => array('required', 'captcha'),
+			'account' => array('required'),
+			'password' => array('required'),
+		);
+
+        $validator = Validator::make(Input::all(), $rules);
+        if ($validator->fails())
+        {
+        	return Redirect::to('/login/jianceguanli')->withErrors($validator);
+        }else{
+        	$result = DB::select('EXEC proc_login ?, ?', array($account, $password));
+        	if($result) {
+        		Session::put('userid', $result[0]->userid);
+				Session::put('username', $result[0]->username);
+				Session::put('type', $result[0]->type);
+				Session::put('belongArea', $result[0]->belongArea);
+				Session::put('pstate', $result[0]->pstate);
+				#判断权限
+				if($state != $result[0]->pstate && $result[0]->pstate!=3)
+				{
+					return Redirect::to('/login/jianceguanli')->withErrors(array('login' => '对不起您的账号没有权限登录系统!'));
+				}
+
+				return Redirect::to('/jianceguanli/jcrw');
+        	}
+        	#异常
+        	return Redirect::to('/login/jianceguanli')->withErrors(array('login' => '登录失败，请检查你填写的信息是否正确！'));
+        }
+		
+	}
+
+	public function getZerenUserLogin()
+	{
+		return View::make('jianceguanli.login');
+	}
+
+	public function postZerenUserLogin()
+	{
+
+		$account = Input::get('account');
+		$password = Input::get('password');
+		$state = Input::get('state');
+
+		$rules =  array('captcha' => array('required', 'captcha'),
+			'account' => array('required'),
+			'password' => array('required'),
+		);
+
+        $validator = Validator::make(Input::all(), $rules);
+        if ($validator->fails())
+        {
+        	return Redirect::to('/login/zerenguanli')->withErrors($validator);
+        }else{
+        	$result = DB::select('EXEC proc_login ?, ?', array($account, $password));
+        	if($result) {
+        		Session::put('userid', $result[0]->userid);
+				Session::put('username', $result[0]->username);
+				Session::put('type', $result[0]->type);
+				Session::put('belongArea', $result[0]->belongArea);
+				Session::put('pstate', $result[0]->pstate);
+				#判断权限
+				if($state != $result[0]->pstate && $result[0]->pstate!=3)
+				{
+					return Redirect::to('/login/zerenguanli')->withErrors(array('login' => '对不起您的账号没有权限登录系统!'));
+				}
+
+				return Redirect::to('/zerenguanli/jdtj');
+        	}
+        	#异常
+        	return Redirect::to('/login/zerenguanli')->withErrors(array('login' => '登录失败，请检查你填写的信息是否正确！'));
+        }
+		
+	}
+
 	/**
 	 * 登录提交
 	 */

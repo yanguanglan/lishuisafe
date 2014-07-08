@@ -874,3 +874,9 @@ body{
 	color: #494949;
 	padding-top: 3px;
 }
+.qiye{
+	border-collapse: collapse;
+}
+.qiye td{
+	border:1px solid #e3e3e3;
+}

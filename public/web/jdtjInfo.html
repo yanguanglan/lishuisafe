@@ -173,7 +173,11 @@
 	$(function(){
 		//基本统计 隔行换色
 		$(".jdtj table tr:even").css("backgroundColor","#fbfbfb");
-		$(".jdtj table tr:odd").css("backgroundColor","#ffffff"); 
+		$(".jdtj table tr:odd").css("backgroundColor","#ffffff");
+
+        $(".cont table tr:not(:first)").click(function(){
+            window.location.href="qiye.html";
+        })
 	})
 </script>
 <script>
@@ -186,6 +190,7 @@ $(document).ready(function(){
         $(".selVa").val(($(this).text()));     
         })   
     })
+
 </script>
 </body>
 </html>

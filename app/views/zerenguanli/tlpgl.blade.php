@@ -27,6 +27,7 @@
 			</select>
 			<input type="text" name="keyword" value="{{ $keyword }}" class="inp02" />
 			<input type="submit" value="查询" class="searBtn"/>
+      <span class="searBtn review">待审核<em>{{ $pending[0]->totalNum | 0 }}</em></span>
 </div>             
 		</div>
 		
@@ -103,4 +104,18 @@
 	</div>
 </div>
 <!--/end 投入品管理-->
+<script>
+$(document).ready(function(){
+    $(".selVa").click(function(){
+        $(".seWp").show();
+        })
+    $(".seWp li").click(function(){
+        $(".seWp").hide();
+        $(".selVa").val(($(this).text()));     
+        })   
+    })
+$(".review").click(function(){
+    window.location.href="{{ URL::route('tlpglsh') }}";
+})
+</script>
 @stop

@@ -15,9 +15,11 @@
                <span>
                    <input name="endTime" type="text" id="control_date2" size="15"
                        maxlength="10" onclick="new Calendar().show(this);" readonly="readonly" value="{{ $endTime }}" /></span>          
-      <input type="submit" value="查询" class="searBtn"/>
       </div> 
     </div>
+      <span>作物关键字：</span>
+    <input name="keyword" type="text" value="{{ $keyword }}" class="searInp" />
+    <input type="submit" value="查询" class="searBtn" />
   </div>
 </form>
 <div class="cont jdtj jdtj02">

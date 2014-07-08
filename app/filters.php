@@ -95,6 +95,24 @@ function get_type()
 }
 
 /**
+ * 获得当前用户所在区县
+ */
+function get_user_citylist()
+{
+	$result = DB::select('EXEC proc_duty_grid_city_list ?', array(Session::get('userid')));
+	return $result;
+}
+
+/**
+ * 获得当前用户二级分类
+ */
+function get_user_type()
+{
+	$result = DB::select('EXEC proc_user_second_type ?', array(Session::get('userid')));
+	return $result;
+}
+
+/**
  * 解析统计
  */
 function check_type($types, $countInfo)
@@ -113,7 +131,7 @@ function check_type($types, $countInfo)
 			$typesToArray[$key] = $val;
 		}
 	}
-
+	
 	return $typesToArray;
 }
 
@@ -131,3 +149,42 @@ function get_year()
 	return $year;
 }
 
+/**
+ * 抽样
+ */
+function get_pwhere($pwhere)
+{
+	switch ($pwhere) {
+		case 1:
+			return "超市";
+			break;
+		case 2:
+			return "批发市场";
+			break;
+		case 3:
+			return "农贸市场";
+			break;
+		case 4:
+			return "检测机构";
+			break;
+		case 5:
+			return "基地";
+			break;
+		default:
+			# code...
+			break;
+	}
+}
+
+/**
+ * 检测性质
+ */
+function get_user_item()
+{
+	return array(
+		'-1'=>'全部',
+		'0'=>'例行检查',
+		'1'=>'监督抽检',
+		'2'=>'专项检测'
+	);
+}

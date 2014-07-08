@@ -14,10 +14,12 @@
 
                <span>
                    <input name="endTime" type="text" id="control_date2" size="15"
-                       maxlength="10" onclick="new Calendar().show(this);" readonly="readonly" value="{{ $endTime }}" /></span>          
-      <input type="submit" value="查询" class="searBtn"/>
+                       maxlength="10" onclick="new Calendar().show(this);" readonly="readonly" value="{{ $endTime }}" /></span> 
       </div> 
     </div>
+    <span>作物关键字：</span>
+    <input name="keyword" type="text" value="{{ $keyword }}" class="searInp" />
+    <input type="submit" value="查询" class="searBtn" />
   </div>
 </form>
     <div class="cont jdtj">
@@ -41,7 +43,7 @@
           <tr>
             <td width="91" height="39" align="center" class="td01"><a href="{{ URL::route('ysctjinfo', array('city'=>$item->cityID, 'type'=>0, 'startDate'=>$startDate, 'endTime'=>$endTime)) }}" target="_blank">{{ $item->cityName }}</a></td>
             @foreach (check_type($types, $item->totalInfo) as $key => $val)
-            <td height="39" align="center"><a href="{{ URL::route('ysctjinfo', array('city'=>$item->cityID, 'type'=>$key, 'startDate'=>$startDate, 'endTime'=>$endTime)) }}" target="_blank">{{ $val }}</a></td>
+            <td height="39" align="center"><a href="{{ URL::route('ysctjinfo', array('city'=>$item->cityID, 'type'=>$key, 'startDate'=>$startDate, 'endTime'=>$endTime, 'keyword'=>$keyword)) }}" target="_blank">{{ $val }}</a></td>
             <?php
             if (isset($total[$key])) {
                     $total[$key]+= $val;
@@ -50,7 +52,7 @@
             }
             ?>
             @endforeach
-             <td height="39" align="center"><a href="{{ URL::route('ysctjinfo', array('city'=>$item->cityID, 'type'=>0, 'startDate'=>$startDate, 'endTime'=>$endTime)) }}" target="_blank">{{ $item->yushouTotal }}</a></td>
+             <td height="39" align="center"><a href="{{ URL::route('ysctjinfo', array('city'=>$item->cityID, 'type'=>0, 'startDate'=>$startDate, 'endTime'=>$endTime, 'keyword'=>$keyword)) }}" target="_blank">{{ $item->yushouTotal }}</a></td>
           </tr>
           <?php $total_sum += $item->yushouTotal; ?>
           @endforeach
@@ -58,7 +60,7 @@
           <td width="91" height="39" align="center" class="td01">总计</td>
           @endif
            @foreach ($total as $k => $v)
-               <td height="39" align="center"><a href="{{ URL::route('ysctjinfo', array('city'=>0, 'type'=>$k, 'startDate'=>$startDate, 'endTime'=>$endTime)) }}" target="_blank">{{ $v }}</a></td>
+               <td height="39" align="center"><a href="{{ URL::route('ysctjinfo', array('city'=>0, 'type'=>$k, 'startDate'=>$startDate, 'endTime'=>$endTime, 'keyword'=>$keyword)) }}" target="_blank">{{ $v }}</a></td>
            @endforeach
            @if ($total_sum>0)
            <td height="39" align="center">{{ $total_sum }}</td>
