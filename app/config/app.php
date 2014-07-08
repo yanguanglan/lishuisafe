@@ -188,7 +188,6 @@ return array(
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
 		'Captcha' => 'Mews\Captcha\Facades\Captcha',
-
 	),
 
 );
