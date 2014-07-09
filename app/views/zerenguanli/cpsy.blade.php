@@ -123,7 +123,7 @@
                 <td width="30%" height="39" bgcolor="#f8f8f8">备注</td>
               </tr>
               @if ($yyjl)
-              @foreach($yyjj as $v)
+              @foreach($yyjl as $v)
               <tr>
                 <td width="10%" height="39" bgcolor="#FFFFFF">@if($v->ptime){{ date('Y-m-d', strtotime($v->ptime)) }}@endif</td>
                 <td width="15%" height="39" bgcolor="#FFFFFF">{{ $v->pnameper }}</td>
