@@ -170,8 +170,8 @@
               @if($pprz)
                <tr>
                 <td width="20%" height="39" bgcolor="#FFFFFF">{{ date('Y-m-d', $pprz[0]->ptimest) }}</td>
-                <td width="20%" height="39" bgcolor="#FFFFFF">{{ date('Y-m-d', $pprz[0]->ptimeend) }}</td>
                 <td width="20%" height="39" bgcolor="#FFFFFF">{{ $pprz[0]->pname }}</td>
+                <td width="20%" height="39" bgcolor="#FFFFFF">{{ date('Y-m-d', $pprz[0]->ptimeend) }}</td>
                 <td width="40%" height="39" bgcolor="#FFFFFF">&nbsp;</td>
               </tr>
               @else

@@ -38,14 +38,14 @@
 <div class="block">
 <div class="scHead">
 	<ul>
-		<li><a href="">政策咨询</a></li>
-		<li><a href="">丽水新闻</a></li>
-		<li><a href="">专家信箱</a></li>
-		<li><a href="">农业技术</a></li>
-		<li><a href="">电子商务培训</a></li>
-		<li><a href="">手机微营销</a></li>
-		<li><a href="">供求信息</a></li>
-		<li><a href="">通知公告</a></li>
+		<li><a href="http://www.lsnj110.gov.cn/programs/main/tszx/add.jsp">政策咨询</a></li>
+		<li><a href="http://www.lsnj110.gov.cn/html/main/nydt/">丽水新闻</a></li>
+		<li><a href="http://www.lsnj110.gov.cn/programs/zjzx/njzj.jsp">专家信箱</a></li>
+		<li><a href="http://www.lsnj110.gov.cn/programs/database/nyjszlk.jsp">农业技术</a></li>
+		<li><a href="http://www.lsnj110.gov.cn/html/main/ttc/">电子商务培训</a></li>
+		<li><a href="http://www.51lianying.com/">手机微营销</a></li>
+		<li><a href="http://www.zjnm.cn/mmDesktop.aspx?zid=DQDI4EYLOSOJ16VB15WL661HR8AAQ06CC82">供求信息</a></li>
+		<li><a href="http://www.lsnj110.gov.cn/html/main/tzgg/">通知公告</a></li>
 	</ul>
 	<p><a href=""><img src="images/scB.jpg" /></a></p>
 </div>
@@ -61,43 +61,67 @@
 			<li>
 				<a href="">
 					<img src="images/sc2.jpg" alt="" />
-					<p>种植业生产系统</p>
+					<p>水果业生产系统</p>
 				</a>
 			</li>
 			<li>
 				<a href="">
 					<img src="images/sc3.jpg" alt="" />
-					<p>种植业生产系统</p>
+					<p>菌菇业生产系统</p>
 				</a>				
 			</li>
 			<li>
 				<a href="">
 					<img src="images/sc4.jpg" alt="" />
-					<p>种植业生产系统</p>
+					<p>牛羊养殖生产系统</p>
 				</a>				
 			</li>
 			<li>
 				<a href="">
 					<img src="images/sc5.jpg" alt="" />
-					<p>种植业生产系统</p>
+					<p>猪养殖产系统</p>
 				</a>				
 			</li>
 			<li>
 				<a href="">
 					<img src="images/sc6.jpg" alt="" />
-					<p>种植业生产系统</p>
+					<p>蜂业业生产系统</p>
 				</a>				
 			</li>
 			<li>
 				<a href="">
 					<img src="images/sc7.jpg" alt="" />
-					<p>种植业生产系统</p>
+					<p>茶生产系统</p>
 				</a>				
 			</li>
 			<li>
 				<a href="">
 					<img src="images/sc8.jpg" alt="" />
-					<p>种植业生产系统</p>
+					<p>渔业生产系统</p>
+				</a>				
+			</li>
+				<li>
+				<a href="">
+					<img src="images/sc9.jpg" alt="" />
+					<p>农业加工生产系统</p>
+				</a>				
+			</li>
+				<li>
+				<a href="">
+					<img src="images/sc10.jpg" alt="" />
+					<p>禽蛋生产系统</p>
+				</a>				
+			</li>
+				<li>
+				<a href="">
+					<img src="images/sc11.jpg" alt="" />
+					<p>林特生产系统</p>
+				</a>				
+			</li>
+			<li>
+				<a href="">
+					<img src="images/sc12.jpg" alt="" />
+					<p>粮油生产系统</p>
 				</a>				
 			</li>
 		</ul>

@@ -57,6 +57,32 @@ Route::post('/login', array('as'=>'user.login.post', 'uses'=>'UsersController@po
 #退出
 Route::get('/logout', array('as'=>'user.logout', 'uses'=>'UsersController@userLogout'));
 
+#溯源手机
+	Route::get('/mobile', array('as' => 'mobile', function(){
+
+		$sn = Input::get('sn', '');
+		#生产商信息
+		$scsxx = DB::select('EXEC proc_farm_product_sale_info ?', array($sn));
+		#种子信息
+		$zzxx = DB::select('EXEC proc_seed_info ?', array($sn));
+		#施肥记录
+		$sfjl = DB::select('EXEC proc_fertilizer_apply_info ?', array($sn));
+		#用药记录
+		$yyjl = DB::select('EXEC proc_pesticide_apply_info ?', array($sn));
+		#检测记录
+		$jcjl = DB::select('EXEC proc_sample_test_info ?', array($sn));
+		#采集记录
+		$cjjl = DB::select('EXEC proc_collection_info ?', array($sn));
+		#销售记录
+		$xsjl = DB::select('EXEC proc_sale_info ?', array($sn));
+		#环境检测
+		$hjjc = DB::select('EXEC proc_environmental_test_info ?', array($sn));
+		#品牌认证
+		$pprz = DB::select('EXEC proc_certificate_info ?', array($sn));
+		
+		return View::make('mobile')->with('sn', $sn)->with('scsxx', $scsxx)->with('zzxx', $zzxx)->with('sfjl', $sfjl)->with('yyjl', $yyjl)->with('jcjl', $jcjl)->with('cjjl', $cjjl)->with('xsjl', $xsjl)->with('hjjc', $hjjc)->with('pprz', $pprz);
+	}));
+
 
 #溯源
 	Route::get('/cx', array('as' => 'cx', function(){
@@ -174,6 +200,7 @@ Route::group(array('prefix' => 'zerenguanli', 'before' => 'auth.zerenguanli'), f
 
 		return View::make('zerenguanli.ysctjinfo')->with('result', $result)->with('city', $city)->with('type', $type)->with('startDate', $startDate)->with('endTime', $endTime)->with('keyword', $keyword);;
 	}));
+
 	#责任网格
 	Route::get('/zrwg', array('as' => 'zrwg', function(){
 
@@ -184,6 +211,44 @@ Route::group(array('prefix' => 'zerenguanli', 'before' => 'auth.zerenguanli'), f
 		$county = DB::select('EXEC proc_duty_grid_city_detail_list ?, ?', array(Session::get('userid'), $cityID));
 		$town = DB::select('EXEC proc_duty_grid_town_detail_list ?, ?', array(Session::get('userid'), $cityID));
 		return View::make('zerenguanli.zrwg')->with('city', $city)->with('county', $county)->with('town', $town)->with('area', $area)->with('cityID', $cityID);
+	}));
+
+	#责任网格邮箱
+	Route::get('/zrwgmail', array('as' => 'zrwgmail', function(){
+
+		$workerID = Input::get('workerID', '');
+		$type = Input::get('type', 2);
+		$result = DB::select('EXEC proc_duty_grid_email_list ?, ?', array($workerID, $type));
+		return View::make('zerenguanli.zrwgmail')->with('type', $type)->with('workerID', $workerID)->with('result', $result);
+	}));
+
+	#责任网格邮箱详细
+	Route::get('/zrwgmaildetail', array('as' => 'zrwgmaildetail', function(){
+
+		$emailID= Input::get('emailID', '');
+		$workerID = Input::get('workerID', '');
+		$type = Input::get('type', '');
+		$result = DB::select('EXEC proc_duty_grid_email_detail ?', array($emailID));
+		return View::make('zerenguanli.zrwgmaildetail')->with('type', $type)->with('workerID', $workerID)->with('emailID', $emailID)->with('result', $result);
+	}));
+
+	#责任网格任务
+	Route::get('/zrwgtask', array('as' => 'zrwgtask', function(){
+
+		$workerID = Input::get('workerID', '');
+		$type = Input::get('type', 2);
+		$result = DB::select('EXEC proc_duty_grid_task_list ?, ?', array($workerID, $type));
+		return View::make('zerenguanli.zrwgtask')->with('type', $type)->with('workerID', $workerID)->with('result', $result);
+	}));
+
+	#责任网格任务详细
+	Route::get('/zrwgtaskdetail', array('as' => 'zrwgtaskdetail', function(){
+
+		$taskID= Input::get('taskID', '');
+		$workerID = Input::get('workerID', '');
+		$type = Input::get('type', '');
+		$result = DB::select('EXEC proc_duty_grid_task_detail ?', array($taskID));
+		return View::make('zerenguanli.zrwgtaskdetail')->with('type', $type)->with('workerID', $workerID)->with('taskID', $taskID)->with('result', $result);
 	}));
 
 	Route::get('/tlpgl', array('as' => 'tlpgl', function(){
