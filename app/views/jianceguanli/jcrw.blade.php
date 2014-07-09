@@ -26,13 +26,7 @@
       </div> 
 	 
 			<em>检测性质：</em>
-				<div class="seBox check">
-	                 <select name="item">
-				                @foreach (get_user_item() as $key => $value)
-				        <option value="{{$key}}" @if ($key == $item) selected="selected" @endif>{{$value}}</option>
-				                @endforeach
-				      </select>
-               </div>			
+							
 			<input type="submit" value="统计" class="searBtn"/>
 			<input type="submit" value="Excel" class="searBtn" />
 			 <input type="submit" value="发起检测任务" class="searBtn faqi" />
