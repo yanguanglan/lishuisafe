@@ -29,7 +29,7 @@
                     <tbody>
                     	@foreach($result as $value)
                         <tr>
-                            <td width="25%">@if($type==1)<em class="spec"></em>@else<em class="nomal"></em>@endif{{ $value->ptime }}</td>
+                            <td width="25%">@if($type==1)<em class="spec"></em>@else<em class="nomal"></em>@endif{{ date('Y-m-d H:i:s', strtotime($value->ptime)) }}</td>
                             <td width="36%"><a href="{{URL::route('zrwgtaskdetail', array('taskID'=>$value->ID, 'workerID'=>$workerID, 'type'=>$type))}}">{{$value->ptitle}}</a></td>
                             <td>{{$value->toName}}</td>
                             <td width="14%">{{$value->feedNum}}</td>
