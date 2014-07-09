@@ -443,9 +443,11 @@ Route::group(array('prefix' => 'jianceguanli', 'before' => 'auth.zerenguanli'), 
 		$endTime = Input::get('endTime', date('Y-m-d', time()));
 		$city = Input::get('city', 1);
 		$item = Input::get('item', 1);
+		$user_citylist = get_user_citylist();
+		$user_item = get_user_item();
 		$result = DB::select('EXEC proc_monitor_task_info ?, ?, ?, ?, ?', array(Session::get('userid'), $city, $startDate, $endTime, $item));
 
-		return View::make('jianceguanli.jcrw')->with('city', $city)->with('item', $item)->with('startDate', $startDate)->with('endTime', $endTime)->with('result', $result);
+		return View::make('jianceguanli.jcrw')->with('city', $city)->with('item', $item)->with('startDate', $startDate)->with('endTime', $endTime)->with('result', $result)->with('user_citylist', $user_citylist)->with('user_item', $user_item);
 	}));
 
 	//监督检测

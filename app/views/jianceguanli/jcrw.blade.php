@@ -9,7 +9,6 @@
 			<em>区域：</em>
 				<div class="seBox address">
 	               <select name="city">
-	               		<?php $user_citylist = get_user_citylist(); ?>
 				                @foreach ($user_citylist as $v)
 				        <option value="{{$v->ID}}" @if ($v->ID == $city) selected="selected" @endif>{{$v->pname}}</option>
 				                @endforeach
@@ -29,7 +28,6 @@
 			<em>检测性质：</em>
 				<div class="seBox check">
 	                 <select name="item">
-	                 	<?php $user_item = get_user_item(); ?>
 				                @foreach ($user_item as $key => $value)
 				        <option value="{{$key}}" @if ($key == $item) selected="selected" @endif>{{$value}}</option>
 				                @endforeach
