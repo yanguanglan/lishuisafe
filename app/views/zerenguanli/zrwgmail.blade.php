@@ -28,7 +28,7 @@
                     <tbody>
                     	@foreach($result as $value)
                         <tr>
-                            <td width="25%">@if($type==1)<em class="spec"></em>@else<em class="nomal"></em>@endif{{ $value->ptime }}</td>
+                            <td width="25%">@if($type==1)<em class="spec"></em>@else<em class="nomal"></em>@endif{{ date('Y-m-d', strtotime($value->ptime)) }}</td>
                             <td width="36%"><a href="{{URL::route('zrwgmaildetail', array('emailID'=>$value->ID, 'workerID'=>$workerID, 'type'=>$type))}}">{{$value->ptitle}}</a></td>
                             <td width="14%">{{$value->fromName}}</td>
                             <td width="11%">@if($value->pend==0) 审核中 @elseif($value->pend==-1) 不通过 @else 通过 @endif </td>
