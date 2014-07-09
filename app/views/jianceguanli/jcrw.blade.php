@@ -29,7 +29,7 @@
 			<em>检测性质：</em>
 				<div class="seBox check">
 	                 <select name="item">
-	                 	<?php $user_item = get_user_item()(); ?>
+	                 	<?php $user_item = get_user_item(); ?>
 				                @foreach ($user_item as $key => $value)
 				        <option value="{{$key}}" @if ($key == $item) selected="selected" @endif>{{$value}}</option>
 				                @endforeach
