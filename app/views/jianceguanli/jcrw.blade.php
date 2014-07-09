@@ -8,7 +8,12 @@
 		<div class="searchFl searchFl01">
 			<em>区域：</em>
 				<div class="seBox address">
-	               
+	               <select name="city">
+	               		<?php $user_citylist = get_user_citylist(); ?>
+				                @foreach ($user_citylist as $v)
+				        <option value="{{$v->ID}}" @if ($v->ID == $city) selected="selected" @endif>{{$v->pname}}</option>
+				                @endforeach
+				      </select>
                </div>
    <div class="calendar" style="display:inline;">
                 <em style="padding: 0;float:left;margin-top:5px;">检查时间：</em>
@@ -22,7 +27,14 @@
       </div> 
 	 
 			<em>检测性质：</em>
-							
+				<div class="seBox check">
+	                 <select name="item">
+	                 	<?php $user_item = get_user_item()(); ?>
+				                @foreach ($user_item as $key => $value)
+				        <option value="{{$key}}" @if ($key == $item) selected="selected" @endif>{{$value}}</option>
+				                @endforeach
+				      </select>
+               </div>			
 			<input type="submit" value="统计" class="searBtn"/>
 			<input type="submit" value="Excel" class="searBtn" />
 			 <input type="submit" value="发起检测任务" class="searBtn faqi" />
