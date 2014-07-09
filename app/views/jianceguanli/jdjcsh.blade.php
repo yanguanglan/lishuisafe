@@ -9,7 +9,7 @@
 			<em>区域：</em>
 				<div class="seBox address">
 	               <select name="city">
-				                @foreach (get_user_citylist() as $v)
+				                @foreach ($user_citylist() as $v)
 				        <option value="{{$v->ID}}" @if ($v->ID == $city) selected="selected" @endif>{{$v->pname}}</option>
 				                @endforeach
 				      </select>
@@ -28,7 +28,7 @@
 			<em>样品行业：</em>
 				<div class="seBox check">
 	                 <select name="usertype">
-				                @foreach (get_user_type() as $v)
+				                @foreach ($user_type() as $v)
 				        <option value="{{$v->ID}}" @if ($v->ID == $usertype) selected="selected" @endif>{{$v->pname}}</option>
 				                @endforeach
 				      </select>

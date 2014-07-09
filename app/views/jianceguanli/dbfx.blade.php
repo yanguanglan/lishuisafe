@@ -9,7 +9,7 @@
 			<em>品种：</em>
 				<div class="seBox address">
 	                <select name="usertype">
-				                @foreach (get_user_type() as $v)
+				                @foreach ($user_type as $v)
 				        <option value="{{$v->ID}}" @if ($v->ID == $usertype) selected="selected" @endif>{{$v->pname}}</option>
 				                @endforeach
 				      </select>

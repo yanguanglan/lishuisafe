@@ -9,7 +9,7 @@
 			<em>区域：</em>
 				<div class="seBox address">
 	               <select name="city">
-				                @foreach (get_user_citylist() as $v)
+				                @foreach ($user_citylist as $v)
 				        <option value="{{$v->ID}}" @if ($v->ID == $city) selected="selected" @endif>{{$v->pname}}</option>
 				                @endforeach
 				      </select>
@@ -43,7 +43,7 @@
                     <tr>
                         <td height="39" align="center">{{$value->secTypeName}}</td>
                         <td height="39" align="center">{{$value->totalNum }}</td>
-                        <td height="39" align="center"><a href="{{ URL::route('zhtjsh', array( 'res'=>0, 'startDate'=>$startDate, 'endTime'=>$endTime, 'secTypeID'=>$secTypeID, 'city'=>$city)) }}">{{$value->noQualifiedNum }}</a></td>
+                        <td height="39" align="center"><a href="{{ URL::route('zhtjsh', array( 'res'=>0, 'startDate'=>$startDate, 'endTime'=>$endTime, 'secTypeID'=>$value->secTypeID, 'city'=>$city)) }}">{{$value->noQualifiedNum }}</a></td>
                         <td height="39" align="center">{{ 100*($value->qualifiedNum/$value->totalNum)}}%</td>
                         <td height="39" ><td height="39" align="center"  ><a >查看</a></td></td>
                     </tr>

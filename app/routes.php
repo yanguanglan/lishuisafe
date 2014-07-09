@@ -442,7 +442,7 @@ Route::group(array('prefix' => 'jianceguanli', 'before' => 'auth.zerenguanli'), 
 		$startDate = Input::get('startDate', date('Y-m-01', time()));
 		$endTime = Input::get('endTime', date('Y-m-d', time()));
 		$city = Input::get('city', 1);
-		$item = Input::get('item', 1);
+		$item = Input::get('item', -1);
 		$user_citylist = get_user_citylist();
 		$user_item = get_user_item();
 		$result = DB::select('EXEC proc_monitor_task_info ?, ?, ?, ?, ?', array(Session::get('userid'), $city, $startDate, $endTime, $item));
@@ -457,9 +457,11 @@ Route::group(array('prefix' => 'jianceguanli', 'before' => 'auth.zerenguanli'), 
 		$endTime = Input::get('endTime', date('Y-m-d', time()));
 		$city = Input::get('city', 1);
 		$usertype = Input::get('usertype', 1);
+		$user_citylist = get_user_citylist();
+		$user_type = get_user_type();
 		$result = DB::select('EXEC proc_monitor_sample_random_test_analysis_info ?, ?, ?, ?, ?', array(Session::get('userid'), $city, $startDate, $endTime, $usertype));
 
-		return View::make('jianceguanli.jdjc')->with('city', $city)->with('usertype', $usertype)->with('startDate', $startDate)->with('endTime', $endTime)->with('result', $result);
+		return View::make('jianceguanli.jdjc')->with('city', $city)->with('usertype', $usertype)->with('startDate', $startDate)->with('endTime', $endTime)->with('result', $result)->with('user_citylist', $user_citylist)->with('user_type', $user_type);
 	}));
 
 	//监督检测审核
@@ -471,9 +473,11 @@ Route::group(array('prefix' => 'jianceguanli', 'before' => 'auth.zerenguanli'), 
 		$usertype = Input::get('usertype', '');
 		$institutionID = Input::get('institutionID', '');
 		$res = Input::get('res', '');
+		$user_citylist = get_user_citylist();
+		$user_type = get_user_type();
 		$result = DB::select('EXEC proc_monitor_sample_random_test_type_info ?, ?, ?, ?, ?,　?, ?', array(Session::get('userid'), $city, $startDate, $endTime, $usertype, $institutionID, $res));
 
-		return View::make('jianceguanli.jdjcsh')->with('city', $city)->with('usertype', $usertype)->with('startDate', $startDate)->with('endTime', $endTime)->with('result', $result);
+		return View::make('jianceguanli.jdjcsh')->with('city', $city)->with('usertype', $usertype)->with('startDate', $startDate)->with('endTime', $endTime)->with('result', $result)->with('user_citylist', $user_citylist)->with('user_type', $user_type);
 	}));
 
 	//企业送检
@@ -482,9 +486,11 @@ Route::group(array('prefix' => 'jianceguanli', 'before' => 'auth.zerenguanli'), 
 		$endTime = Input::get('endTime', date('Y-m-d', time()));
 		$city = Input::get('city', 1);
 		$usertype = Input::get('usertype', 1);
+		$user_citylist = get_user_citylist();
+		$user_type = get_user_type();
 		$result = DB::select('EXEC proc_monitor_sample_send_test_analysis_info ?, ?, ?, ?, ?', array(Session::get('userid'), $city, $startDate, $endTime, $usertype));
 
-		return View::make('jianceguanli.qysj')->with('city', $city)->with('usertype', $usertype)->with('startDate', $startDate)->with('endTime', $endTime)->with('result', $result);
+		return View::make('jianceguanli.qysj')->with('city', $city)->with('usertype', $usertype)->with('startDate', $startDate)->with('endTime', $endTime)->with('result', $result)->with('user_citylist', $user_citylist)->with('user_type', $user_type);
 	}));
 
 	//企业送检审核
@@ -496,9 +502,11 @@ Route::group(array('prefix' => 'jianceguanli', 'before' => 'auth.zerenguanli'), 
 		$usertype = Input::get('usertype', '');
 		$institutionID = Input::get('institutionID', '');
 		$res = Input::get('res', '');
+		$user_citylist = get_user_citylist();
+		$user_type = get_user_type();
 		$result = DB::select('EXEC proc_monitor_sample_send_test_type_info ?, ?, ?, ?, ?,　?, ?', array(Session::get('userid'), $city, $startDate, $endTime, $usertype, $institutionID, $res));
 
-		return View::make('jianceguanli.qysjsh')->with('city', $city)->with('usertype', $usertype)->with('startDate', $startDate)->with('endTime', $endTime)->with('result', $result);
+		return View::make('jianceguanli.qysjsh')->with('city', $city)->with('usertype', $usertype)->with('startDate', $startDate)->with('endTime', $endTime)->with('result', $result)->with('user_citylist', $user_citylist)->with('user_type', $user_type);
 	}));
 
 	//企业自检
@@ -541,9 +549,10 @@ Route::group(array('prefix' => 'jianceguanli', 'before' => 'auth.zerenguanli'), 
 		$startDate = Input::get('startDate', date('Y-m-01', time()));
 		$endTime = Input::get('endTime', date('Y-m-d', time()));
 		$city = Input::get('city', 1);
+		$user_citylist = get_user_citylist();
 		$result = DB::select('EXEC proc_monitor_comprehensive_analysis_info ?, ?, ?, ?', array(Session::get('userid'), $city, $startDate, $endTime));
 
-		return View::make('jianceguanli.zhtj')->with('city', $city)->with('startDate', $startDate)->with('endTime', $endTime)->with('result', $result);
+		return View::make('jianceguanli.zhtj')->with('city', $city)->with('startDate', $startDate)->with('endTime', $endTime)->with('result', $result)->with('user_citylist', $user_citylist);
 	}));
 
 	//综合统计审核
@@ -554,9 +563,10 @@ Route::group(array('prefix' => 'jianceguanli', 'before' => 'auth.zerenguanli'), 
 		$city = Input::get('city', '');
 		$secTypeID = Input::get('secTypeID', '');
 		$res = Input::get('res', '');
+		$user_citylist = get_user_citylist();
 		$result = DB::select('EXEC proc_monitor_comprehensive_type_info ?, ?, ?, ?, ?,　?, ?', array(Session::get('userid'), $city, $startDate, $endTime, $secTypeID, $res));
 
-		return View::make('jianceguanli.zhtjsh')->with('city', $city)->with('startDate', $startDate)->with('endTime', $endTime)->with('result', $result);
+		return View::make('jianceguanli.zhtjsh')->with('city', $city)->with('startDate', $startDate)->with('endTime', $endTime)->with('result', $result)->with('user_citylist', $user_citylist);
 	}));
 
 	//场所统计
@@ -564,9 +574,10 @@ Route::group(array('prefix' => 'jianceguanli', 'before' => 'auth.zerenguanli'), 
 	    $startDate = Input::get('startDate', date('Y-m-01', time()));
 		$endTime = Input::get('endTime', date('Y-m-d', time()));
 		$city = Input::get('city', 1);
+		$user_citylist = get_user_citylist();
 		$result = DB::select('EXEC proc_monitor_place_analysis_info ?, ?, ?, ?', array(Session::get('userid'), $city, $startDate, $endTime));
 
-		return View::make('jianceguanli.cstj')->with('city', $city)->with('startDate', $startDate)->with('endTime', $endTime)->with('result', $result);
+		return View::make('jianceguanli.cstj')->with('city', $city)->with('startDate', $startDate)->with('endTime', $endTime)->with('result', $result)->with('user_citylist', $user_citylist);
 	}));
 	
 	//区域统计
@@ -574,9 +585,10 @@ Route::group(array('prefix' => 'jianceguanli', 'before' => 'auth.zerenguanli'), 
 	    $startDate = Input::get('startDate', date('Y-m-01', time()));
 		$endTime = Input::get('endTime', date('Y-m-d', time()));
 		$usertype = Input::get('usertype', 1);
+		$user_type = get_user_type();
 		$result = DB::select('EXEC proc_monitor_area_analysis_info ?, ?, ?, ?', array(Session::get('userid'), $usertype, $startDate, $endTime));
 
-		return View::make('jianceguanli.qytj')->with('usertype', $usertype)->with('startDate', $startDate)->with('endTime', $endTime)->with('result', $result);
+		return View::make('jianceguanli.qytj')->with('usertype', $usertype)->with('startDate', $startDate)->with('endTime', $endTime)->with('result', $result)->with('user_type', $user_type);
 	}));
 
 	//趋势分析
@@ -584,9 +596,10 @@ Route::group(array('prefix' => 'jianceguanli', 'before' => 'auth.zerenguanli'), 
 		$startDate = Input::get('startDate', date('Y-m-01', time()));
 		$endTime = Input::get('endTime', date('Y-m-d', time()));
 		$city = Input::get('city', 1);
+		$user_citylist = get_user_citylist();
 		$result = DB::select('EXEC proc_monitor_month_analysis_info ?, ?, ?, ?', array(Session::get('userid'), $city, $startDate, $endTime));
 
-		return View::make('jianceguanli.qsfx')->with('city', $city)->with('startDate', $startDate)->with('endTime', $endTime)->with('result', $result);
+		return View::make('jianceguanli.qsfx')->with('city', $city)->with('startDate', $startDate)->with('endTime', $endTime)->with('result', $result)->with('user_citylist', $user_citylist);
 	}));
 	
 	//对比分析
@@ -594,9 +607,10 @@ Route::group(array('prefix' => 'jianceguanli', 'before' => 'auth.zerenguanli'), 
 		$startDate = Input::get('startDate', date('Y-m-01', time()));
 		$endTime = Input::get('endTime', date('Y-m-d', time()));
 		$usertype = Input::get('usertype', 1);
+		$user_type = get_user_type();
 		$result = DB::select('EXEC proc_monitor_compare_analysis_info ?, ?, ?, ?', array(Session::get('userid'), $usertype, $startDate, $endTime));
 
-		return View::make('jianceguanli.dbfx')->with('usertype', $usertype)->with('startDate', $startDate)->with('endTime', $endTime)->with('result', $result);
+		return View::make('jianceguanli.dbfx')->with('usertype', $usertype)->with('startDate', $startDate)->with('endTime', $endTime)->with('result', $result)->with('user_type', $user_type);
 	}));
 
 });
