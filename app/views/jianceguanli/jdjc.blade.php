@@ -28,7 +28,7 @@
 			<em>样品行业：</em>
 				<div class="seBox check">
 	                 <select name="usertype">
-				                @foreach ($user_type() as $v)
+				                @foreach ($user_type as $v)
 				        <option value="{{$v->ID}}" @if ($v->ID == $usertype) selected="selected" @endif>{{$v->pname}}</option>
 				                @endforeach
 				      </select>

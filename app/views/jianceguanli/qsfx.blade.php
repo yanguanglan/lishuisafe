@@ -9,7 +9,7 @@
 			<em>区域：</em>
 				<div class="seBox address">
 	               <select name="city">
-				                @foreach ($user_citylist() as $v)
+				                @foreach ($user_citylist as $v)
 				        <option value="{{$v->ID}}" @if ($v->ID == $city) selected="selected" @endif>{{$v->pname}}</option>
 				                @endforeach
 				      </select>
