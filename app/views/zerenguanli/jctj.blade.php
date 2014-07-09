@@ -3,7 +3,8 @@
 <div class="wrap w85">
 <!--检测统计-->
 <div class="block">
-	<div class="search">
+	<form name="jctj">
+  <div class="search">
 		<div class="searchFl">
 			      <div class="calendar">
                 <em style="padding: 0;float:left;margin-top:5px;">检测时间：</em>
@@ -24,6 +25,7 @@
       <span class="searBtn review">待审核<em>{{ $pending[0]->totalNum | 0 }}</em></span>
 		</div>
 	</div>
+</form>
 	<div class="cont jdtj">
 		<table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#e3e3e3">
           <tr class="top">

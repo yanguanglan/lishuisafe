@@ -4,6 +4,8 @@
   <div class="wrap w85">
         <!--检测统计-->
         <div class="block">
+          <form name="jctjinfo">
+
 	<div class="search">
 		<div class="searchFl">
               <div class="calendar">
@@ -25,7 +27,8 @@
 			<input name="type" type="hidden" value="{{ $type }}" class="searInp" />
 			<input type="submit" value="查询" class="searBtn" />
 		</div>
-	</div>            <div class="cont jdtj jdtj02">
+	</div>  
+  </form>          <div class="cont jdtj jdtj02">
                 <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#e3e3e3">
                     <tr class="top">
                         <td height="65" bgcolor="#efefef">企业名称</td>
