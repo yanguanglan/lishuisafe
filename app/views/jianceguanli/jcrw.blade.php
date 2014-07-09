@@ -8,11 +8,7 @@
 		<div class="searchFl searchFl01">
 			<em>区域：</em>
 				<div class="seBox address">
-	               <select name="city">
-				                @foreach (get_user_citylist() as $v)
-				        <option value="{{$v->ID}}" @if ($v->ID == $city) selected="selected" @endif>{{$v->pname}}</option>
-				                @endforeach
-				      </select>
+	               
                </div>
    <div class="calendar" style="display:inline;">
                 <em style="padding: 0;float:left;margin-top:5px;">检查时间：</em>
