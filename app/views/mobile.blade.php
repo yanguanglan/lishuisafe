@@ -285,7 +285,7 @@
 <script type="text/javascript">
 	$(function(){
 		$(".btn").click(function(){
-			window.location.href="http://www.51lianying.cn/index.php/microWeb/index/pageid/103";
+			window.location.href="http://www.51lianying.cn/index.php/microWeb/index?pageid=745";
 		})
 	})
 </script>

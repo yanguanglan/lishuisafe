@@ -357,7 +357,7 @@ Route::group(array('prefix' => 'zerenguanli', 'before' => 'auth.zerenguanli'), f
 		$endTime = Input::get('endTime', '');
 		$keyword = Input::get('keyword', '');
 
-		$result = DB::select('EXEC proc_sample_test_type_info ?, ?, ?, ?, ?', array(Session::get('userid'), $city, $type, $startDate, $endTime, $keyword));
+		$result = DB::select('EXEC proc_sample_test_type_info ?, ?, ?, ?, ?, ?', array(Session::get('userid'), $city, $type, $startDate, $endTime, $keyword));
 
 		return View::make('zerenguanli.jctjinfo')->with('result', $result)->with('city', $city)->with('type', $type)->with('startDate', $startDate)->with('endTime', $endTime)->with('keyword', $keyword);
 	}));
