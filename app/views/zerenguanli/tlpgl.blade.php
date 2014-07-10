@@ -75,7 +75,7 @@
             <td height="39" align="center">{{$value->productName}}</td>
             <td height="39" align="center">{{$value->spec}}{{$value->specUnit}}</td>
             <td height="39" align="center"><a target="_blank" href="{{ URL::route('tlpglcginfo', array('startDate'=>$startDate, 'endTime'=>$endTime, 'way'=>$way, 'keyword'=>$keyword, 'productID'=>$value->productID)) }}">{{$value->saleNum}}{{$value->saleUnit}}</a></td>
-            <td height="39" align="center"><a target="_blank" href="{{ URL::route('tlpglsyinfo', array('startDate'=>$startDate, 'endTime'=>$endTime, 'way'=>$way, 'keyword'=>$keyword)) }}">{{$value->useNum}}{{$value->useUnit}}</a></td>
+            <td height="39" align="center"><a target="_blank" href="{{ URL::route('tlpglsyinfo', array('startDate'=>$startDate, 'endTime'=>$endTime, 'way'=>$way, 'keyword'=>$keyword, 'productID'=>$value->productID)) }}">{{$value->useNum}}{{$value->useUnit}}</a></td>
             <td height="39" align="left">@if($value->pstate == 0)正常@elseif($value->pstate == 1)限制用@else禁用@endif</td>
           </tr>
            @endforeach
