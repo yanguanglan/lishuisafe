@@ -70,11 +70,11 @@ Route::get('/logout', array('as'=>'user.logout', 'uses'=>'UsersController@userLo
 		#用药记录
 		$yyjl = DB::select('EXEC proc_pesticide_apply_info ?', array($sn));
 		#检测记录
-		$jcjl = DB::select('EXEC proc_sample_test_info ?', array($sn));
+		$jcjl = DB::select('EXEC proc_sample_test_info ?, ?', array($sn, 0));
 		#采集记录
 		$cjjl = DB::select('EXEC proc_collection_info ?', array($sn));
 		#销售记录
-		$xsjl = DB::select('EXEC proc_sale_info ?', array($sn));
+		$xsjl = DB::select('EXEC proc_sale_info ?, ?', array($sn, 0));
 		#环境检测
 		$hjjc = DB::select('EXEC proc_environmental_test_info ?', array($sn));
 		#品牌认证
@@ -101,9 +101,9 @@ Route::get('/logout', array('as'=>'user.logout', 'uses'=>'UsersController@userLo
 		#采集记录
 		$cjjl = DB::select('EXEC proc_collection_info ?', array($sn));
 		#销售记录
-		$xsjl = DB::select('EXEC proc_sale_info ?', array($sn));
+		$xsjl = DB::select('EXEC proc_sale_info ?, ?', array($sn, 0));
 		#环境检测
-		$hjjc = DB::select('EXEC proc_environmental_test_info ?', array($sn));
+		$hjjc = DB::select('EXEC proc_environmental_test_info ?, ?', array($sn, 0));
 		#品牌认证
 		$pprz = DB::select('EXEC proc_certificate_info ?', array($sn));
 		
@@ -411,11 +411,11 @@ Route::group(array('prefix' => 'zerenguanli', 'before' => 'auth.zerenguanli'), f
 		#用药记录
 		$yyjl = DB::select('EXEC proc_pesticide_apply_info ?', array($sn));
 		#检测记录
-		$jcjl = DB::select('EXEC proc_sample_test_info ?', array($sn));
+		$jcjl = DB::select('EXEC proc_sample_test_info ?, ?', array($sn, 1));
 		#采集记录
 		$cjjl = DB::select('EXEC proc_collection_info ?', array($sn));
 		#销售记录
-		$xsjl = DB::select('EXEC proc_sale_info ?', array($sn));
+		$xsjl = DB::select('EXEC proc_sale_info ?, ?', array($sn, 1));
 		
 		return View::make('zerenguanli.cpsy')->with('sn', $sn)->with('scsxx', $scsxx)->with('zzxx', $zzxx)->with('sfjl', $sfjl)->with('yyjl', $yyjl)->with('jcjl', $jcjl)->with('cjjl', $cjjl)->with('xsjl', $xsjl);
 	}));
