@@ -297,8 +297,8 @@ Route::group(array('prefix' => 'zerenguanli', 'before' => 'auth.zerenguanli'), f
 		$endTime = Input::get('endTime', '');
 		$way = Input::get('way', '');
 		$keyword = Input::get('keyword', '');
-
-		$result = DB::select('EXEC proc_inputs_type_info ?, ?, ?, ?, ?', array(Session::get('userid'), $startDate, $endTime, $way, $keyword));
+		$productID = Input::get('productID', '');
+		$result = DB::select('EXEC proc_inputs_used_type_info ?, ?, ?, ?, ?, ?', array(Session::get('userid'), $startDate, $endTime, $way, $keyword, $productID));
 
 		return View::make('zerenguanli.syinfo')->with('result', $result)->with('startDate', $startDate)->with('endTime', $endTime)->with('way', $way)->with('keyword', $keyword);
 	}));
