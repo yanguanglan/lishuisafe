@@ -255,7 +255,7 @@ Route::group(array('prefix' => 'zerenguanli', 'before' => 'auth.zerenguanli'), f
 		
 		$startDate = Input::get('startDate', date('Y-m-01', time()));
 		$endTime = Input::get('endTime', date('Y-m-d', time()));
-		$way = Input::get('way', '');
+		$way = Input::get('way', 1);
 		$keyword = Input::get('keyword', '');	
 		$pending = DB::select('EXEC proc_inputs_check_num ?', array(Session::get('userid')));
 

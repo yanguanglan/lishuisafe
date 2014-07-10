@@ -18,7 +18,7 @@
         <td height="65" bgcolor="#efefef">名称 </td>
         <td height="65" bgcolor="#efefef">采购单位</td>
         <td height="65" bgcolor="#efefef">采购时间</td>
-        <td height="65" bgcolor="#efefef">已用量</td>
+        <td height="65" bgcolor="#efefef">采购量</td>
         <td height="65" bgcolor="#efefef">规格</td>
         <td height="65" bgcolor="#efefef">批号</td>
         <td height="65" bgcolor="#efefef">生产日期</td>
@@ -44,7 +44,7 @@
           @endif
         <td height="39" >{{$value->companyName}}</td>
         <td height="39" >{{ date('Y-m-d', strtotime($value->saleTime)) }}</td>
-        <td height="39" >{{$value->useNum}}{{$value->useUnit}}</td>
+        <td height="39" >{{$value->saleNum}}{{$value->saleUnit}}</td>
         <td height="39" >{{$value->spec}}{{$value->specUnit}}</td>
         <td height="39" >{{$value->ppeckpc}}</td>
         <td height="39" >{{ date('Y-m-d', strtotime($value->saleTime)) }}</td>
