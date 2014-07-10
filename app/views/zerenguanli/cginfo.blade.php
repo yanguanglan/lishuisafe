@@ -28,6 +28,7 @@
        <?php
       	$count = count($result);
       	$u = $i = 0;
+        $uUnit = '';
       ?>   
       @foreach ($result as $value)
       <?php
