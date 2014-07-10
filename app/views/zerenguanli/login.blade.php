@@ -22,13 +22,13 @@
 <!--header-->	
 <div class="header">
 	<div class="logo">
-		<a href="/"><img src="{{ URL::asset('images/logo.jpg') }}" /></a>
+		<a href="/"><img src="{{ URL::asset('images/jglogo.jpg') }}" /></a>
 	</div>
 	<ul class="loR">
-		<li><a href=""><img src="{{ URL::asset('images/dl1.jpg') }}"></a></li>
-		<li><a href=""><img src="{{ URL::asset('images/dl2.jpg') }}"></a></li>
-		<li><a href=""><img src="{{ URL::asset('images/dl3.jpg') }}"></a></li>
-		<li><a href=""><img src="{{ URL::asset('images/dl4.jpg') }}"></a></li>
+		<li><a href=""><img src="{{ URL::asset('images/dl5.jpg') }}"></a></li>
+		<li><a href=""><img src="{{ URL::asset('images/dl6.jpg') }}"></a></li>
+		<li><a href=""><img src="{{ URL::asset('images/dl7.jpg') }}"></a></li>
+		<li><a href=""><img src="{{ URL::asset('images/dl8.jpg') }}"></a></li>
 	</ul>
 </div>
 <!--header end-->
@@ -55,7 +55,11 @@
 		</ul>
 	</div>
 	<div class="infoR">
-		<img src="{{ URL::asset('images/side1.jpg') }}">
+		<p>
+			<a href=""><img src="{{ URL::asset('images/tr.jpg') }}"></a>
+			<a href=""><img src="{{ URL::asset('images/jk.jpg') }}"></a>
+		</p>
+		<img src="{{ URL::asset('images/side2.jpg') }}">
 	</div>
 </div>
 </form>

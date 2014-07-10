@@ -68,7 +68,7 @@ class Userscontroller extends \BaseController {
 
 	public function getZerenUserLogin()
 	{
-		return View::make('jianceguanli.login');
+		return View::make('zerenguanli.login');
 	}
 
 	public function postZerenUserLogin()
