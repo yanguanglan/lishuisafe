@@ -84,7 +84,7 @@
   </tr>
    @if ($hjjc)
    <tr>
-    <td align="center" valign="middle">{{ date('Y-m-d', $hjjc[0]->ptime) }}</td>
+    <td align="center" valign="middle">{{ date('Y-m-d', strtotime($hjjc[0]->ptime)) }}</td>
    
     <td align="center" valign="middle">{{ $hjjc[0]->pxiangmu }}</td>
     <td align="center" valign="middle">{{ $hjjc[0]->pafter }}</td>
@@ -166,8 +166,8 @@
   <tr>
     <td align="center" valign="middle">{{ $pprz[0]->pname }}</td>
    
-    <td align="center" valign="middle">{{ date('Y-m-d', $pprz[0]->ptimest) }}</td>
-    <td align="center" valign="middle">{{ date('Y-m-d', $pprz[0]->ptimeend) }}</td>
+    <td align="center" valign="middle">{{ date('Y-m-d', strtotime($pprz[0]->ptimest)) }}</td>
+    <td align="center" valign="middle">{{ date('Y-m-d', strtotime($pprz[0]->ptimeend)) }}</td>
   </tr>
   @else
 	<tr>
