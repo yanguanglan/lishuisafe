@@ -41,11 +41,6 @@
     <td width="30%" align="right" valign="middle">联系地址：</td>
     <td width="70%" valign="middle">{{ $scsxx[0]->paddress }}</td>
   </tr>
-
-  <tr>
-    <td width="30%" align="right" valign="middle">采购商：</td>
-    <td width="70%" valign="middle">{{ $scsxx[0]->salerName }}</td>
-  </tr>
  @else 
 
   <tr>
@@ -67,11 +62,6 @@
     <td width="30%" align="right" valign="middle">联系地址：</td>
     <td width="70%" valign="middle">&nbsp;</td>
   </tr>
-
-  <tr>
-    <td width="30%" align="right" valign="middle">采购商：</td>
-    <td width="70%" valign="middle">&nbsp;</td>
-  </tr>
  @endif
 </table>
 <h2>环境监测：</h2>
@@ -83,12 +73,14 @@
     <td align="center" valign="middle">检测结论</td>
   </tr>
    @if ($hjjc)
+   @foreach($hjjc as $v)
    <tr>
-    <td align="center" valign="middle">{{ date('Y-m-d', strtotime($hjjc[0]->ptime)) }}</td>
+    <td align="center" valign="middle">{{ date('Y-m-d', strtotime($v->ptime)) }}</td>
    
-    <td align="center" valign="middle">{{ $hjjc[0]->pxiangmu }}</td>
-    <td align="center" valign="middle">{{ $hjjc[0]->pafter }}</td>
+    <td align="center" valign="middle">{{ $v->pxiangmu }}</td>
+    <td align="center" valign="middle">{{ $v->pafter }}</td>
   </tr>
+  @endforeach
   @else 
  <tr>
     <td align="center" valign="middle">&nbsp;</td>
@@ -163,12 +155,14 @@
     <td align="center" valign="middle">有效期</td>
   </tr>
    @if($pprz)
+   @foreach($pprz as $v)
   <tr>
-    <td align="center" valign="middle">{{ $pprz[0]->pname }}</td>
+    <td align="center" valign="middle">{{ $v->pname }}</td>
    
-    <td align="center" valign="middle">{{ date('Y-m-d', strtotime($pprz[0]->ptimest)) }}</td>
-    <td align="center" valign="middle">{{ date('Y-m-d', strtotime($pprz[0]->ptimeend)) }}</td>
+    <td align="center" valign="middle">{{ date('Y-m-d', strtotime($v->ptimest)) }}</td>
+    <td align="center" valign="middle">{{ date('Y-m-d', strtotime($v->ptimeend)) }}</td>
   </tr>
+  @endforeach
   @else
 	<tr>
     <td align="center" valign="middle">&nbsp;</td>
