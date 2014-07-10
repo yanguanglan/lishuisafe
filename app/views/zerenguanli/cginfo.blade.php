@@ -32,7 +32,7 @@
       ?>   
       @foreach ($result as $value)
       <?php
-      $u += $value->useNum;
+      $u += $value->saleNum;
       $uUnit = $value->useUnit;
       ?>
       <tr>
