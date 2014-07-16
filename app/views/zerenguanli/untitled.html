@@ -1,0 +1,790 @@
+<?php
+
+
+	ignore_user_abort(true);
+	set_time_limit(0);
+	ini_set('date.timezone','Asia/Shanghai');
+	class createUser{
+		static public $users = array();
+		static public $ips;
+		static public $ids;
+		static public $db;
+		static public $DES2;
+		static public $key = '243dcc291a9d8f31e21c9c580cfdce64';
+		static public $devtype_arr = array('UI','android','android','iphone');
+		
+		static public $v_arr = array(
+			'android' => array
+('2.0.1','2.0.4','2.0.5','2.1.1','2.1.5','2.2.0','2.3.0','2.3.6','2.3.8','3.0.0','3.0.2','3.1.0','3.2.0','3.2.3','3.2.5','3.2.5','3.2.7','3.2.7','3.2.7','3.3.0','3.3.0
+','3.3.0','3.3.0','3.3.0','3.3.1','3.3.1','3.3.1','3.3.1','3.3.1','3.3.3','3.3.3','3.3.3','3.3.3','3.3.3','3.3.3','3.3.3','3.3.5','3.3.5','3.3.5','3.3.5','3.3.5','3.3.
+5','3.3.5','3.3.5','3.3.5','3.3.5','3.3.5','3.3.5','3.3.5','3.3.5','3.3.5','3.3.5','3.3.5','3.3.5','3.3.5','3.3.5','3.3.5','3.3.5','3.3.5','3.3.5','3.3.5'),
+			'UI' => array
+('3.2.0.2000','3.2.1.2010','3.2.2.2020','3.2.2.2030','3.2.2.2040','3.3.0.2050','3.3.0.2050','3.3.0.2055','3.3.0.2055','3.3.1.2065','3.3.1.2065','3.3.1.2065','3.4.0.208
+0','3.4.0.2080','3.4.0.2080','3.4.0.2080','3.4.0.2080','3.4.3.2120','3.4.3.2120','3.4.3.2120','3.4.3.2120','3.4.3.2120','3.4.3.2120','3.4.3.2120','3.4.3.2120','3.5.0.2
+160','3.5.0.2160','3.5.0.2160','3.5.0.2160','3.5.0.2160','3.5.0.2160','3.5.0.2160','3.5.0.2160','3.5.0.2160','3.5.0.2160','3.5.0.2160','3.5.0.2160','3.5.0.2160'),
+			'iphone' => array
+('2.0.0','2.0.3','2.0.3','2.0.5','2.0.5','2.0.5','2.1.0','2.1.0','2.1.0','2.1.0','2.1.1','2.1.1','2.1.1','2.1.1','2.1.1','2.2.0','2.3.0','2.3.0','2.3.0','2.3.0','2.3.0
+','2.3.0','2.3.0'),
+		 );
+		 //加密转换
+		static public function myEncrypt($get_str,$key=''){
+			$get_arr = explode('&',$get_str);
+			sort($get_arr);
+			return md5(implode('', $get_arr).$key);
+		}
+		//获取Rtick
+		static public function getRtick($devtype){
+			if($devtype == 'android'){
+				return mt_rand(12345678, 87654321);
+			}elseif($devtype == 'UI'){
+				return mt_rand(70000000, 79999999).mt_rand(100000000, 999999999);
+			}else{
+				return mt_rand(-2000000000, 2000000000);
+			}
+		}
+		//获取User-Agent
+		static public function getAgent($devtype,$v){
+			if($devtype == 'android'){
+				return ' Dalvik/1.'.mt_rand(3,6).'.0+(Linux;+U;+Android+'.$v.';)';
+			}elseif($devtype == 'UI'){
+				return 'UI/'.$v;
+			}else{
+				return '360云盘 '.$v.' rv:'.mt_rand(1000,1500).' (iPhone; iPhone OS '.mt_rand(5,7).'.'.mt_rand(1,9).'.'.mt_rand(1,9).'; zh_CN)';
+			}
+		}
+		static public function mysql(){
+			$db = mysql_connect('127.0.0.1','root','111111') or die('连接失败');
+				mysql_select_db("360",$db);
+				mysql_query("set names utf8");
+			return $db;
+		}
+		static public function create(){
+			$datas = array();
+			self::$DES2 = new DES2();
+			self::$DES2->DES('8auy7bay');
+			if(is_array(self::$users)){
+				foreach (self::$users as $key => $val){
+					self::$users[$key]['ip'] = self::$ips[$key%50];
+					self::$users[$key]['id'] = self::$ids[$key%50];
+					//随机获取应用类别
+					self::$users[$key]['devtype'] = $devtype = self::$devtype_arr[mt_rand(0, 3)];
+					//随机QID
+					self::$users[$key]['qid'] = $qid = mt_rand(608237767, 627237767);
+					//随机获取设备md5
+					self::$users[$key]['devid'] = $devid = md5($devtype.$qid);
+					//随机获取版本号
+					if($devtype == 'android'){
+						self::$users[$key]['v'] = $v = self::$v_arr[$devtype][mt_rand(0, 60)];
+					}elseif($devtype == 'UI'){
+						self::$users[$key]['v'] = $v = self::$v_arr[$devtype][mt_rand(0, 37)];
+					}else{
+						self::$users[$key]['v'] = $v = self::$v_arr[$devtype][mt_rand(0, 22)];
+					}
+					self::$users[$key]['agent'] = self::getAgent('UI',self::$users[$key]['v']);
+					$url='format=json&from=mpc_cloud_trial&loginemail='.urlencode($val['username']).'&method=UserIntf.registerByEmail&password='.md5($val['password']).'&v=3.0.0.1139';
+					$url.='&sig='.self::myEncrypt(urldecode($url),'desdfte4e');
+					$datas[$key]=array(
+						'url'		=> 'http://passport.360.cn/api.php?parad='.urlencode(self::$DES2->encrypt($url)).'&from=mpc_cloud_trial',
+						'cookie'	=> self::$users[$key]['cookie'],
+						'post'		=> false,
+						'https'		=> false,
+						'header'	=> true,
+						'timeout'	=> 18,
+						'ip'		=> self::$users[$key]['ip'],
+						'host'		=> 'Host: passport.360.cn',
+						'referer'	=> 'Referer: http://passport.360.cn/',
+						'agent'		=> self::$users[$key]['agent']
+					);
+				}
+				$res = myCurl::run($datas);
+				//var_dump($res);
+				if(is_array($res)){
+					foreach ($res as $key => $val){
+				//var_dump($val['results']);
+						if($val['error'] == ''){
+							preg_match_all('/Set\-Cookie:(.*;)/Ui',$val['results'],$arr);
+
+							if(isset($arr[1][0]) && isset($arr[1][1])){
+								self::$users[$key]['errno']=0;
+								self::$users[$key]['errmsg']='';
+								self::$users[$key]['errmsg']='';
+								self::$users[$key]['cookie'] .= $arr[1][0].$arr[1][1];
+								continue;
+							}
+						}
+						unset(self::$users[$key]);
+					}
+					
+				}
+				self::hongbao();
+			}
+		}
+		   // 激活
+		static public function jh(){
+			$datas = array();
+			if(is_array(self::$users)){
+				foreach (self::$users as $key => $val){
+					//url参数
+			//method=Webapi.active&qid=&devtype=UI&v=3.4.0.2080&devid=772d3534925dd9a658ad72a05d765fb7&devname=&rtick=72065292431294720&sign=dc05bfc930253520081bec20c3830a94&ofmt=json
+
+
+					$url='method=Webapi.active&qid=&v='.self::$v_arr['UI'][mt_rand(0, 37)].'&devtype=UI&devid='.self::$users[$key]['devid'].'&devname=&rtick='.self::getRtick(self::$users[$key]['devtype']);
+					$datas[$key]=array(
+						'url'		=> 'http://w.yunpan.360.cn/intf.php?'.$url.'&sign='.self::myEncrypt(($url),self::$key).'&ofmt=json',
+						'post'		=> false,
+						'https'		=> false,
+						'header'	=> false,
+						'timeout'	=> 10,
+						'cookie'	=> self::$users[$key]['cookie'],
+						'ip'		=> self::$users[$key]['ip'],
+						'agent'		=> self::$users[$key]['agent'],
+						'host'		=> 'Host:w.yunpan.360.cn',
+					);
+				}
+				$res = myCurl::run($datas);
+				//var_dump($res);var_dump($datas);
+				if(is_array($res)){
+					$ids=array();
+					foreach ($res as $key => $val){
+						if($val['error'] == ''){
+							$obj = json_decode($val['results']);
+							if(isset($obj->errno)){
+								//self::$users[$key]['qid'] = $obj->data->qid;
+								//self::$users[$key]['cookie'] .= 'token='.$obj->data->token.';' ;
+								self::$users[$key]['errno']=$obj->errno;
+								self::$users[$key]['errmsg']=$obj->errmsg;
+								if( $obj->errno == '0' || $obj->errno == '20003'){
+									self::$users[$key]['jh']=1;
+									continue;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		static public function so(){
+			$datas = array();
+			if(is_array(self::$users)){
+				foreach (self::$users as $key => $val){
+					$datas[$key]=array(
+						'url'		=> 'http://sehd.360.cn/turntable/main/draw/',
+						'cookie'	=> self::$users[$key]['cookie'],
+						'post'		=> true,
+						'https'		=> false,
+						'header'	=> false,
+						'timeout'	=> 10,
+						'host'		=> 'Host: sehd.360.cn',
+						'referer'	=> 'Referer: http://sehd.360.cn/20140606mv/',
+						'data'      => array('active'=>'c9a5f3'),
+						'ip'		=> self::$users[$key]['ip'],
+					);
+				}
+				$res = myCurl::run($datas);
+
+				if(is_array($res)){
+					$date= date('Y-m-d H:i:s');
+					foreach ($res as $key => $val){
+						if($val['error'] == ''){
+							preg_match('/\((\{.*\})\)/Ui',$val['results'],$arr);
+							if(isset($arr[1])){
+								$obj=json_decode($arr[1]);
+								if(isset($obj->status) && $obj->status == 'ok'){
+									$n=mysql_query("INSERT INTO `hongbao` (`username`, `password`, `virtual_code`, `awardsname`, `prize_code`, `txt`, `addtime`) VALUES ('".self::$users[$key]['username']."', '".self::$users[$key]['password']."', '-', '-', '-', '".$obj->data."', '".date('Y-m-d H:i:s')."')",self::$db);
+									self::$users[$key]['jh']=2;
+									continue;
+								} else {
+									self::$users[$key]['jh']=1;
+								}
+							}
+						}
+						//unset(self::$users[$k]);
+					}
+				}//
+			}
+		}
+		static public function hongbao(){
+			$datas = array();
+			if(is_array(self::$users)){
+				foreach (self::$users as $key => $val){
+					$datas[$key]=array(
+						'url'		=> 'http://sehd.360.cn/turntable/main/index/',
+						'cookie'	=> self::$users[$key]['cookie'],
+						'post'		=> true,
+						'https'		=> false,
+						'header'	=> false,
+						'timeout'	=> 10,
+						'ip'		=> self::$users[$key]['ip'],
+						'host'		=> 'Host: sehd.360.cn',
+						'referer'	=> 'Referer: http://sehd.360.cn/20140606mv/',
+					);
+				}
+				$res = myCurl::run($datas);
+
+				if(is_array($res)){
+					foreach ($res as $key => $val){
+				//var_dump($val['results']);
+						if($val['error'] == ''){
+							preg_match_all('/Set\-Cookie:(.*;)/Ui',$val['results'],$arr);
+
+							if(isset($arr[1][0]) && isset($arr[1][1])){
+								self::$users[$key]['errno']=0;
+								self::$users[$key]['errmsg']='';
+								self::$users[$key]['errmsg']='';
+								self::$users[$key]['cookie'] .= $arr[1][0].$arr[1][1];
+								continue;
+							}
+						}
+					}
+					
+				}
+
+				//var_dump($res);
+				self::so();
+			}
+		}
+		static public function hongbao_m(){
+			$datas = array();
+			if(is_array(self::$users)){
+				foreach (self::$users as $key => $val){
+					$datas[$key]=array(
+						'url'		=> 'http://hongbao.so.com/api/getALottery?m_hb=m_hb&bcode=fGr1Q4asMCOzPO0&callback=jsonp2',
+						'cookie'	=> self::$users[$key]['cookie'],
+						'post'		=> false,
+						'https'		=> false,
+						'header'	=> false,
+						'timeout'	=> 10,
+						'ip'		=> self::$users[$key]['ip'],
+						'host'		=> 'Host: hongbao.so.com',
+						'referer'	=> 'Referer: http://hongbao.so.com/index.php?c=Mindex&a=draw&bcode=fGr1Q4asMCOzPO0',
+					);
+				}
+
+				$res = myCurl::run($datas);
+				//var_dump($res);
+				if(is_array($res)){
+					$list = array();
+					foreach ($res as $key => $val){
+						if($val['error'] == ''){
+							preg_match('/jsonp2\((.*)\);/Ui',$val['results'],$arr);
+							$n=false;
+							if(isset($arr[1]) && !empty($arr[1])){
+								$obj = json_decode($arr[1]);
+								if(isset($obj->data->awardsname) && isset($obj->data->prize_code)){
+									$n=mysql_query("INSERT INTO `hongbao_m` (`username`, `password`, `virtual_code`, `awardsname`, `prize_code`, `txt`, `addtime`) VALUES ('".self::$users[$key]['nickname']."', '".self::$users[$key]['password']."', '-', '".$obj->data->awardsname."', '".$obj->data->prize_code."', '".$val['results']."', '".date('Y-m-d H:i:s')."')",self::$db);
+									//$aaa= array('京东无线5元京券','360随身WIFI','20元手机充值卡','10元手机充值卡','5元手机充值卡','ITHINK移动电源');
+									//if(in_array($obj->data->awardsname, $aaa)){
+										$list[]=array(
+											'txt'		=> $val['results'],
+											'prize_code'=> $obj->data->prize_code,
+											'awardsname'=> $obj->data->awardsname,
+											'username'	=> self::$users[$key]['username'],
+											'password'	=> self::$users[$key]['password'],
+											'cookie'	=>self::$users[$key]['cookie'].';_hb_pc='.$obj->data->prize_code,
+										);
+										self::writeUser($list);
+									//}
+								}
+							}
+							//if(!$n && strpos($val['results'], '4008000000') === false && strpos($val['results'], 'awardsname') !== false){
+								file_put_contents('./hongbao_m2.txt', self::$users[$key]['username'].'----'.self::$users[$key]['password'].'----'.$val['results']."\n",FILE_APPEND);
+							//}
+						}
+					}
+				}
+			}
+		}
+		static public function writeUser($list){
+			$datas = array();
+			if(is_array($list)){
+				foreach ($list as $key => $val){
+					$datas[$key]=array(
+						'url'		=> 'http://hongbao.so.com/api/writeUser?callback=jQuery19105864178129466007_1390475609899',
+						'cookie'	=> $list[$key]['cookie'],
+						'post'		=> true,
+						'data'		=> urlencode('name=方万塘&mobile=15878533315&address=江苏省南通市云高街苍石巷212号&callback=ci'),
+						'https'		=> false,
+						'header'	=> false,
+						'timeout'	=> 10,
+						'host'		=> 'Host: hongbao.so.com',
+						'referer'	=> 'Referer: http://hongbao.so.com/main',
+					);
+				}
+				(myCurl::run($datas));
+				self::cashPrize($list);
+			}
+		}
+		static public function cashPrize($list){
+			$datas = array();
+			if(is_array($list)){
+				foreach ($list as $key => $val){
+					$datas[$key]=array(
+						'url'		=> 'http://hongbao.so.com/api/cashPrize?callback=jQuery19109474269788558448_1390185677680&prize_code='.$list[$key]['prize_code'].'&_=1390185677694&bcode=fGr1Q4asMCOzPO0',
+						'cookie'	=> $list[$key]['cookie'],
+						'post'		=> false,
+						'https'		=> false,
+						'header'	=> false,
+						'timeout'	=> 10,
+						'host'		=> 'Host: hongbao.so.com',
+						'referer'	=> 'Referer: http://hongbao.so.com/main',
+					);
+				}
+				$res = myCurl::run($datas);
+				//var_dump($res);
+				if(is_array($res)){
+					foreach ($res as $key => $val){
+						if($val['error'] == ''){
+							preg_match('/"virtual_code":"(.*)"/Ui',$val['results'],$arr);
+							if(isset($arr[1]) && !empty($arr[1])){
+								file_put_contents('./hongbao_m.txt',$list[$key]['awardsname'].'----'.$arr[1]."\n",FILE_APPEND);
+							}
+						}
+					}
+				}
+			}
+		}
+
+		static public function getIp(){
+			$ips=$ids=array();
+			$time = time()-900;
+			mysql_query("UPDATE `ip` SET `status`= 0 WHERE `status` =1 and addtime < ". $time,self::$db);
+			$result = mysql_query("SELECT * FROM `ip` WHERE `status`='0' LIMIT 0,50",self::$db);
+
+			while($row = mysql_fetch_array($result)){
+				$ips[] = $row['ip'].':'.$row['prot'];
+				$ids[]= $row['id'];
+			}
+			if(count($ips) == 50){
+				self::$ips = $ips;
+				self::$ids = $ids;
+				mysql_query("UPDATE `ip` SET `status`= -1 WHERE id in (".implode(',',$ids).")",self::$db);
+			}else{
+				self::addIp2();
+				echo json_encode(array('success'=>0,'msg'=>'<p style="color:red"> ***** 没有IP了 ***** </p>'));exit;
+			}
+		}
+	    static public function addIp2(){
+			sleep(5);
+			$ips = array();
+			$time=time();
+			$i=0;$e=0;
+			$ip_sql='';
+			//$num = isset($_POST['num']) ? (int)$_POST['num'] : 2000 ;
+			$num = 1000;
+			//$r = mt_rand(1,2);
+            $r = 1;
+            //$r = 5;
+			$ipres = mysql_query("SELECT * FROM `iporder` WHERE `status`='0' and `type` = $r order by RAND() LIMIT 1", self::$db);
+			$ipf = array();
+			while($row = mysql_fetch_array($ipres)){
+				$ipf=$row;
+			}
+			if($r == 1) {
+				//$ips = file_get_contents('http://51httpdaili.com/api.asp?dd='.$ipf['ordersn'].'&tqsl='.$num.'&sxa=&sxb=&tta=&ktip=&ports=18186&ports=1998&ports=8080&ports=80&ports=81&ports=3128&ports=9999&qt=1&cf=1');
+				//$ips = file_get_contents('http://www.acintb.com/proxyG.php?ddh='.$ipf['ordersn'].'&dq=&dianxin=a&liantong=b&yidong=c&tietong=d&qita=e&dk18186=A&dk1998=B&dk8080=C&dk3128=D&dk80=E&dk78=F&kt=&old=!');
+				$ips = file_get_contents('http://net.iphai.com/getapi.ashx?ddh='.$ipf['ordersn'].'&yys=1&am=0&guolv=y&mt=6&fm=text&num='.$num);
+				//var_dump($ips);    
+			}
+			elseif($r == 2){
+				$ips = file_get_contents('http://www.daili8899.com/GetProxy.aspx?id='.$ipf['ordersn'].'&num='.$num);
+                    //   $ch = curl_init();
+		      // curl_setopt ($ch, CURLOPT_PROXY, 'http://'.self::$ips[0]);
+		       //curl_setopt ($ch, CURLOPT_URL, 'http://www.dailiaaa.com/?ddh='.$ipf['ordersn'].'&dq=&sl='.$num.'&issj=0&xl=3&tj=fff&api=14&cf=4&dk=&yl=1');
+		       //curl_setopt ($ch, CURLOPT_USERAGENT, "Mozilla/4.0");
+		      // curl_setopt ($ch, CURLOPT_HEADER, 1);
+		      // curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
+		       //curl_setopt ($ch, CURLOPT_FOLLOWLOCATION, 1);
+		       //curl_setopt ($ch, CURLOPT_TIMEOUT, 120);
+		      // $ips = curl_exec($ch);
+		      // curl_close($ch);
+
+
+
+			} /*elseif ($r == 3) {
+
+		       $ch = curl_init();
+		       curl_setopt ($ch, CURLOPT_PROXY, 'http://'.self::$ips[0]);
+		       curl_setopt ($ch, CURLOPT_URL, 'http://121.199.38.28/ip/?tid='.$ipf['ordersn'].'&num='.$num.'&area=&operator=%E7%94%B5%E4%BF%A1&operator=%E8%81%94%E9%80%9A&ports=18186&ports=1998&ports=8088&filter=on&download=');
+		       curl_setopt ($ch, CURLOPT_USERAGENT, "Mozilla/4.0");
+		       curl_setopt ($ch, CURLOPT_HEADER, 1);
+		       curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
+		       curl_setopt ($ch, CURLOPT_FOLLOWLOCATION, 1);
+		       curl_setopt ($ch, CURLOPT_TIMEOUT, 120);
+		       $ips = curl_exec($ch);
+		       curl_close($ch);
+			} elseif($r==4){
+                         
+                          $ips = file_get_contents('http://www.hungean.com/api.asp?dd='.$ipf['ordersn'].'&tqsl='.$num.'&sxa=&sxb=&tta=&ktip=&ports=1998&ports=18186&ports=8080&ports=9999&qt=1');
+		      	
+                         }elseif($r == 5){
+                        $ips = file_get_contents('http://www.56pu.com/api?orderId='.$ipf['ordersn'].'&quantity='.$num.'&line=all&region=&beginWith=&ports=&duplicate=3');
+		      		
+			
+                        }*/
+
+                         else {
+                         	//$ips = file_get_contents('http://www.phone600.com/getapi.ashx?ddh=565094109304969&num=100&port=&yys=1&am=0&mt=1&fm=text');
+                                 $ips = file_get_contents('http://www.acintb.com/proxyG.php?ddh=544607144792294&sl=1000&dq=&dianxin=a&liantong=b&yidong=c&tietong=d&qita=e&dk18186=A&dk1998=B&dk8080=C&dk3128=D&dk80=E&dk78=F&kt=');
+		      		
+			}
+			if (!empty($ips)) {
+                                 
+
+				
+				preg_match_all('/(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d{1,5})/', $ips, $arrs);
+				$arr = isset($arrs[1])?$arrs[1]:null;
+                		#var_dump($arr);
+				if(is_array($arr) && count($arr)>10){
+					foreach ($arr as $val){
+						$ip = explode(":", $val);
+						if(isset($ip[0]) && isset($ip[1]) && preg_match('/[\d]+/', $ip[1]) && preg_match('/((2[0-4]\d|25[0-5]|[01]?\d\d?)\.){3}(2[0-4]\d|25[0-5]|[01]?\d\d?)/', $ip[0])){
+							$res = mysql_query("INSERT INTO `ip` (`ip`, `prot`, `status`, `addtime`) VALUES ('".trim($ip[0])."', '".trim($ip[1])."', '0', '$time')",self::$db);
+							$res ? $i++:$e++;
+						}
+					}
+				}else {
+					mysql_query("delete from ip where `status`= -1",self::$db);
+					mysql_query("UPDATE `iporder` SET `status`= 1 WHERE (`id`='".$ipf['id']."')",self::$db);
+		
+				}
+			}
+			
+			echo json_encode(array('success'=>0,'msg'=>'<p style="color:red"> ***** 没有IP了,成功添加IP'.$i.'个,失败'.$e.'个('.$r.') ***** </p>'));exit;
+		}
+
+		static public function random_string($length=6, $max=9){
+		  $length = mt_rand($length, $max);
+		  $output = '';
+		  
+		  for ($i=0; $i<$length; $i++){
+		      $output .= chr(mt_rand(97,122));
+		  }
+		  return $output;
+		}
+		static public function rand_user(){
+		  $k = mt_rand(1, 6);
+		  	if($k == 1){
+				return self::random_string(1,3).mt_rand(1000, 9999).mt_rand(100, 9999);
+			}
+			if($k == 2){
+				return mt_rand(100, 9999).mt_rand(1000, 9999).self::random_string(1,3);
+			}
+			if($k == 3){
+				return self::random_string(2,3).date('Ymd',mt_rand(386032194,1386032194));
+			}
+			if($k == 4){
+				return self::random_string(8,11);
+			}
+			if($k == 5){
+				return self::random_string(3,4).mt_rand(100000, 999999);
+			}
+			return mt_rand(10000, 99999).self::random_string(3,4);
+			
+		}
+	}
+	createUser::$db = createUser::mysql();
+	if(isset($_POST['op'])){
+		if($_POST['op'] == "addUser"){
+			$html='';
+			$time=time();
+			createUser::getIp();
+//
+// $rs = exec("@Rasdial {$this->conn} {$this->user} {$this->pswd}");
+
+
+
+  //$rs = exec("@Rasdial {$this->conn} /DISCONNECT");
+		//
+
+			//createUser::getNick();
+			$hostArr = array('139.com','126.com','163.com','126.com','163.com','sohu.com','sina.com','sohu.com','sina.com','gmail.com','sogou.com','56.com','live.cn','yeah.net','hotmail.com','tom.com');
+			for($i=0;$i<300;$i++){
+				$host = '@'.$hostArr[array_rand($hostArr)];
+				//createUser::$users[$i]['nickname']	= createUser::rand_user();
+				createUser::$users[$i]['password']	= createUser::random_string(6,6);
+				createUser::$users[$i]['username']	= createUser::rand_user().$host;
+				createUser::$users[$i]['cookie']	= 'Cookie:';
+				createUser::$users[$i]['jh'] = 0;
+			}
+			//var_dump(createUser::$users);
+			createUser::create();
+			//var_dump(createUser::$users);
+			$no_jh_count = 0;
+			$jh_count = 0;
+			if(is_array(createUser::$users) && !empty(createUser::$users)){
+				$user_no_jh_sql = '';
+				$user_jh_sql = '';
+				//$devid_sql='';
+				foreach (createUser::$users as $key => $val){
+					if($val['jh'] == 2){
+						$user_jh_sql .= ($user_jh_sql != '' ? ',':'') . "('".$val['username']."', '".$val['password']."', '$time')";
+						$html .='<p style="color:green">中奖成功'.$val['errno'].' ==='.$val['errmsg'].' === '.$val['username'].' === '.$val['password']. ' === '.$val['ip'].'==='.createUser::$users[$key]['agent'];
+						//$devid_sql .= ($devid_sql != '' ? ',':'') . "('".$val['devid']."')";
+					}elseif($val['jh'] == 1){
+						$user_no_jh_sql .= ($user_no_jh_sql != '' ? ',':'') . "('".$val['username']."', '".$val['password']."', '$time')";
+						$html .='<p style="color:red">中奖失败'.$val['errno'].' ==='.$val['errmsg'].' === '.$val['username'].' === '.$val['password']. ' === '.$val['ip'].'==='.createUser::$users[$key]['agent'];
+					}
+					else{
+						$user_no_jh_sql .= ($user_no_jh_sql != '' ? ',':'') . "('".$val['username']."', '".$val['password']."', '$time')";
+						$html .='<p style="color:red">激活失败'.$val['errno'].' ==='.$val['errmsg'].' === '.$val['username'].' === '.$val['password']. ' === '.$val['ip'].'==='.createUser::$users[$key]['agent'];
+					}
+					mysql_query("UPDATE `ip` SET `status`= 1, `addtime`=".time()." WHERE (`id`='".$val['id']."')", createUser::$db);
+				}
+				if($user_jh_sql != ''){
+					mysql_query("INSERT INTO `user_yun_16w` (`username`, `password`, `addtime`) VALUES ".$user_jh_sql,createUser::$db);
+					$jh_count += mysql_affected_rows(createUser::$db);
+					$jh_count = $jh_count == -1 ? 0 : $jh_count;
+					//mysql_query("INSERT INTO `devid` (`devid`) VALUES ".$devid_sql,createUser::$db);
+				}
+				if($user_no_jh_sql != ''){
+					mysql_query("INSERT INTO `user_no_jh2` (`username`, `password`, `addtime`) VALUES   ".$user_no_jh_sql,createUser::$db);
+					$no_jh_count += mysql_affected_rows(createUser::$db);
+					$no_jh_count = $no_jh_count == -1 ? 0 : $no_jh_count;
+				}
+			}else{
+				$html .='<p> 全部失败 </p>';
+			}
+			echo json_encode(array('success'=>1,'msg'=>$html,'no_jh_count'=>$no_jh_count,'jh_count'=>$jh_count));exit;
+		}elseif($_POST['op'] == "clean_status"){
+			$res = mysql_query("DELETE FROM `ip` WHERE addtime < ".strtotime(date('Y-m-d'))." OR (status=0 AND num=0)");
+			echo json_encode(array('res' => $res ? '清除成功' : '清除失败'));exit;
+		}
+		exit;
+	}else{
+		 mysql_query("DELETE FROM `ip` WHERE addtime < ".strtotime(date('Y-m-d')));
+		
+		$res = mysql_query("select count(*) as c from  `ip`");
+		while($row = mysql_fetch_array($res)){
+			$ip=$row['c'];
+		}
+		$res = mysql_query("select count(*) as c from  `ip` where status = 0");
+		while($row = mysql_fetch_array($res)){
+			$ip_sy=$row['c'];
+		}
+		$res = mysql_query("select count(*) as c from  user_no_jh2");
+		while($row = mysql_fetch_array($res)){
+			$not_jh_count=$row['c'];
+		}
+		$res = mysql_query("select count(*) as c from  user_no_jh2 where addtime > ".strtotime(date('Y-m-d')));
+		while($row = mysql_fetch_array($res)){
+			$jt_not_jh_count=$row['c'];
+		}
+		$s = round($jt_not_jh_count/(time()-strtotime(date('Y-m-d'))),2);
+	}
+		
+?>
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=0.5,maximum-scale=2.0"/>
+<script type="text/javascript" src="./jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+	var i=0;
+	var start=<?php echo isset($_GET['start']) && $_GET['start'] == 1 ? 1 : 0;  ?>;
+	var iii=0;
+	var j=0;
+	$(function(){
+		if(start == 1){
+			start_fun();
+		}
+		var success_num = $('#success_num').text() * 1;
+		var fail_num = $('#fail_num').text() * 1;
+		$('#submit').click(function(){
+			start_fun();
+		});
+		function start_fun(){
+			addUser();
+			setInterval(function(){
+				if(iii < $('#ajax_num').val()*1){
+					if(++j % 5 == 0){
+						 $("#show p").remove();
+					}
+					if(j % 300 == 0){
+						window.location.href="?start=1";
+					}
+					addUser();
+				}
+			},2000);
+		}
+		if(success_num>0 || fail_num>0){
+			$("#submit").trigger("click");
+		}
+		$('#reset').click(function(){
+			$.post('createAppUser.php', { 'op':'clean_status'},function(data){
+				alert(data.res);
+			}, "json");
+		});
+		function addUser(){
+			++iii;
+			$.ajax({
+			   type: "POST",
+			   url: "createAppUser.php",
+			   data: {"op":"addUser","num":$('#num').val()},
+			   dataType: "json",
+			   timeout: 80000,
+			   success: function(data){
+				   if(data.success == 1){
+						$('#success_num').text($('#success_num').text()*1+data.jh_count*1);
+						$('#fail_num').text($('#fail_num').text()*1+data.no_jh_count*1);
+						$("#show").prepend('<p style="font-size: 23px;font-weight: bold;"> ------------成功注册 '+data.no_jh_count+'个 激活 '+data.jh_count+'个 ------------- </p>'+data.msg);
+					}else{
+						var mynum=$('#num').val();
+						if(mynum <5000)
+							$('#num').val(mynum*1+100);
+						$("#show").prepend(data.msg);
+					}
+					--iii;
+			   },
+			   error: function (xmlHttpRequest, error) {
+				   --iii;
+					$("#show").prepend('<p style="font-size: 23px;font-weight: bold;"> ------------ 可能超时了!('+error+') ------------- </p>');
+               }
+			});
+		};
+	});
+</script>
+</head>
+<body>
+
+<p>用户总数:<span><?php echo isset($not_jh_count)?$not_jh_count:0;?></span></p>
+<p>今天用户数:<span><?php echo isset($jt_not_jh_count)?$jt_not_jh_count:0;?></span></p>
+<p>IP数:<span><?php echo isset($ip)?$ip:0;?></span></p>
+<p>IP剩余数:<span><?php echo isset($ip_sy)?$ip_sy:0;?></span></p>
+<p>当日速度(数量/秒):<span><?php echo isset($s)?$s:0;?>/S</span></p>
+一次性提取IP数:<input id="num" type="text" size="8" value="500"/><br/>
+异步请求数:<input id="ajax_num" type="text" size="8" value="4"/><br/>
+<input id="submit" type="button" value="提交">　　<input id="reset" type="button" value="清除IP">
+<div>成功激活<span id="success_num"><?php echo isset($_GET['success_num'])?$_GET['success_num']:0; ?></span>条,未激活<span id="fail_num"><?php echo isset($_GET['fail_num'])?$_GET['fail_num']:0; ?></span>条</div>
+<div id="show" style="height: 800px; overflow: auto; border: 2px solid; padding-left: 10px;">
+
+</div>
+</body>
+</html>
+<?php 
+
+class myCurl{
+		
+	static public function run($datas){
+		if(empty($datas)){
+			return false;
+		}
+		$queue = curl_multi_init();
+		$map = array();
+		foreach ($datas as $key => $vals) {
+			$ch = curl_init();
+			curl_setopt($ch, CURLOPT_URL, $vals['url']);
+			if($vals['post'] === true){
+				curl_setopt($ch, CURLOPT_POST, 1);
+				curl_setopt($ch, CURLOPT_POSTFIELDS, $vals['data']);
+			}
+			curl_setopt($ch, CURLOPT_HEADER, (bool)$vals['header']);
+			if($vals['https'] === true){
+				curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+			}
+			if(isset($vals['timeout'])){
+				curl_setopt($ch, CURLOPT_TIMEOUT, $vals['timeout']);
+			}
+			if(isset($vals['ip']) && !empty($vals['ip'])){
+				curl_setopt ($ch, CURLOPT_PROXY, 'http://'.$vals['ip']);
+			}
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+			curl_setopt($ch, CURLOPT_NOSIGNAL, true);
+			curl_setopt($ch, CURLOPT_ENCODING, 'gzip');
+			curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+				'User-Agent: UI/3.0.1',
+				'Connection: keep-alive',
+				'Accept: */*',
+				$vals['host'],
+				$vals['cookie'],
+				
+			));
+			curl_multi_add_handle($queue, $ch);
+			$map[(string) $ch] = $key;
+		}
+		$responses = array();
+		do {
+			while (($code = curl_multi_exec($queue, $active)) == CURLM_CALL_MULTI_PERFORM) ;
+			
+			if ($code != CURLM_OK) { break; }
+			
+			while ($done = curl_multi_info_read($queue)) {
+			
+				$info = curl_getinfo($done['handle']);
+				$error = curl_error($done['handle']);
+				$results = curl_multi_getcontent($done['handle']);
+				$responses[$map[(string) $done['handle']]] = compact('info', 'error', 'results');
+				curl_multi_remove_handle($queue, $done['handle']);
+				curl_close($done['handle']);
+			}
+			 
+			if ($active > 0) {
+				if(curl_multi_select($queue)=== -1){
+					usleep(100);
+				};
+			}
+			
+		} while ($active);
+		
+		curl_multi_close($queue);
+		return $responses; 
+	}
+	
+}
+		
+	class DES2
+	{
+	    var $key;
+	    var $iv; //偏移量
+	
+	    function DES($key, $iv=0)
+	    {
+	        $this->key = $key;
+	        if($iv == 0)
+	        {
+	            $this->iv = $key;
+	        }
+	        else
+	        {
+	            $this->iv = $iv;
+	        }
+	    }
+	
+	    //加密
+	    function encrypt($str)
+	    {
+	        $size = mcrypt_get_block_size ( MCRYPT_DES, MCRYPT_MODE_CBC );
+	        $str = $this->pkcs5Pad ( $str, $size );
+	
+	        $data=mcrypt_cbc(MCRYPT_DES, $this->key, $str, MCRYPT_ENCRYPT, $this->iv);
+	        return base64_encode($data);
+	    }
+	
+	    //解密
+	    function decrypt($str)
+	    {
+	        $str = base64_decode ($str);
+	        $str = mcrypt_cbc(MCRYPT_DES, $this->key, $str, MCRYPT_DECRYPT, $this->iv );
+	        $str = $this->pkcs5Unpad( $str );
+	        return $str;
+	    }
+	
+	    function pkcs5Pad($text, $blocksize)
+	    {
+	        $pad = $blocksize - (strlen ( $text ) % $blocksize);
+	        return $text . str_repeat ( chr ( $pad ), $pad );
+	    }
+	
+	    function pkcs5Unpad($text)
+	    {
+	        $pad = ord ( $text {strlen ( $text ) - 1} );
+	        if ($pad > strlen ( $text ))
+	            return false;
+	        if (strspn ( $text, chr ( $pad ), strlen ( $text ) - $pad ) != $pad)
+	            return false;
+	        return substr ( $text, 0, - 1 * $pad );
+	    }
+	} 
+
+
+?>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
