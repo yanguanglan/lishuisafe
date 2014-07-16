@@ -105,7 +105,7 @@
                 <td width="20%" height="39" bgcolor="#FFFFFF">{{ $hjjc[0]->paddress }}</td>
                 <td width="25%" height="39" bgcolor="#FFFFFF">{{ $hjjc[0]->pxiangmu }}</td>
                 <td width="10%" height="39" bgcolor="#FFFFFF">@if($hjjc[0]->pitype==0) 耕地 @elseif($hjjc[0]->pitype==1) 水田 @elseif($hjjc[0]->pitype==2) 山地 @else 养殖舍 @endif</td>
-                <td width="15%" height="39" bgcolor="#FFFFFF">{{ date('Y-m-d', $hjjc[0]->ptime) }}</td>
+                <td width="15%" height="39" bgcolor="#FFFFFF">{{ date('Y-m-d', strtotime($hjjc[0]->ptime)) }}</td>
                 <td width="19%" height="39" bgcolor="#FFFFFF">@if($hjjc[0]->pend==0) 不合格 @else 合格 @endif</td>
                 <td width="11%" height="39" bgcolor="#FFFFFF">{{ $hjjc[0]->pafter }}</td>
               </tr>
