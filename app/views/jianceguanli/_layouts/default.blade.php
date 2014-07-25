@@ -9,7 +9,17 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
-	<title>html</title>
+	<title>检测管理系统
+		{{ Request::is('jianceguanli/jcrw*') ? '|检测任务' : '' }}
+		{{ Request::is('jianceguanli/jdjc*') ? '|监督检测' : '' }}
+		{{ Request::is('jianceguanli/qysj*') ? '|企业送检' : '' }}
+		{{ Request::is('jianceguanli/qyzj*') ? '|企业自检' : '' }}
+		{{ Request::is('jianceguanli/zhtj*') ? '|综合统计' : '' }}
+		{{ Request::is('jianceguanli/cstj*') ? '|按场所统计' : '' }}
+		{{ Request::is('jianceguanli/qytj*') ? '|按区域统计' : '' }}
+		{{ Request::is('jianceguanli/qsfx*') ? '|趋势分析' : '' }}
+		{{ Request::is('jianceguanli/dbfx*') ? '|对比分析' : '' }}
+	</title>
 	<meta name="keywords" content="" />
 	<meta name="description" content="" />
 @include('jianceguanli._layouts.assets')

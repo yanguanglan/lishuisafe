@@ -47,13 +47,8 @@
     <div class="w85">
         <div class="notice">
             <ul class="otherU">
-                <li><a href="other.html">我的信箱</a>
-                    <p><a href="otherstar.html">星标信件</a></p>
-                </li>
-                <li><a href="" class="active">任务跟踪</a>
+               <li><a href="" class="active">任务跟踪</a>
                     <p><a href="zhuizstar.html">星标任务</a></p>
-                </li>
-                <li><a href="send.html">发送信息</a>
                     <p><a href="xiada.html">下达任务</a></p>
                 </li>
             </ul>
@@ -62,6 +57,7 @@
             <div class="platInfo addInfo">
                 <h2 class="newsT">福建漳州芗城区农业局开展水产品质量安全宣传活动<a href="javascript:;" id="add">邀请加入任务组</a></h2>
                 <p>发起人：农业局    审核人：张晓芳</p>
+                <p class="group">任务组成员：<span>成员1</span><span>成员2</span><span>成员3</span></p>
                 <div class="infoWp">
                     <p>你的印象笔记帐户已准备就绪！ <br>想更充分利用印象笔记吗？那就把它安装在家里和办公室的电脑上，自己的手机和平板上，随时随地轻松访问吧！</p>
                 <p>在电脑、手机或平板上打开这封电子邮件，并点击以下链接。我们将会根据你所使用的设备为你提供相应的印象笔记版本。</p>
@@ -193,17 +189,8 @@
             </ul>
         </div>
         <div class="listR">
-            <p>已选联系人：7/60</p>
-            <ul>
-                <li>小张</li>
-                <li>小刘</li>
-                <li>张三</li>
-                <li>李四</li>
-                <li>王二</li>
-                <li>赵五</li>
-                <li>孙六</li>
-                <li>吴七</li>
-            </ul>
+            <p>已选联系人：<span class="count">0</span></p>
+            <ul id="select_li"></ul>
         </div>
     </div>
 </div>   
@@ -292,7 +279,19 @@ function getTab(){
         var nIndex = $(".orga ul li").index(this);
         $(this).addClass("active").siblings().removeClass("active");
     })
-}      
+} 
+
+$(".listL").on("click",".sub p",function(){
+	var name = $(this).text();
+	var html = "<li>"+name+"</li>";
+	var _this = $(this);
+	var count = $(".listR .count");
+	if(!_this.hasClass("selected")){
+		$("#select_li").append(html);
+		count.text(parseInt(count.text())+1);
+	}
+	_this.addClass("selected");
+});
 </script> 
 
 </body>

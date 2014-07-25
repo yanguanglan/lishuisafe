@@ -88,8 +88,7 @@ body{
 
 
 .wrap{
-	width: 85%;
-	margin: 8% auto;
+	margin:0 auto 8%;
 	background: #f5fbff;
 }
 .header{
@@ -216,7 +215,7 @@ body{
 }
 .navAd{
 	background: #b6dcf4;
-	margin: 20px 0;
+	margin: 20px auto;
 }
 .navAd ul{
 	overflow: hidden;

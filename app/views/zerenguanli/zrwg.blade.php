@@ -41,7 +41,7 @@
             ?>
             <td height="39" align="center">{{$value->departName}}</td>
             <td height="39" align="center">{{$value->userName}}</td>
-            <td height="39" align="center">{{$value->pmobile}}</td>
+            <td height="39" align="center">{{$value->pphone}}</td>
             <td height="39" align="center"><span class="power"><a class="msg" href="{{URL::route('zrwgmail', array('workerID'=>$value->ID))}}"></a>@if($value->noReadNum)<i>{{$value->noReadNum}}</i>@endif</span>@if($value->isLook == 1)<img src="{{URL::asset('images/jg.png')}}" class="jg"/>@endif</td>
           </tr>
           @endforeach
@@ -50,7 +50,7 @@
         <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#e3e3e3">
         <thead class="towns">
         	<tr>
-            	<th width="125" height="85" align="center" bgcolor="#f7f7f7"><span>@if($cityID == 0){{$county[0]->cityName}} @else {{ $area[$cityID]->pname }} @endif</span></th>
+            	<th width="125" height="85" align="center" bgcolor="#f7f7f7"><span>@if($cityID == 0){{$county[0]->cityName}} @else {{ $area[$cityID-1]->pname }} @endif</span></th>
             	<th height="85" align="right" bgcolor="#f7f7f7" colspan="6" class="fri">
                 <?php
                 $i = 0;

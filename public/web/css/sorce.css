@@ -246,16 +246,15 @@
     width: 78%;
 }
 .pagination{
-    margin: 20px 0;
+    margin:20px 0;
 }
 .pagination ul{
     float: right;
 }
 .pagination ul li{
-    display: inline;
+    float:left;
 }
 .pagination ul li a{
-    float: left;
     padding: 4px 12px;
     line-height: 20px;
     text-decoration: none;
@@ -303,6 +302,7 @@
     color: #4b4b4b;
     font-weight: bold;
 }
+.platInfo .group span{ padding:0 5px;}
 .platInfo .newsT a{
     float: right;
     background: #227f57;
@@ -610,7 +610,7 @@
     line-height: 30px;
     width: 190px;
 }
-.listL ul{
+.listL ul,.listR ul{
     margin-top: 5px;
     max-height: 200px;
     overflow-y: auto;
@@ -631,7 +631,7 @@
     display: none;
 }
 .listL .sub p{
-    padding: 3px 0;
+    padding: 3px 0; cursor: pointer;
 }
 .listR{
     float: right;
@@ -642,3 +642,44 @@
 .listR ul li{
     padding: 3px 0;
 }
+
+/*suggestion*/
+.suggestion{ background:transparent; padding:0;}
+.suggest-main{ margin-bottom: 20px;}
+.suggest-main .fun-list{ float: left; width:200px; height: 100%; background:#fff; border-radius: 4px; box-shadow: 0 1px 1px #b3c3bc;}
+.suggest-main .fun-list ul{ padding:10px 20px;}
+.suggest-main .fun-list li{ line-height: 60px; font-size: 16px; font-weight: 800; color: #4c4c4c; border-bottom:1px solid #d9d9d9; cursor:pointer;}
+.suggest-main .fun-list li:last-child{ border:none;}
+.suggest-main .fun-list .cur{ color: #227f57;}
+.suggest-main .main-wrap{ width:100%;}
+/*write*/
+.suggest-main .write,
+.suggest-main .letter-list,
+.suggest-main .tips{ margin-left: 214px; padding:25px; font-size: 16px; color: #696969; background:#fff;}
+.suggest-main .write table{ width:100%;}
+.suggest-main .write th{ min-wi dth:5em; padding:10px 0; text-align: right;}
+.suggest-main .write td{ position: relative; padding:10px 0;}
+.suggest-main .write .req{ position: absolute; right:-12px; line-height: 40px; color: #eb0000; vertical-align: middle;}
+.suggest-main .write .verifi img{ height: 30px; vertical-align: middle;}
+.suggest-main .write .verifi a{ padding:0 5px; font-size: 14px; color: #4191c4; text-decoration: underline;}
+/*letter-list*/
+.suggest-main .letter-list{ padding: 0 0 10px 0;}
+.suggest-main .letter-list td a{ display:block; width:400px; text-overflow: ellipsis; color: #555; overflow: hidden; white-space: nowrap;}
+.suggest-main .searchFr{ vertical-align: middle;}
+.suggest-main .searchFr .search-btn{ float: none;}
+.suggest-main .searchFr .item-input{ line-height: 35px; padding: 0 5px; }
+/*tips*/
+.suggest-main .tips{ font-size: 14px; }
+.suggest-main .tips strong{ color:red;}
+.suggest-main .tips .title{ font-size: 16px; font-weight: 800; text-align: center;}
+.suggest-main .tips .first li{ padding:10px 0;}
+.suggest-main .tips .first p{ text-indent: 2em;}
+.suggest-main .tips .sec{padding-left: 40px;}
+.suggest-main .tips .sec li{padding:5px 0;}
+.suggest-main .detail{ padding:20px;}
+.suggest-main .detail .title{ text-align: center;}
+.suggest-main .detail .top-bar{ height: 30px; line-height: 30px; padding:0 10px; font-size: 13px; border-bottom:1px solid #ddd;}
+.suggest-main .top-bar .time{ float: left;}
+.suggest-main .top-bar .cx{ float: right; vertical-align: middle;}
+.suggest-main .detail .article{ padding:20px; text-indent: 2em;}
+.suggest-main .detail .reply{ padding:10px; font-size: 14px; border-top:1px solid #ddd;}

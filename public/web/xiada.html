@@ -46,14 +46,9 @@
     <div class="w85">
         <div class="notice">
             <ul class="otherU">
-                <li><a href="other.html">我的信箱</a>
-                    <p><a href="otherstar.html">星标信件</a></p>
-                </li>
-                <li><a href="zhuiz.html">任务跟踪</a>
-                    <p><a href="zhuizstar.html">星标任务</a></p>
-                </li>
-                <li><a href="send.html">发送信息</a>
-                    <p><a href="" class="active">下达任务</a></p>
+          <li><a href="zhuiz.html"  >我的信息</a>
+                    <p><a href="zhuizstar.html">星标信息</a></p>
+                    <p><a href="xiada.html" class="active">发送信息</a></p>
                 </li>
             </ul>
         </div>
@@ -83,26 +78,32 @@
         <div class="platR">
             <h2>选择</h2>
             <ul class="otherR">
-                <li><select>
-                <option value="2014年度">西湖区</option>
-                <option value="2013年度">2013年度</option>
-                <option value="2012年度">2012年度</option>
-                <option value="2011年度">2011年度</option>
+                <li class="class"><span>级别:</span>
+                <select>
+                <option value="0">丽水市领导</option>
+                <option value="1">县区领导</option>
+                <option value="2">乡镇工作人员</option>
             </select></li>
-                <li><select>
-                <option value="2014年度">某某镇</option>
-                <option value="2013年度">2013年度</option>
-                <option value="2012年度">2012年度</option>
-                <option value="2011年度">2011年度</option>
+                <li class="area"><span>县区:</span>
+                <select>
+	                <option value="2014年度">莲都区</option>
+	                <option value="2013年度">云和县</option>
+	                <option value="2012年度">静宁县</option>
+                </select></li>
+                <li class="company"><span>单位:</span>
+            	<select>
+            		<option value="2014年度">莲都区</option>
+	                <option value="2013年度">云和县</option>
+	                <option value="2012年度">静宁县</option>
+            	</select></li>
+                <li class="bumen"><span>部门:</span>
+                <select>
+                <option value="2014年度">XX乡镇</option>
+                <option value="2013年度">XX乡镇</option>
+                <option value="2012年度">XX乡镇</option>
+                <option value="2011年度">XX乡镇</option>
             </select></li>
-                <li><select>
-                <option value="2014年度">某某科室</option>
-                <option value="2013年度">2013年度</option>
-                <option value="2012年度">2012年度</option>
-                <option value="2011年度">2011年度</option>
-            </select></li>
-                <li><input name="" type="checkbox" value="" />全质检科</li>
-                <li><input name="" type="checkbox" value="" />全质检科</li>
+                
             </ul>
             <div class="infoShow">
                 <p>某某名字</p>
@@ -118,6 +119,23 @@
             版权所有：丽水市农业投资发展有限公司 技术支持：某某科技有限公司 联系电话：400-888-8888
         </p>
     </div>
+    <script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf-8">
+    	if($(".class select").val() == 2){
+    		$(".area").show();
+    	}else{
+    		$(".area").hide();
+    	}
+    	$(".class select").change(function(){
+    		var opt = $(this).val();
+    		if( opt =="2"){
+    			$(".area").show();
+    		}else{
+    			$(".area").hide();
+    		}
+    	});
+    	
+    </script>
 </body>
 
 </html>

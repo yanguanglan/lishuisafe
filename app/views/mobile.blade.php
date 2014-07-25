@@ -19,9 +19,10 @@
 
 <body>
 <div class="wrap">
+
   <h2>基本信息</h2>
-    @if ($scsxx)
     <table>
+ @if ($scsxx)
    <tr>
     <td width="30%"  align="right"  valign="middle">作物名称：</td>
     <td width="70%" valign="middle"  >{{ $scsxx[0]->seedName }}</td>
@@ -64,40 +65,10 @@
   </tr>
  @endif
 </table>
-<h2>环境监测：</h2>
-<table>
-  <tr>
-    <td align="center" valign="middle">检测日期</td>
-   
-    <td align="center" valign="middle">检测项目</td>
-    <td align="center" valign="middle">检测结论</td>
-  </tr>
-   @if ($hjjc)
-   @foreach($hjjc as $v)
-   <tr>
-    <td align="center" valign="middle">{{ date('Y-m-d', strtotime($v->ptime)) }}</td>
-   
-    <td align="center" valign="middle">{{ $v->pxiangmu }}</td>
-    <td align="center" valign="middle">{{ $v->pafter }}</td>
-  </tr>
-  @endforeach
-  @else 
- <tr>
-    <td align="center" valign="middle">&nbsp;</td>
-   
-    <td align="center" valign="middle">&nbsp;</td>
-    <td align="center" valign="middle">&nbsp;</td>
-  </tr>
-  @endif
-</table>    
  
   <h2>作物信息</h2>
     <table>
     @if ($zzxx)
-   <tr>
-    <td width="30%"  align="right"  valign="middle">作物名称：</td>
-    <td width="70%" valign="middle"  >{{ $zzxx[0]->seedName }}</td>
-  </tr> 
   <tr>
     <td width="30%"align="right"  valign="middle">种子名称：</td>
     <td width="70%" valign="middle">{{ $zzxx[0]->typeName }}</td>
@@ -119,10 +90,6 @@
     <td width="70%" valign="middle">@if($zzxx[0]->purchaseDate){{ date('Y-m-d', strtotime($zzxx[0]->purchaseDate)) }}@endif</td>
   </tr>
   @else
-<tr>
-    <td width="30%"  align="right"  valign="middle">作物名称：</td>
-    <td width="70%" valign="middle"  >&nbsp;</td>
-  </tr> 
   <tr>
     <td width="30%"align="right"  valign="middle">种子名称：</td>
     <td width="70%" valign="middle">&nbsp;</td>
@@ -145,7 +112,32 @@
   </tr>
   @endif
 </table>
-
+<h2>检测信息：</h2>
+<table>
+  <tr>
+    <td align="center" valign="middle">检测时间</td>
+   
+    <td align="center" valign="middle">检测项目</td>
+    <td align="center" valign="middle">结论</td>
+  </tr>
+     @if($jcjl)
+    @foreach($jcjl as $v)
+  <tr>
+    <td align="center" valign="middle">{{ date('Y-m-d', strtotime($v->ptime)) }}</td>
+   
+    <td align="center" valign="middle">{{ $v->pxiangmu }}</td>
+    <td align="center" valign="middle">{{ $v->pafter }}</td>
+  </tr>
+  @endforeach
+  @else
+   <tr>
+    <td align="center" valign="middle">&nbsp;</td>
+   
+    <td align="center" valign="middle">&nbsp;</td>
+    <td align="center" valign="middle">&nbsp;</td>
+  </tr>
+  @endif
+</table> 
 <h2>品牌信息：</h2>
 <table>
   <tr>
@@ -172,6 +164,30 @@
   </tr>
   @endif
 </table>    
+<h2>环境监测：</h2>
+<table>
+  <tr>
+    <td align="center" valign="middle">检测日期</td>
+   
+    <td align="center" valign="middle">检测项目</td>
+    <td align="center" valign="middle">检测结论</td>
+  </tr>
+   @if($hjjc)
+  <tr>
+    <td align="center" valign="middle">{{ date('Y-m-d', strtotime($hjjc[0]->ptime)) }}</td>
+   
+    <td align="center" valign="middle">{{ $hjjc[0]->pxiangmu }}</td>
+    <td align="center" valign="middle">{{ $hjjc[0]->pafter }}</td>
+  </tr>
+  @else
+  <tr>
+    <td align="center" valign="middle">&nbsp;</td>
+   
+    <td align="center" valign="middle">&nbsp;</td>
+    <td align="center" valign="middle">&nbsp;</td>
+  </tr>
+  @endif
+ </table>  
  <h2>施肥操作：</h2>
 <table>
   <tr>
@@ -225,32 +241,6 @@
 
 @endif
 
-</table> 
- <h2>检测信息：</h2>
-<table>
-  <tr>
-    <td align="center" valign="middle">检测时间</td>
-   
-    <td align="center" valign="middle">检测项目</td>
-    <td align="center" valign="middle">结论</td>
-  </tr>
-     @if($jcjl)
-              @foreach($jcjl as $v)
-  <tr>
-    <td align="center" valign="middle">{{ date('Y-m-d', strtotime($v->ptime)) }}</td>
-   
-    <td align="center" valign="middle">{{ $v->pxiangmu }}</td>
-    <td align="center" valign="middle">{{ $v->pafter }}</td>
-  </tr>
-  @endforeach
-  @else
-   <tr>
-    <td align="center" valign="middle">&nbsp;</td>
-   
-    <td align="center" valign="middle">&nbsp;</td>
-    <td align="center" valign="middle">&nbsp;</td>
-  </tr>
-  @endif
 </table> 
  <h2>销售情况：</h2>
 <table>

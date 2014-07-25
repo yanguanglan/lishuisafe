@@ -208,7 +208,7 @@ Route::group(array('prefix' => 'zerenguanli', 'before' => 'auth.zerenguanli'), f
 
 		$area = DB::select('EXEC proc_duty_grid_city_list ?', array(Session::get('userid')));
 		$city = DB::select('EXEC proc_duty_grid_bigcity_detail_list ?', array(Session::get('userid')));
-		$county = DB::select('EXEC proc_duty_grid_city_detail_list ?, ?', array(Session::get('userid'), $cityID));
+		$county = DB::select('EXEC proc_duty_grid_city_detail_list ?, ?', array(Session::get('userid'), 0));
 		$town = DB::select('EXEC proc_duty_grid_town_detail_list ?, ?', array(Session::get('userid'), $cityID));
 		return View::make('zerenguanli.zrwg')->with('city', $city)->with('county', $county)->with('town', $town)->with('area', $area)->with('cityID', $cityID);
 	}));
@@ -416,8 +416,12 @@ Route::group(array('prefix' => 'zerenguanli', 'before' => 'auth.zerenguanli'), f
 		$cjjl = DB::select('EXEC proc_collection_info ?', array($sn));
 		#销售记录
 		$xsjl = DB::select('EXEC proc_sale_info ?, ?', array($sn, 1));
+		#环境检测
+		$hjjc = DB::select('EXEC proc_environmental_test_info ?', array($sn));
+		#品牌认证
+		$pprz = DB::select('EXEC proc_certificate_info ?', array($sn));
 		
-		return View::make('zerenguanli.cpsy')->with('sn', $sn)->with('scsxx', $scsxx)->with('zzxx', $zzxx)->with('sfjl', $sfjl)->with('yyjl', $yyjl)->with('jcjl', $jcjl)->with('cjjl', $cjjl)->with('xsjl', $xsjl);
+		return View::make('zerenguanli.cpsy')->with('sn', $sn)->with('scsxx', $scsxx)->with('zzxx', $zzxx)->with('sfjl', $sfjl)->with('yyjl', $yyjl)->with('jcjl', $jcjl)->with('cjjl', $cjjl)->with('xsjl', $xsjl)->with('hjjc', $hjjc)->with('pprz', $pprz);
 	}));
 
 	Route::get('/sjfx', array('as' => 'sjfx', function(){
