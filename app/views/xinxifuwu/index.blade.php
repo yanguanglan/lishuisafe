@@ -65,10 +65,12 @@
 					<li class="back"><button id="calc_back"></button></li>
 				</ul>
 				<div class="down">
+				<!--
 					<h3>点击链接下载手机查询客户端</h3>
 					<p><img src="{{ URL::asset('images/andriod.jpg') }}">Android应用软件下载</p>
 					<p><img src="{{ URL::asset('images/apple.jpg') }}">Apple应用软件下载</p>
 					<p class="number">手机编辑21位数字追溯码发送至10628654查询</p>
+					  -->
 					<p class="searchSm">企业编码：<input type="text" placeholder="" class="text"><input type="button" value="查询" class="btn"></p>
 				</div>
 			</div>

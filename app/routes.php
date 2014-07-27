@@ -19,6 +19,10 @@ Route::get('/', function()
 	//dd($results);
 });
 
+Route::get('/qiyeapply', function(){
+	return View::make('qiyeapply');	
+});
+
 Route::get('/shengchanguanli', array('as'=>'shengchanguanli', function()
 {
 	//dd(Cookie::get('account'));

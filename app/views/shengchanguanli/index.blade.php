@@ -49,7 +49,7 @@
 		<li><a href="http://www.lsnj110.gov.cn/html/main/tzgg/">通知公告</a></li>
 	</ul>
 	 -->
-	<p><a href="qiyeapply.html"><img src="images/scB.jpg" /></a></p>
+	<p><a href="/qiyeapply"><img src="images/scB.jpg" /></a></p>
 </div>
 <div class="scWp">
 	<div class="scList">
