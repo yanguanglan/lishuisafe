@@ -1,7 +1,7 @@
 @extends('zerenguanli._layouts.default')
 @section('main')
  <div class="w85">
-        <div class="notice">
+         <div class="notice">
             <ul class="otherU">
               <!--  <li><a href="{{URL::route('zrwgmail', array('workerID'=>$workerID))}}" class="{{ Request::is('zerenguanli/zrwgmail*') && ($type!=1) ? 'active' : null }}">我的信箱</a>
                     <p><a href="{{URL::route('zrwgmail', array('workerID'=>$workerID, 'type'=>1))}}" class="{{ (Request::is('zerenguanli/zrwgmail*') && ($type==1)) ? 'active' : null }}">星标信件</a></p>
@@ -11,7 +11,7 @@
                 </li>
                 <li>
                     <!--<a href="{{URL::route('zrwgmail', array('workerID'=>$workerID, 'type'=>1))}}">发送信息</a>-->
-                    <p><a href="{{URL::route('zrwgtasksend', array('workerID'=>$workerID))}}">下达任务</a></p>
+                    <p><a href="{{URL::route('zrwgsend', array('workerID'=>$workerID, 'type'=>1))}}" class="{{Request::is('zerenguanli/zrwgsend*') ? 'active' : null}}">下达任务</a></p>
                 </li>
             </ul>
         </div>

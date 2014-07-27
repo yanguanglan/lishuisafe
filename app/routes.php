@@ -275,6 +275,86 @@ Route::group(array('prefix' => 'zerenguanli', 'before' => 'auth.zerenguanli'), f
         return Response::json( $response );
 	}));
 
+	#发任务
+	Route::get('/zrwgsend', array('as' => 'zrwgsend', function(){
+	    $workerID = Input::get('workerID', '');
+	    $workerName = Input::get('workerName', '');
+	    $type = Input::get('type', '');
+		//$list = DB::select('EXEC proc_duty_grid_task_user_insert ?, ?, ?', array($taskID, $userID, $type));
+ 		//县区
+ 		$org = DB::select('EXEC proc_duty_grid_task_send_allcity');
+ 		//县级
+ 		$list = DB::select('EXEC proc_duty_grid_task_send_gov ?, ?', array(1, 1));
+ 		$govID = $list[0]->ID;
+ 		//市级
+ 		$dep = DB::select('EXEC proc_duty_grid_task_send_depart ?', array($govID));
+ 		//部门
+ 		$departID = $dep[0]->ID;
+ 		$user = DB::select('EXEC proc_duty_grid_task_send_user ?', array($departID));
+ 		//人员
+ 		$result = 1;
+ 		return View::make('zerenguanli.zrwgtasksend')->with('result', $result)->with('workerID', $workerID)->with('type', $type)->with('list', $list)->with('dep', $dep)->with('user', $user)->with('org', $org)->with('workerName', $workerName);
+	}));
+
+	Route::post('/zrwgsend', array('as' => 'zrwgsend', function(){
+	    $fromID = Session::get('userid');
+	    $title = Input::get('title');
+	    $content = Input::get('content');
+	    $file = upload(Input::file('attach'));
+	    $fileName = $filePath = '';
+		if($file) {
+			$fileName = $file[0];
+			$filePath = $file[1];
+		}
+	    $toUsersID = Input::get('toUsersID');
+	    $split = ',';
+ 		$user = DB::select('EXEC proc_duty_grid_task_send ?, ?, ?, ?, ?, ?, ?', array($fromID, $title, $content, $fileName, $filePath, $toUsersID, $split));
+ 		return Redirect::route('zrwg');
+	}));
+
+	#发任务联动
+	Route::post('/zrwgajaxsend', array('as' => 'zrwgajaxsend', function(){
+	   
+		//$list = DB::select('EXEC proc_duty_grid_task_user_insert ?, ?, ?', array($taskID, $userID, $type));
+ 		$action = Input::get('action');
+
+ 		if($action == 'list'){
+ 			 $type = Input::get('type');
+ 			 $cityID = Input::get('cityID');
+ 			//单位
+ 			$list = DB::select('EXEC proc_duty_grid_task_send_gov ?, ?', array($type, $cityID));
+ 			$result ='<option>请选择</option>';
+ 			foreach($list as $v){
+ 				$result .='<option value="'.$v->ID.'">'.$v->pname.'</option>';
+ 			}
+ 		}
+ 		if($action == 'gov'){
+ 			//部门
+ 			$govID = Input::get('govID');
+ 			$dep = DB::select('EXEC proc_duty_grid_task_send_depart ?', array($govID));
+ 			$result = '';
+ 			foreach($dep as $v){
+ 				$result .='<option value="'.$v->ID.'">'.$v->pname.'</option>';
+ 			}
+ 		}
+ 		if($action == 'dep'){
+ 			$departID = Input::get('departID');
+ 			$user = DB::select('EXEC proc_duty_grid_task_send_user ?', array($departID));
+ 			$result = '';
+ 			foreach($user as $v){
+ 				$result .='<li data-id="'.$v->ID.'">'.$v->pname.'</li>';
+ 			}
+ 		}
+
+ 		$response = array(
+            'status' => 1,
+            'result' => $result,
+        	);
+        return Response::json( $response );
+ 		
+	}));
+
+
 	#添加联系人
 	Route::post('/zrwgtaskadd', array('as' => 'zrwgtaskadd', function(){
 
