@@ -74,7 +74,7 @@
 			</li>
 			<li>
 				<a href="">
-					<img src="images/sc4.jpg" alt="" />
+					<img src="images/sc4.jpg" alt="" width="132" height="132" />
 					<p>中药材生产系统</p>
 				</a>				
 			</li>
