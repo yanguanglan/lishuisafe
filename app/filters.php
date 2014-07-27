@@ -188,3 +188,20 @@ function get_user_item()
 		'2'=>'专项检测'
 	);
 }
+
+function upload($file, $dir = null)
+{
+		if ($file)
+		{
+			// Generate random dir
+			if ( ! $dir) $dir = str_random(8);
+
+			// Get file info and try to move
+			$destination = public_path() .  '/uploads/' . $dir;
+			$filename    = $file->getClientOriginalName();
+			$path        = '/uploads/' . $dir . '/' . $filename;
+			$uploaded    = $file->move($destination, $filename);
+
+			if ($uploaded) return array($filename, $path);
+		}
+}

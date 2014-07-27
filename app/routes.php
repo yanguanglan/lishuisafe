@@ -243,12 +243,74 @@ Route::group(array('prefix' => 'zerenguanli', 'before' => 'auth.zerenguanli'), f
 
 	#责任网格任务详细
 	Route::get('/zrwgtaskdetail', array('as' => 'zrwgtaskdetail', function(){
-
 		$taskID= Input::get('taskID', '');
 		$workerID = Input::get('workerID', '');
 		$type = Input::get('type', '');
 		$result = DB::select('EXEC proc_duty_grid_task_detail ?', array($taskID));
-		return View::make('zerenguanli.zrwgtaskdetail')->with('type', $type)->with('workerID', $workerID)->with('taskID', $taskID)->with('result', $result);
+		#附件
+		$attach =  DB::select('EXEC proc_duty_grid_task_attachment ?', array($taskID));
+		#反馈列表
+		$feedback = DB::select('EXEC proc_duty_grid_task_feedback ?', array($taskID));
+		#联系人列表
+		$contact = DB::select('EXEC proc_duty_grid_task_add_user ?', array(Session::get('userid')));
+		#阅读
+		$pisread = Input::get('pisread');
+		if($pisread == 0) {
+			 DB::select('EXEC proc_duty_grid_task_read ?, ?', array($taskID, Session::get('userid')));
+		}
+
+		return View::make('zerenguanli.zrwgtaskdetail')->with('type', $type)->with('workerID', $workerID)->with('taskID', $taskID)->with('result', $result)->with('attach', $attach)->with('feedback', $feedback)->with('contact', $contact);
+	}));
+	#标记任务
+	Route::post('/zrwgtasktag', array('as' => 'zrwgtasktag', function(){
+
+		$taskID= Input::get('taskID');
+		$userID = Input::get('userid');
+		$type = Input::get('type');
+		$taskadd = DB::select('EXEC proc_duty_grid_task_important ?, ?, ?', array($taskID, $userID, $type));
+ 		$response = array(
+            'status' => 1,
+            'msg' => 'ok',
+        );
+        return Response::json( $response );
+	}));
+
+	#添加联系人
+	Route::post('/zrwgtaskadd', array('as' => 'zrwgtaskadd', function(){
+
+		$taskID= Input::get('taskID');
+		$userID = Input::get('userid');
+		$type = Input::get('type');
+		$taskadd = DB::select('EXEC proc_duty_grid_task_user_insert ?, ?, ?', array($taskID, $userID, $type));
+ 		$response = array(
+            'status' => 1,
+            'msg' => 'ok',
+        );
+        return Response::json( $response );
+	}));
+
+	#提交回复
+	Route::post('/zrwgtaskdetail', array('as' => 'zrwgtaskdetail', function(){
+
+		$taskID= Input::get('taskID', '');
+		$workerID = Input::get('workerID', '');
+		$type = Input::get('type', '');
+		$content = Input::get('content');
+		$userID = Session::get('userid');
+		$file = upload(Input::file('attach'));
+		if($file) {
+			$fileName = $file[0];
+			$filePath = $file[1];
+		}
+		if(Input::get('pend')==1){
+			#完结
+			DB::select('EXEC proc_duty_grid_task_review ?, ?, ?', array($taskID, $content, 5));
+		}else{
+			#发送信息
+			DB::select('EXEC proc_duty_grid_task_feedback_send ?, ?, ?, ?, ?', array($taskID, $userID, $content, $fileName, $filePath));
+		
+	    }
+		return Redirect::route('zrwgtaskdetail', array('taskID'=>$taskID, 'workerID'=>$workerID, 'type'=>$type));
 	}));
 
 	Route::get('/tlpgl', array('as' => 'tlpgl', function(){

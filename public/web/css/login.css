@@ -462,3 +462,5 @@ body{
 	font-size: 12px;
 	line-height: 49px;
 }
+
+.nong-btn{width: 100%;display: block;height: 60px;background: green;border-radius: 10px;color: #fff;text-align: center;line-height: 60px;font-size: 24px;font-weight: 800;box-shadow: 0 2px 0px #999;}

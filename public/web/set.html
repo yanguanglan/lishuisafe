@@ -17,7 +17,6 @@
     <meta name="description" content="" />
     <link rel="stylesheet" type="text/css" href="css/reset.css">
     <link rel="stylesheet" type="text/css" href="css/sorce.css">
-    <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
 </head>
 
 <body>
@@ -48,64 +47,300 @@
     <div class="w85">
         <div class="notice">
             <ul>
-                <li class="active"><a href="">机构管理</a>
-                </li>
-                
-                <li><a href="">机构员工权限管理</a>
-                </li>
-                 <li><a href="">农企信息管理</a>
-                </li>
-               <li><a href="">种子管理</a>
-                </li>
-                <li><a href="">投入品管理</a>
-                </li>    
-                <li><a href="">单位管理</a>
-                	
-                </li>
-                <li><a href="">猪耳标管理</a>
-                	
-                </li>
-                 <li><a href="">鸡鸭脚环管理</a>
-                	
-                </li>
-                 <li><a href="">登录日志</a>
-                	
-                </li>
+				<li class="active">机构管理</li>
+				<li>机构员工权限管理</li>
+				<li>农企信息管理</li>
+				<li>种子管理</li>
+				<li>投入品管理</li>    
+				<li>单位管理</li>
+				<li>耳标脚环管理</li>
+				<li>登录日志</li>
             </ul>
         </div>
-        <div class="platWp" style="width: 78%;">
-            <div class="platC">
-                <div class="setS">
-                    <input type="text" placeholder="所在乡镇" name="" class="text" />
-                    <input type="button" value="搜索" class="btn" />
-                </div>
-                <div class="platT">
-                    <input type="button" value="+新增" class="btn" id="add">
-                </div>
-            </div>
-            <div class="platInfo setInfo">
-                <table>
-                    <thead>
-                        <tr>
-                            <th width="25%">单位名称</th>
-                            <th width="36%">地址</th>
-                            <th width="14%">电话</th>
-                            <th width="11%">所在区</th>
-                            <th>操作</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td width="25%"></td>
-                            <td width="36%"></td>
-                            <td width="14%"></td>
-                            <td width="11%"></td>
-                            <td><a href="">[编辑]</a><a href="">[删除]</a></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+        <ul class="platWp" style="width: 78%;">
+        	<li class="institution" style="display: block;">
+        		<div class="platC">
+	                <div class="setS">
+	                    <input type="text" placeholder="所在乡镇" name="" class="text" />
+	                    <input type="button" value="搜索" class="btn" />
+	                </div>
+	                <div class="platT">
+	                    <input type="button" value="+新增" class="btn" id="add">
+	                </div>
+	            </div>
+	            <div class="platInfo setInfo">
+	                <table>
+	                    <thead>
+	                        <tr>
+	                            <th width="25%">单位名称</th>
+	                            <th width="36%">地址</th>
+	                            <th width="14%">电话</th>
+	                            <th width="11%">所在区</th>
+	                            <th>操作</th>
+	                        </tr>
+	                    </thead>
+	                    <tbody>
+	                        <tr>
+	                            <td width="25%"></td>
+	                            <td width="36%"></td>
+	                            <td width="14%"></td>
+	                            <td width="11%"></td>
+	                            <td><a href="">[编辑]</a><a href="">[删除]</a></td>
+	                        </tr>
+	                    </tbody>
+	                </table>
+	            </div>
+        	</li>            
+           	<li class="authority" style="display: none;">
+   		        <div class="contacts-select">
+		            <h2>选择</h2>
+		            <ul class="otherR">
+		                <li class="class"><span>级别:</span>
+		                <select>
+		                <option value="0">丽水市领导</option>
+		                <option value="1">县区领导</option>
+		                <option value="2">乡镇工作人员</option>
+		            </select></li>
+		                <li class="area"><span>县区:</span>
+		                <select>
+			                <option value="2014年度">莲都区</option>
+			                <option value="2013年度">云和县</option>
+			                <option value="2012年度">静宁县</option>
+		                </select></li>
+		                <li class="company"><span>单位:</span>
+		            	<select>
+		            		<option value="2014年度">莲都区</option>
+			                <option value="2013年度">云和县</option>
+			                <option value="2012年度">静宁县</option>
+		            	</select></li>
+		                <li class="bumen"><span>部门:</span>
+		                <select>
+		                <option value="2014年度">XX乡镇</option>
+		                <option value="2013年度">XX乡镇</option>
+		                <option value="2012年度">XX乡镇</option>
+		                <option value="2011年度">XX乡镇</option>
+		            </select></li>
+		                
+		            </ul>
+		            <ul class="contacts">
+		                <li data-id = "0">张局长</li>
+		                <li data-id = "1">李科长</li>
+		                <li data-id = "2">赵科员</li>
+		                <li data-id = "3">周副局长</li>
+		                <li data-id = "4">吴副局长</li>
+		                <li data-id = "5">王员外</li>
+		            </ul>
+		        </div>
+		        <div class="sys-set">
+		        	<div class="sys">
+		        		<h2>员工——系统权限</h2>
+		        		<div class="radio"><input class="" name="" type="checkbox" />系统权限设置</div>
+		        	</div>
+		        	<div class="trade">
+		        		<h2>员工——行业权限</h2>
+		        		<div class="radio"><input class="" name="" type="checkbox" />蔬菜</div>
+		        		<div class="radio"><input class="" name="" type="checkbox" />水果</div>
+		        		<div class="radio"><input class="" name="" type="checkbox" />畜禽</div>
+		        	</div>
+		        </div>
+           	</li>
+           	<li class="message" style="display: none;">
+           		<div class="top-bar clearfix">
+           			<select class="select" id="s1" name="province" style="display: none;">
+									<option>选择省份</option>
+								</select>
+					<span>县区：</span><select class="select" id="s2" name="city">
+									<option>选择市</option>
+								</select>
+					<span>乡镇：</span><select  class="select" id="s3" name="county">
+									<option>选择地区</option>
+								</select>
+           			<input class="btn-normal" type="submit" value="查询" />
+           			<a class="btn-normal fr" href="javascript:;">增加企业</a>
+           		</div>
+           		<div class="list">
+           			<table class="table-normal">
+           				<thead>
+           					<tr>
+           						<th>编号</th>
+           						<th>企业名称</th>
+           						<th>联系电话</th>
+           						<th>年审时间</th>
+           					</tr>
+           				</thead>
+           				<tbody>
+           					<tr>
+           						<td></td>
+           						<td></td>
+           						<td></td>
+           						<td></td>
+           					</tr>
+           				</tbody>
+           			</table>
+           		</div>
+           	</li>
+           	<li class="seed" style="display: none;">
+           		<div class="top-bar clearfix">
+					<span>大类：</span><select class="select" name="">
+									<option>请选择</option>
+								</select>
+					<span>类别：</span><select  class="select" name="">
+									<option>请选择</option>
+								</select>
+           			<input class="btn-normal" type="submit" value="查询" />
+           			<a class="btn-normal fr" href="javascript:;">增加种子</a>
+           		</div>
+           		<div class="list">
+           			<table class="table-normal">
+           				<thead>
+           					<tr>
+           						<th>类别</th>
+           						<th>种子名称</th>
+           						<th>批准文号</th>
+           						<th>外包装单位</th>
+           						<th>数量</th>
+           					</tr>
+           				</thead>
+           				<tbody>
+           					<tr>
+           						<td></td>
+           						<td></td>
+           						<td></td>
+           						<td></td>
+           						<td></td>
+           					</tr>
+           				</tbody>
+           			</table>
+           		</div>
+           	</li>
+           	<li class="inputs" style="display: none;">
+           		<div class="top-bar clearfix">
+					<span>大类：</span><select class="select" name="">
+									<option>请选择</option>
+								</select>
+					<span>类别：</span><select  class="select" name="">
+									<option>请选择</option>
+								</select>
+           			<input class="btn-normal" type="submit" value="查询" />
+           			<a class="btn-normal fr" href="javascript:;">增加投入品</a>
+           		</div>
+           		<div class="list">
+           			<table class="table-normal">
+           				<thead>
+           					<tr>
+           						<th>类别</th>
+           						<th>名称</th>
+           						<th>批准文号</th>
+           						<th>外包装单位</th>
+           						<th>数量</th>
+           						<th>厂家</th>
+           					</tr>
+           				</thead>
+           				<tbody>
+           					<tr>
+           						<td></td>
+           						<td></td>
+           						<td></td>
+           						<td></td>
+           						<td></td>
+           						<td></td>
+           					</tr>
+           				</tbody>
+           			</table>
+           		</div>
+           	</li>
+           	<li class="unit" style="display: none;">
+           		<div class="top-bar clearfix">
+           			<a class="btn-normal fr" href="javascript:;">增加单位</a>
+           		</div>
+           		<div class="list">
+           			<table class="table-normal">
+           				<thead>
+           					<tr>
+           						<th>类别</th>
+           						<th>名称</th>
+           					</tr>
+           				</thead>
+           				<tbody>
+           					<tr>
+           						<td></td>
+           						<td></td>
+           					</tr>
+           				</tbody>
+           			</table>
+           		</div>
+           	</li>
+           	<li class="ring" style="display: none;">
+           		<div class="top-bar clearfix">
+					<select class="select" id="s1" name="province" style="display: none;">
+									<option>选择省份</option>
+								</select>
+					<span>县区：</span><select class="select" id="s2" name="city">
+									<option>选择市</option>
+								</select>
+					<span>乡镇：</span><select  class="select" id="s3" name="county">
+									<option>选择地区</option>
+								</select>
+           			<input class="btn-normal" type="submit" value="查询" />
+           			<a class="btn-normal fr" href="javascript:;">派发耳标</a>
+           		</div>
+           		<div class="list">
+           			<table class="table-normal">
+           				<thead>
+           					<tr>
+           						<th>企业名称</th>
+           						<th>类型</th>
+           						<th>领用时间</th>
+           						<th>数量</th>
+           						<th>编码开始</th>
+           						<th>编码结束</th>
+           						<th>领用人</th>
+           					</tr>
+           				</thead>
+           				<tbody>
+           					<tr>
+           						<td></td>
+           						<td></td>
+           						<td></td>
+           						<td></td>
+           						<td></td>
+           						<td></td>
+           						<td></td>
+           					</tr>
+           				</tbody>
+           			</table>
+           		</div>
+           	</li>
+           	<li class="logs" style="display: none;">
+           		<div class="top-bar clearfix">
+           			<a class="btn-normal fr" href="javascript:;">导出Excel表格</a>
+           		</div>
+           		<div class="list">
+           			<table class="table-normal">
+           				<thead>
+           					<tr>
+           						<th>时间</th>
+           						<th>昵称</th>
+           						<th>所在单位</th>
+           						<th>姓名</th>
+           						<th>IP</th>
+           						<th>离开时间</th>
+           					</tr>
+           				</thead>
+           				<tbody>
+           					<tr>
+           						<td></td>
+           						<td></td>
+           						<td></td>
+           						<td></td>
+           						<td></td>
+           						<td></td>
+           					</tr>
+           				</tbody>
+           			</table>
+           		</div>
+           	</li>
+        </ul>
         
     </div>
     <!--/end wrap-->
@@ -114,13 +349,37 @@
             版权所有：丽水市农业投资发展有限公司 技术支持：某某科技有限公司 联系电话：400-888-8888
         </p>
     </div>
+<script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+<script src="js/select.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
     $(function(){
         $("#add").click(function(){
             window.location.href="addSet.html";
-        })        
-    })
-</script>    
+        });
+       
+		$(".notice").on("click","li",function(){
+			var index = $(this).index();
+			$(this).addClass("active").siblings().removeClass("active");
+			$(".platWp>li").eq(index).fadeIn().siblings().hide();
+		});
+    });
+</script>
+<script type="text/javascript">
+	window.onload = setup;
+	var s=["s1","s2","s3"];
+	var opt0=["选择省份","选择市","选择地区"];
+	function setup()
+	{
+		for(i=0;i<s.length-1;i++)
+		{
+			document.getElementById(s[i]).onchange=new Function("change("+(i+1)+")");
+		}
+		change(0);
+		document.getElementById("s1").selectedIndex = 6;
+		change(1);
+	}
+	
+</script>
 </body>
 
 </html>

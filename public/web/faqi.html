@@ -17,6 +17,7 @@
     <meta name="description" content="" />
     <link rel="stylesheet" type="text/css" href="css/reset.css">
     <link rel="stylesheet" type="text/css" href="css/sorce.css">
+    <link rel="stylesheet" type="text/css" href="css/umeditor.min.css"/>
 </head>
 
 <body>
@@ -45,52 +46,63 @@
     <div class="w85">
         <div class="platWp" style="width:77%">
             <div class="platInfo">
-                <h2>发送信息至：</h2>
+                <h2>下达任务至：</h2>
                 <p>
-                    <input type="text" value="" name="" />
+                	<div class="addressee clearfix"></div>
+                    <input type="hidden" value="" name="addressee" />
                 </p>
                 <h2>通知标题：</h2>
                 <p>
                     <input type="text" value="" name="" />
                 </p>
                 <h2>附件▼</h2>
+                <div class="btn-normal btn-upload">
+                	<span>上传附件</span>
+	                <label for="uploadfile">上传附件:</label>
+	                <input class="fileupload" id="fileupload" type="file" name="file[]" multiple />
+                </div>
+                <table class="table-normal upload-table"></table>
                 <h2>内容：</h2>
-                <p>
-                    <textarea class="info2"></textarea>
-                </p>
-                <input type="button" value="发送" class="btn">
+                    <!-- 加载编辑器的容器 -->
+                <p><textarea  id="container" class="info2"></textarea></p>
+                <input class="btn" id="send-msg" type="button" value="发送">
             </div>
         </div>
-        <div class="platR">
+        <div class="platR contacts-select">
             <h2>选择</h2>
             <ul class="otherR">
-                <li><select>
-                <option value="2014年度">西湖区</option>
-                <option value="2013年度">2013年度</option>
-                <option value="2012年度">2012年度</option>
-                <option value="2011年度">2011年度</option>
+                <li class="class"><span>级别:</span>
+                <select>
+                <option value="0">丽水市领导</option>
+                <option value="1">县区领导</option>
+                <option value="2">乡镇工作人员</option>
             </select></li>
-                <li><select>
-                <option value="2014年度">某某镇</option>
-                <option value="2013年度">2013年度</option>
-                <option value="2012年度">2012年度</option>
-                <option value="2011年度">2011年度</option>
+                <li class="area"><span>县区:</span>
+                <select>
+	                <option value="2014年度">莲都区</option>
+	                <option value="2013年度">云和县</option>
+	                <option value="2012年度">静宁县</option>
+                </select></li>
+                <li class="company"><span>单位:</span>
+            	<select>
+            		<option value="2014年度">莲都区</option>
+	                <option value="2013年度">云和县</option>
+	                <option value="2012年度">静宁县</option>
+            	</select></li>
+                <li class="bumen"><span>部门:</span>
+                <select>
+                <option value="2014年度">XX乡镇</option>
+                <option value="2013年度">XX乡镇</option>
+                <option value="2012年度">XX乡镇</option>
+                <option value="2011年度">XX乡镇</option>
             </select></li>
-                <li><select>
-                <option value="2014年度">某某科室</option>
-                <option value="2013年度">2013年度</option>
-                <option value="2012年度">2012年度</option>
-                <option value="2011年度">2011年度</option>
-            </select></li>
-                <li><input name="" type="checkbox" value="" />全质检科</li>
-                <li><input name="" type="checkbox" value="" />全质防疫科</li>
+                
             </ul>
-            <div class="infoShow">
-                <p>某某名字</p>
-                <p>某某名字</p>
-                <p>某某名字</p>
-                <p>某某名字</p>
-            </div>
+            <ul class="contacts">
+                <li>张三</li>
+                <li>李四</li>
+                <li>赵五</li>
+            </ul>
         </div>
     </div>
     <!--/end wrap-->
@@ -99,6 +111,121 @@
             版权所有：丽水市农业投资发展有限公司 技术支持：某某科技有限公司 联系电话：400-888-8888
         </p>
     </div>
+        <script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+    <!--umeditor-->
+    <script src="js/umeditor.config.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/umeditor.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/zh-cn.js" type="text/javascript" charset="utf-8"></script>
+    <!--umeditor-end-->
+    <!--fileupload-->
+    <script src="js/jquery.ui.widget.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/jquery.iframe-transport.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/jquery.fileupload.js" type="text/javascript" charset="utf-8"></script>
+    <!--fileupload-end-->
+    <script type="text/javascript" charset="utf-8">
+		
+    	select($(".class select"));
+    	$(".class select").change(function(){
+    		select($(this));
+    	});
+    	function select(obj){
+    		var opt = obj.val();
+    		if( opt =="2"){
+    			$(".area").show();
+    		}else{
+    			$(".area").hide();
+    		}
+    	}
+    	
+    	   	//添加收件人
+    	$(".contacts").on("click","li",function(){
+    		var addr = $(this).text();
+    		var data_id = $(this).attr("data-id");
+    		var addressee = $(".addressee");
+    		if($(this).hasClass("selected")) return;
+    		var html = "<span data-id="+data_id+">"+addr+"<i>×</i></span>";
+    		addressee.append(html);
+    		$(this).addClass("selected");//标记
+    	});
+    	
+    	$(".addressee").on("click","i",function(){
+    		$(this).parent().remove();
+    		var data_id = $(this).parent().attr("data-id");
+    		var contacts = $(".contacts");
+    		contacts.find("li[data-id="+data_id+"]").removeClass("selected");//根据data-id识别身份
+    	});
+    </script>
+     <!-- 实例化编辑器代码 -->
+<script type="text/javascript">
+    $(function(){
+        window.um = UM.getEditor('container', {
+            /* 传入配置参数,可配参数列表看umeditor.config.js */
+            toolbar:['source | undo redo | bold italic underline strikethrough | superscript subscript | forecolor backcolor | removeformat |',
+            'insertorderedlist insertunorderedlist | selectall cleardoc paragraph | fontfamily fontsize' ,
+            '| justifyleft justifycenter justifyright justifyjustify |',
+            'link unlink | emotion image video  | map',
+            '| horizontal print preview', 'drafts', 'formula']
+            ,initialFrameWidth:640
+            ,initialFrameHeight:300
+        });
+        
+        /* 获取编辑器内容 */
+       $("#send-msg").click(function(){
+       		alert(UM.getEditor('container').getContent());
+       });
+		
+    });
+</script>
+<script>
+//上传附件
+	$(function () {
+	    'use strict';
+	    // Change this to the location of your server-side upload handler:
+	    var url = '//jquery-file-upload.appspot.com/';
+	    var tmpl = '<tr class="template-upload fade">'+
+				        '<td>'+
+				            '<span class="preview">预览图</span>'+
+				        '</td>'+
+				       ' <td>'+
+				            '<p class="name">文件名</p>'+
+				            '<strong class="error text-danger"></strong>'+
+				        '</td>'+
+				        '<td>'+
+				            '<p class="size">上传进度...</p>'+
+				            '<div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">'+
+				            	'<div class="progress-bar progress-bar-success" style="width:50%;"></div>'+
+				            '</div>'+
+				        '</td>'+
+				        '<td>'+
+			                '<button class="btn start">开始</button>'+
+			                '<button class="btn cancel">取消</button>'+
+				        '</td>'+
+				    '</tr>'
+
+	    $('#fileupload').fileupload({
+	        url: url,
+	        dataType: 'json',
+	        add: function (e, data) {
+	            data.context = $('.upload-table').append(tmpl);
+	            data.submit();
+	        },
+	        done: function (e, data) {
+	            $.each(data.result.files, function (index, file) {
+	                //$('<p/>').text(file.name).appendTo('#files');
+	            });
+	        },
+	        progressall: function (e, data) {
+	            var progress = parseInt(data.loaded / data.total * 100, 10);
+	            $('#progress .progress-bar').css(
+	                'width',
+	                progress + '%'
+	            );
+	        }
+	    }).prop('disabled', !$.support.fileInput)
+	        .parent().addClass($.support.fileInput ? undefined : 'disabled');
+	});
+</script>
+    
 </body>
 
 </html>

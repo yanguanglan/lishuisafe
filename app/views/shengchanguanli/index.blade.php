@@ -25,13 +25,13 @@
 <div class="w85" style="width: 1000px;">
 	<div class="box_skitter box_skitter_large" style="width: 100%;">
 		<ul>
-			<li><img src="images/b1.jpg"></li>
-			<li><img src="images/b2.jpg"></li>
-			<li><img src="images/b3.jpg"></li>
-			<li><img src="images/b4.jpg"></li>
-			<li><img src="images/b5.jpg"></li>
-			<li><img src="images/b6.jpg"></li>	
-			<li><img src="images/b7.jpg"></li>		
+			<li><img src="images/sc_banner_1.jpg"></li>
+			<li><img src="images/sc_banner_2.jpg"></li>
+			<li><img src="images/sc_banner_3.jpg"></li>
+			<li><img src="images/sc_banner_4.jpg"></li>
+			<li><img src="images/sc_banner_5.jpg"></li>
+			<li><img src="images/sc_banner_6.jpg"></li>	
+			<li><img src="images/sc_banner_7.jpg"></li>		
 		</ul>
 	</div>	
 <!--防治统计-->
@@ -47,7 +47,7 @@
 		<li><a href="http://www.zjnm.cn/mmDesktop.aspx?zid=DQDI4EYLOSOJ16VB15WL661HR8AAQ06CC82">供求信息</a></li>
 		<li><a href="http://www.lsnj110.gov.cn/html/main/tzgg/">通知公告</a></li>
 	</ul>
-	<p><a href=""><img src="images/scB.jpg" /></a></p>
+	<p><a href="qiyeapply.html"><img src="images/scB.jpg" /></a></p>
 </div>
 <div class="scWp">
 	<div class="scList">
@@ -140,9 +140,10 @@
 			$('.box_skitter_large').skitter({
 				theme: 'clean',
 				numbers_align: 'center',
-				progressbar: true, 
+				progressbar: false, 
 				dots: true, 
-				preview: true
+				preview: true,
+				animation: 'random'
 			});
 		});
 </script>

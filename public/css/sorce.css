@@ -66,22 +66,11 @@
     border: 1px solid #eaeaea;
     text-align: center;
 }
-.platInfo tbody td .nomal{
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    background: url(../images/star.gif);
-    vertical-align: text-top;
-    margin-right: 8px;
-}
-.platInfo tbody td .spec{
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    background: url(../images/star-hover.gif);
-    vertical-align: text-top;
-    margin-right: 8px;
-}
+.platInfo td .nomal,
+.platInfo td .spec,
+.platInfo td .unread{display: inline-block;width: 20px;height: 20px;background: url(../images/star.gif);vertical-align: text-top;margin-right: 8px;}
+.platInfo td .spec{ background: url(../images/star-hover.gif);}
+.platInfo td .unread{ width: 26px; background: url(../images/unread.gif); margin-right: 5px;}
 .sTab .line {
     border-top: 1px solid #eaeaea;
     margin: 30px 0 25px 0;
@@ -116,25 +105,12 @@
     width: 80%;
     padding-bottom: 120px;
 }
-.notice ul li {
-    border-bottom: 1px solid #d9d9d9;
-    height: 58px;
-    line-height: 58px;
-}
-.notice ul li a {
-    color: #4c4c4c;
-    font-size: 16px;
-    line-height: 28px;
-}
-.notice ul .active a {
+.notice ul li {border-bottom: 1px solid #d9d9d9;height: 58px;line-height: 58px;color: #4c4c4c;font-size: 16px;cursor: pointer;}
+.notice ul .active{
     color: #227f57;
     font-weight: bold;
 }
-.platWp {
-    margin-left: 1%;
-    float: left;
-    width: 57%;
-}
+.platWp {margin-left: 1%;float: left;width: 57%; background: #fff;}
 .platC {
     border: 1px solid #e4e4e4;
     border-left: 1px solid #cee1d9;
@@ -153,19 +129,19 @@
     font-size: 16px;
     padding-bottom: 8px;
 }
-.platInfo p {
-    margin-bottom: 10px;
-}
-.platInfo p input {
+.platInfo p { margin-bottom: 10px;}
+.platInfo p input,.addressee {
     background: #f9f9f9;
     border: 1px solid #d7d7d7;
     width: 100%;
     height: 43px;
     line-height: 43px;
-    text-indent: 1em;
     font-size: 16px;
     color: #777;
 }
+.addressee{ min-height: 43px; height: auto; padding:5px;}
+.addressee span{ float:left;line-height: 20px; margin:2px; border: 1px solid #ddd;padding: 0 5px;font-size: 14px;}
+.addressee span i{ padding-left: 2px; cursor: pointer;}
 .platInfo textarea {
     background: #f9f9f9;
     border: 1px solid #d7d7d7;
@@ -188,7 +164,7 @@
     margin-left: 1%;
     float: left;
 }
-.platR h2 {
+.contacts-select h2 {
     background: #f2f2f2;
     height: 60px;
     line-height: 60px;
@@ -201,27 +177,27 @@
     -webkit-border-radius: 6px 6px 0 0;
     -moz-border-radius: 6px 6px 0 0;
 }
-.platR ul {
+.contacts-select ul {
     background: #fff;
-    padding-bottom: 120px;
+    padding: 10px 0;
     border: 1px solid #cee1d9;
     border-bottom: 1px solid #b3c3bc;
     border-top: none;
 }
-.platR ul li {
-    padding: 15px 0 0 20px;
+.contacts-select ul li {
+    padding: 5px 20px;
     font-size: 16px;
     color: #4c4c4c;
 }
-.platR ul li p {
+.contacts-select ul li p {
     text-indent: 2em;
     margin-top: 3px;
     font-size: 14px;
 }
-.platR ul li input{
+.contacts-select ul li input{
     margin:0 10px;
 }
-/*系统设置*/
+/*系统设置 set.html*/
 
 .setS {
     float: left;
@@ -238,10 +214,11 @@
     margin: 0 5px;
     color: #2e71c3;
 }
-
-
-
-
+.sys-set{ float:left; width:70%; margin-left:20px;}
+.sys-set .sys,.sys-set .trade{ border: 1px solid #e4e4e4; margin-bottom: 20px; padding:10px 20px;}
+.sys-set h2{ font-size: 18px; line-height: 2em;}
+.sys-set .radio{ padding-left:60px; font-size: 14px;}
+.platWp .top-bar,.platWp .list{ padding:5px 10px;}
 .platO{
     width: 78%;
 }
@@ -285,13 +262,11 @@
     padding-left: 10px;
     background: #fff;
 }
-.infoShow{
-    background: #fff;
-    padding: 20px;
-}
-.infoShow p{
-    padding: 3px 0;
-}
+.contacts-select{ float: left;}
+.contacts-select .contacts{ background: #fff; padding: 20px 0;max-height: 300px;overflow-y: auto;}
+.contacts-select .contacts li{ padding: 3px 20px; cursor: pointer;}
+.contacts-select .contacts li:hover{ background:#ddd;}
+.upload-table{ margin:10px 0;}
 .infoWp{
     border-top: 1px solid #dbdbdb;
     margin: 20px 0;
@@ -302,7 +277,7 @@
     color: #4b4b4b;
     font-weight: bold;
 }
-.platInfo .group span{ padding:0 5px;}
+.platInfo .task-group span{ padding:0 5px;}
 .platInfo .newsT a{
     float: right;
     background: #227f57;
@@ -320,7 +295,7 @@
 .infoWp .tag li{
     padding-bottom: 15px;
 }
-.infoWp .tag li a{
+.infoWp .tag .annex{
     background: url(../images/tag.png) no-repeat;
     color: #426caa;
     padding-left: 25px;
@@ -597,9 +572,7 @@
 .orga ul li i{
     margin-right: 5px;
 }
-.listBox{
-    overflow: hidden;
-}
+.listBox{float: left; overflow: hidden;}
 .listL{
     float: left;
     width: 200px;
@@ -615,9 +588,7 @@
     max-height: 200px;
     overflow-y: auto;
 }
-.listL ul li{
-    padding:5px 0;
-}
+.listL ul li{padding:5px 0; cursor: pointer;}
 .listL ul li span{
     font-size: 14px;
     color: #494949;
@@ -630,19 +601,12 @@
 .listL .sub{
     display: none;
 }
-.listL .sub p{
-    padding: 3px 0; cursor: pointer;
-}
-.listR{
-    float: right;
-}
-.listR p{
-    margin: 10px 0;
-}
-.listR ul li{
-    padding: 3px 0;
-}
-
+.listL .sub p{padding: 3px 0; cursor: pointer;}
+.listL .sub p:hover{ background:#ddd;}
+.listR{float: right;}
+.listR p{margin: 10px 0;}
+.listR ul li{padding: 3px 0; cursor: pointer;}
+#select_li li:hover{ background:#ddd;}
 /*suggestion*/
 .suggestion{ background:transparent; padding:0;}
 .suggest-main{ margin-bottom: 20px;}
@@ -683,3 +647,124 @@
 .suggest-main .top-bar .cx{ float: right; vertical-align: middle;}
 .suggest-main .detail .article{ padding:20px; text-indent: 2em;}
 .suggest-main .detail .reply{ padding:10px; font-size: 14px; border-top:1px solid #ddd;}
+
+/*送检数据录入-monitorchou*/
+.examine{ line-height: 58px;}
+.examine .title{ float:left; line-height: 58px; font-size:18px;color:#383838;font-weight:bold;padding:0 20px;}
+.examine .batch{ float:left;}
+.examine .batch input{}
+.examine .batch span{ padding:0 10px;}
+
+/*附件上传*/
+.edui-container{ margin-bottom:10px;}
+.fileinput-button {
+  position: relative;
+  overflow: hidden;
+}
+.fileinput-button input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  opacity: 0;
+  -ms-filter: 'alpha(opacity=0)';
+  font-size: 200px;
+  direction: ltr;
+  cursor: pointer;
+}
+
+.progress {
+overflow: hidden;
+height: 20px;
+margin-bottom: 20px;
+background-color: #f5f5f5;
+border-radius: 4px;
+-webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+}
+.progress-bar {
+float: left;
+width: 0;
+height: 100%;
+font-size: 12px;
+line-height: 20px;
+color: #fff;
+text-align: center;
+background-color: #428bca;
+-webkit-box-shadow: inset 0 -1px 0 rgba(0,0,0,.15);
+box-shadow: inset 0 -1px 0 rgba(0,0,0,.15);
+-webkit-transition: width .6s ease;
+transition: width .6s ease;
+}
+.progress-bar-success {
+background-color: #5cb85c;
+}
+.progress.active .progress-bar {
+-webkit-animation: progress-bar-stripes 2s linear infinite;
+animation: progress-bar-stripes 2s linear infinite;
+}
+@-webkit-keyframes progress-bar-stripes{from{background-position:40px 0}to{background-position:0 0}}
+@keyframes progress-bar-stripes{from{background-position:40px 0}to{background-position:0 0}}
+.progress-striped .progress-bar-success {
+background-image: -webkit-linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+background-image: linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+}
+.progress-striped .progress-bar {
+background-image: -webkit-linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+background-image: linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+background-size: 40px 40px;
+}
+/* Fixes for IE < 8 */
+@media screen\9 {
+  .fileinput-button input {
+    filter: alpha(opacity=0);
+    font-size: 100%;
+    height: 100%;
+  }
+}
+
+.fileupload-buttonbar .btn,
+.fileupload-buttonbar .toggle {
+  margin-bottom: 5px;
+}
+.progress-animated .progress-bar,
+.progress-animated .bar {
+  background: url("../img/progressbar.gif") !important;
+  filter: none;
+}
+.fileupload-process {
+  float: right;
+  display: none;
+}
+.fileupload-processing .fileupload-process,
+.files .processing .preview {
+  display: block;
+  width: 32px;
+  height: 32px;
+  background: url("../img/loading.gif") center no-repeat;
+  background-size: contain;
+}
+.files audio,
+.files video {
+  max-width: 300px;
+}
+
+@media (max-width: 767px) {
+  .fileupload-buttonbar .toggle,
+  .files .toggle,
+  .files .btn span {
+    display: none;
+  }
+  .files .name {
+    width: 80px;
+    word-wrap: break-word;
+  }
+  .files audio,
+  .files video {
+    max-width: 80px;
+  }
+  .files img,
+  .files canvas {
+    max-width: 100%;
+  }
+}

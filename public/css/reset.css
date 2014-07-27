@@ -15,7 +15,7 @@ body,html{
 }
 html,body,object,iframe,form,
 div,header,section,footer ,hgroup, menu, nav,summary,
-a,span,applet,p,em,font,sub,sup,small, strong,b, i,
+a,applet,p,em,font,sub,sup,small, strong,b, i,
 h1,h2,h3,h4,h5,h6,
 dl,dt,dd,ol,ul,li,
 blockquote,pre,abbr,acronym,address,big,code,del,dfn,img,ins,kbd,q,s,samp,strike,tt,var,fieldset,label,legend,caption,time, mark, audio, video
@@ -92,11 +92,17 @@ body{
 	margin-right: auto;
 	min-width: 950px;
 }
-.input-text,.input-text2{ width:100%; height: 40px; padding:0 5px; line-height: 40px; border:none; background:transparent;  box-sizing: border-box;}
+.fr{ float: right;}
+.input-normal,.input-text,.input-text2{ width:100%; height: 40px; padding:0 5px; line-height: 40px; border:none; background:transparent;  box-sizing: border-box;}
 .input-text2{ border:1px solid #d7d7d7;}
+.input-normal{ width:150px; border:1px solid #e4e4e4;}
 #s1,#s2,#s3{width: 125px;height: 38px;line-height: 38px;padding-left: 5px;border: 1px solid #e4e4e4;}
 .input-btn,.input-btn2,.search-btn{ float:right; width: 190px;height: 40px;line-height: 40px; margin:10px;font-size: 18px; background:#12774d;text-align: center;color: #fff;border: none; border-radius: 5px;}
 .input-btn2{  border-bottom:2px solid #0d6639;}
+.btn-normal{display: inline-block; min-width: 80px; height: 38px; line-height: 38px;padding:0 10px; margin:0 5px; font-size: 14px; background:#12774d;text-align: center;color: #fff;border: none;}
+.btn-upload{ position: relative; color: #fff; border-radius: 5px; overflow: hidden; cursor: pointer;}
+.btn-upload label{ display: none;}
+.btn-upload input{ position: absolute; left: 0; top: 0; font: 30px; opacity: 0; filter: alpha(opacity=0);}
 .search-btn{ width: auto;padding:0 10px;}
 .text-area{ width:100%; height: 140px; padding:5px; line-height: 1.4; border:1px solid #d7d7d7; resize: none; box-sizing: border-box;}
 .select{ width:120px; height: 38px;line-height: 38px;padding-left: 5px;border: 1px solid #d7d7d7; }
@@ -138,11 +144,10 @@ body{
 .header{
 	width: 100%;
 	height: 162px;
-	background: url(../images/bg_header.jpg) no-repeat center center;
+	background: url(../images/jc_banner_1.jpg) no-repeat center center;
 }
-.header .cont{
-	
-}
+.header-zr{ background-image:url(../images/bg_header.jpg);}
+.header .cont{ }
 .header .welcome{
 	text-align: right;
 	padding:12px  18px 0 0;
@@ -215,7 +220,7 @@ body{
  ************************wrap
  */
 .wrap{
-	background: #fff;
+	background: #fff; margin-bottom:20px;
 	border: 0;
 	border-radius: 4px 4px 0 0;
 	-webkit-border-radius: 4px 4px 0 0;
@@ -921,5 +926,8 @@ body{
 /*table样式*/
 .tl{text-align: left;}
 .table-normal{ width:100%; margin-bottom:10px; border-collapse: collapse; border-spacing: 0; text-align: center;}
-.table-normal td,.table-normal th{ line-height: 40px; padding:0 5px;  border:1px solid #ddd;}
+.table-normal caption{ padding:0 20px;color: #383838; text-align: left; font-size: 18px; line-height: 58px; font-weight: 800;}
+.table-normal td,.table-normal th{ height: 40px; line-height: 40px; padding:0 5px;  border:1px solid #ddd;}
 .table-normal .top th{ line-height: 65px;}
+.table-noborder td,.table-noborder th{ border:none;}
+.table-noborder td{ text-align: left;}

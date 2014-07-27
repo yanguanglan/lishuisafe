@@ -42,7 +42,7 @@
             <td height="39" align="center">{{$value->departName}}</td>
             <td height="39" align="center">{{$value->userName}}</td>
             <td height="39" align="center">{{$value->pphone}}</td>
-            <td height="39" align="center"><span class="power"><a class="msg" href="{{URL::route('zrwgmail', array('workerID'=>$value->ID))}}"></a>@if($value->noReadNum)<i>{{$value->noReadNum}}</i>@endif</span>@if($value->isLook == 1)<img src="{{URL::asset('images/jg.png')}}" class="jg"/>@endif</td>
+            <td height="39" align="center"><span class="power"><a class="msg" href="{{URL::route('zrwgtask', array('workerID'=>$value->ID))}}"></a>@if($value->noReadNum)<i>{{$value->noReadNum}}</i>@endif</span>@if($value->isLook == 1)<img src="{{URL::asset('images/jg.png')}}" class="jg"/>@endif</td>
           </tr>
           @endforeach
         </table>
@@ -64,7 +64,7 @@
                 $i = 1;
                 }
                 ?>
-                <span class="power">@if($value->pneedjg ==1)局长@else质管科@endif：{{$value->userName}}  电话：{{ $value->pmobile }}<a class="msg" href="{{URL::route('zrwgmail', array('workerID'=>$value->ID))}}"></a>@if($value->noReadNum)<i>{{$value->noReadNum}}</i>@endif</span>@if($value->isLook == 1)<img src="{{URL::asset('images/jg.png')}}" class="jg"/>@endif
+                <span class="power">@if($value->pneedjg ==1)局长@else质管科@endif：{{$value->userName}}  电话：{{ $value->pmobile }}<a class="msg" href="{{URL::route('zrwgtask', array('workerID'=>$value->ID))}}"></a>@if($value->noReadNum)<i>{{$value->noReadNum}}</i>@endif</span>@if($value->isLook == 1)<img src="{{URL::asset('images/jg.png')}}" class="jg"/>@endif
                 @endforeach
               </th>
             </tr>
@@ -101,8 +101,8 @@
             <td height="39" align="center">{{$value->userName}}</td>
             <td height="39" align="center">{{$value->pphone}}</td>
             <td height="39" align="center">{{$value->pmobile}}</td>
-            <td height="39" align="center">@if($value->deal){{$value->deal}}@endif @if($value->isLook == 1)<img src="{{URL::asset('images/jg.png')}}" class="jgs"/> @endif</td>
-            <td height="39" align="center">@if($value->nodeal){{$value->nodeal}} @endif @if($value->isLook == 1)<img src="{{URL::asset('images/jg.png')}}" class="jgs"/> @endif</td>
+            <td height="39" align="center">@if($value->deal) {{$value->deal}} @endif</td>
+            <td height="39" align="center">@if($value->nodeal) {{$value->nodeal}} @endif</td>
           </tr>
           @endforeach
           @endforeach                         
