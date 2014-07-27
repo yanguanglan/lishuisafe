@@ -25,7 +25,7 @@
 		<table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#e3e3e3">
           <tr class="top">
             <td width="91" height="65" align="center" bgcolor="#f7f7f7" class="thHead">
-                <span  class="hy">行业</span>
+                <span  class="hy">产业</span>
                 <span class="xq">县区</span>
             </td>
             @foreach ($types as $typeItem)
