@@ -38,7 +38,6 @@
                         <td height="65" bgcolor="#efefef">样品数</td>
                         <td height="65" bgcolor="#efefef">结论 </td>
                         <td height="65" bgcolor="#efefef">检测方式</td>
-                        <td height="65" bgcolor="#efefef">地点</td>
                         <td height="65" bgcolor="#efefef">上传方式</td>
                     </tr>
 
@@ -51,7 +50,6 @@
                         <td height="39" >{{$value->pcshi}}</td>
                         <td height="39" >{{$value->pafter}}</td>
                         <td height="39" >@if($value->testType==0)自检@elseif($value->testType==1)送检@else抽检@endif</td>
-                        <td height="39" >{{$value->pstate}}</td>
                         <td height="39" >@if($value->ptype==0)检测设备自动上传@else手动输入@endif</td>          
                     </tr>
           			@endforeach

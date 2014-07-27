@@ -7,33 +7,59 @@
 	<form>
 		<div class="examine clearfix">
 		    <h2  class="title">送检数据录入</h2>
-		    <div class="batch"><span>产品批次</span><input class="input-normal" type="text" name="" /><input class="btn-normal" type="button" name="" value="确定" /></div>
+		    <div class="batch"><span>产品批次</span><input class="input-normal" type="text" name="sn" value="{{$sn}}" /><input class="btn-normal" type="submit" name="" value="确定" /></div>
 		</div>
+	</form>	
 		<div class="cont">
+	    @if(isset($scyx))
 	    <table class="table-normal table-noborder">
 	    	<tbody>
 	        <tr>
 	            <th>生产厂家：</th>
-	            <td><input class="input-text2" type="text" name="" /></td>
+	            <td><input class="input-text2" type="text" name="" value="{{$scyx[0]->companyName}}" /></td>
 	            <th>厂家电话：</th>
-	            <td><input class="input-text2" type="text" name="" /></td>
+	            <td><input class="input-text2" type="text" name="" value="{{$scyx[0]->pphone}}"/></td>
 	        </tr>
 	 
 	        <tr>
 	            <th>产品名称：</th>
-	            <td><input class="input-text2" type="text" name="" /></td>
+	            <td><input class="input-text2" type="text" name="" value="{{$scyx[0]->productName}}"/></td>
 	            <th>种子品种：</th>
-	            <td><input class="input-text2" type="text" name="" /></td>            
+	            <td><input class="input-text2" type="text" name="" value="{{$scyx[0]->seekName}}"/></td>            
 	        </tr>
 	        <tr>
 	            <th>种植时间：</th>
-	            <td><input class="input-text2" type="text" name="" /></td>
+	            <td><input class="input-text2" type="text" name="" value="{{date('Y-m-d', strtotime($scyx[0]->plantTime))}}"/></td>
 	            <th>采收时间：</th>
-	            <td><input class="input-text2" type="text" name="" /></td>            
+	            <td><input class="input-text2" type="text" name="" value="{{date('Y-m-d', strtotime($scyx[0]->yushouTime))}}"/></td>            
 	        </tr>
 	        </tbody>
 	      </table>
-	      
+	      @else
+	      <table class="table-normal table-noborder">
+	    	<tbody>
+	        <tr>
+	            <th>生产厂家：</th>
+	            <td><input class="input-text2" type="text" name="" value="" /></td>
+	            <th>厂家电话：</th>
+	            <td><input class="input-text2" type="text" name="" value=""/></td>
+	        </tr>
+	 
+	        <tr>
+	            <th>产品名称：</th>
+	            <td><input class="input-text2" type="text" name="" value=""/></td>
+	            <th>种子品种：</th>
+	            <td><input class="input-text2" type="text" name="" value=""/></td>            
+	        </tr>
+	        <tr>
+	            <th>种植时间：</th>
+	            <td><input class="input-text2" type="text" name="" value=""/></td>
+	            <th>采收时间：</th>
+	            <td><input class="input-text2" type="text" name="" value=""/></td>        
+	        </tr>
+	        </tbody>
+	      </table>
+	      @endif
 	      <table class="table-normal">
 	      	<caption>施肥施药过程</caption>
 	      	<tbody>
@@ -43,18 +69,23 @@
 	      			<th>用量</th>
 	      			<th>安全间隔时间</th>
 	      		</tr>
+	      		@if(isset($sfxx))
+	      		@foreach($sfxx as $v)
+	      		<tr>
+	      			<td>{{date('Y-m-d', strtotime($v->opTime))}}</td>
+	      			<td>{{$v->name}}</td>
+	      			<td>{{$v->pmun}}{{$v->unitName}}</td>
+	      			<td>{{$v->pdays}}</td>
+	      		</tr>
+	      		@endforeach
+	      		@else
 	      		<tr>
 	      			<td></td>
 	      			<td></td>
 	      			<td></td>
 	      			<td></td>
 	      		</tr>
-	      		<tr>
-	      			<td></td>
-	      			<td></td>
-	      			<td></td>
-	      			<td></td>
-	      		</tr>
+	      		@endif
 	      		</tbody>
 	      	</table>
 	      	<table class="table-normal table-noborder">
@@ -70,6 +101,11 @@
 	      					<input class="input-text2" type="text" name="" value="" style="width:100px;" />
 	      					<select class="select">
 	      						<option>请选择单位</option>
+	      						@if(isset($jcyldw))
+	      						@foreach($jcyldw as $v)
+	      						<option value="{{$v->ID}}">{{$v->pname}}</option>
+	      						@endforeach
+	      						@endif
 	      					</select>
 	      				</td>
 	      			</tr>

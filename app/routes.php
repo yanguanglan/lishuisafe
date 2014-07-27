@@ -39,7 +39,23 @@ Route::get('/suggestions', function(){
 });
 
 Route::get('/jcsjll', function(){
-	return View::make('jctjll');	
+	$sn = Input::get('sn', '');
+	if($sn) {
+	#生产信息
+	$scyx = DB::select('EXEC proc_monitor_test_enter_product ?', array($sn));
+	#施肥信息
+	$sfxx = DB::select('EXEC proc_monitor_test_enter_fy ?', array($sn));
+	#检测用量单位
+	$jcyldw = DB::select('EXEC proc_monitor_test_enter_unit');
+	#检测项目明细
+	$jcxmmx = DB::select('EXEC proc_sample_test_info ?, ?', array($sn, 1));
+	#检测项目
+	$jcxm = DB::select('EXEC proc_monitor_test_enter_xiangmu');
+		return View::make('jctjll')->with('scyx', $scyx)->with('sfxx', $sfxx)->with('jcyldw', $jcyldw)->with('jcxmmx', $jcxmmx)->with('jcxm', $jcxm)->with('sn', $sn);	
+	}
+	else{
+		return View::make('jctjll');	
+	}
 });
 
 Route::get('/shengchanguanli', array('as'=>'shengchanguanli', function()

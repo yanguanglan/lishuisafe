@@ -55,73 +55,73 @@
 	<div class="scList">
 		<ul>
 			<li>
-				<a href="">
+				<a href="{{URL::asset("lssc1.rar")}}">
 					<img src="images/sc1.jpg" alt="" />
 					<p>种植业生产系统</p>
 				</a>					
 			</li>
 			<li>
-				<a href="">
+				<a href="{{URL::asset("lssc2.rar")}}">
 					<img src="images/sc2.jpg" alt="" />
 					<p>水果业生产系统</p>
 				</a>
 			</li>
 			<li>
-				<a href="">
+				<a href="{{URL::asset("lssc3.rar")}}">
 					<img src="images/sc3.jpg" alt="" />
 					<p>菌菇业生产系统</p>
 				</a>				
 			</li>
 			<li>
-				<a href="">
+				<a href="{{URL::asset("lssc4.rar")}}">
 					<img src="images/sc4.jpg" alt="" width="132" height="132" />
 					<p>中药材生产系统</p>
 				</a>				
 			</li>
 			<li>
-				<a href="">
+				<a href="{{URL::asset("lssc5.rar")}}">
 					<img src="images/sc5.jpg" alt="" />
 					<p>猪养殖产系统</p>
 				</a>				
 			</li>
 			<li>
-				<a href="">
+				<a href="{{URL::asset("lssc6.rar")}}">
 					<img src="images/sc6.jpg" alt="" />
 					<p>蜂业业生产系统</p>
 				</a>				
 			</li>
 			<li>
-				<a href="">
+				<a href="{{URL::asset("lssc7.rar")}}">
 					<img src="images/sc7.jpg" alt="" />
 					<p>茶生产系统</p>
 				</a>				
 			</li>
 			<li>
-				<a href="">
+				<a href="{{URL::asset("lssc8.rar")}}">
 					<img src="images/sc8.jpg" alt="" />
 					<p>渔业生产系统</p>
 				</a>				
 			</li>
 				<li>
-				<a href="">
+				<a href="{{URL::asset("lssc9.rar")}}">
 					<img src="images/sc9.jpg" alt="" />
 					<p>农业加工生产系统</p>
 				</a>				
 			</li>
 				<li>
-				<a href="">
+				<a href="{{URL::asset("lssc10.rar")}}">
 					<img src="images/sc10.jpg" alt="" />
 					<p>禽蛋生产系统</p>
 				</a>				
 			</li>
 				<li>
-				<a href="">
+				<a href="{{URL::asset("lssc11.rar")}}">
 					<img src="images/sc11.jpg" alt="" />
 					<p>林特生产系统</p>
 				</a>				
 			</li>
 			<li>
-				<a href="">
+				<a href="{{URL::asset("lssc12.rar")}}">
 					<img src="images/sc12.jpg" alt="" />
 					<p>粮油生产系统</p>
 				</a>				
