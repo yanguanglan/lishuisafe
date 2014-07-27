@@ -1,0 +1,97 @@
+Searching 57 files for "产业" (case sensitive)
+
+/Users/lan/Sites/lishuisafe/app/views/jianceguanli/jdjc.blade.php:
+   26        </div> 
+   27  	 
+   28: 			<em>样品产业：</em>
+   29  				<div class="seBox check">
+   30  	                 <select name="usertype">
+   ..
+   45                          <td height="65" bgcolor="#efefef">检测机构</td>
+   46                          <td height="65" bgcolor="#efefef">区域</td>
+   47:                         <td height="65" bgcolor="#efefef">产业</td>
+   48                          <td height="65" bgcolor="#efefef">检测次数</td>
+   49                          <td height="65" bgcolor="#efefef">合格次数</td>
+
+/Users/lan/Sites/lishuisafe/app/views/jianceguanli/jdjcsh.blade.php:
+   26        </div> 
+   27  	 
+   28: 			<em>样品产业：</em>
+   29  				<div class="seBox check">
+   30  	                 <select name="usertype">
+   ..
+   47                         <td height="65" bgcolor="#efefef">被检单位</td>
+   48                          <td height="65" bgcolor="#efefef">抽样地点</td>
+   49:                         <td height="65" bgcolor="#efefef">样品产业</td>
+   50                        
+   51                          <td height="65" bgcolor="#efefef">样品名称</td>
+
+/Users/lan/Sites/lishuisafe/app/views/jianceguanli/qysj.blade.php:
+   26        </div> 
+   27  	 
+   28: 			<em>样品产业：</em>
+   29  				<div class="seBox check">
+   30  	                 <select name="usertype">
+   ..
+   45                          <td height="65" bgcolor="#efefef">检测机构</td>
+   46                          <td height="65" bgcolor="#efefef">区域</td>
+   47:                         <td height="65" bgcolor="#efefef">产业</td>
+   48                          <td height="65" bgcolor="#efefef">检测次数</td>
+   49                          <td height="65" bgcolor="#efefef">合格次数</td>
+
+/Users/lan/Sites/lishuisafe/app/views/jianceguanli/qysjsh.blade.php:
+   26        </div> 
+   27  	 
+   28: 			<em>样品产业：</em>
+   29  				<div class="seBox check">
+   30  	                 <select name="usertype">
+   ..
+   47                         <td height="65" bgcolor="#efefef">被检单位</td>
+   48                          <td height="65" bgcolor="#efefef">抽样地点</td>
+   49:                         <td height="65" bgcolor="#efefef">样品产业</td>
+   50                        
+   51                          <td height="65" bgcolor="#efefef">样品名称</td>
+
+/Users/lan/Sites/lishuisafe/app/views/jianceguanli/qyzj.blade.php:
+   31            <tr class="top">
+   32              <td width="91" height="65" align="center" bgcolor="#f7f7f7" class="thHead">
+   33:                 <span  class="hy">产业</span>
+   34                  <span class="xq">县区</span>
+   35              </td>
+
+/Users/lan/Sites/lishuisafe/app/views/jianceguanli/zhtjsh.blade.php:
+   38                         <td height="65" bgcolor="#efefef">被检单位</td>
+   39                          <td height="65" bgcolor="#efefef">抽样地点</td>
+   40:                         <td height="65" bgcolor="#efefef">样品产业</td>
+   41                        
+   42                          <td height="65" bgcolor="#efefef">样品名称</td>
+
+/Users/lan/Sites/lishuisafe/app/views/zerenguanli/fsltj.blade.php:
+   29            <tr class="top">
+   30              <td width="91" height="65" align="center" bgcolor="#f7f7f7" class="thHead">
+   31:                 <span  class="hy">产业</span>
+   32                  <span class="xq">县区</span>
+   33              </td>
+
+/Users/lan/Sites/lishuisafe/app/views/zerenguanli/fztj.blade.php:
+   29            <tr class="top">
+   30              <td width="91" height="65" align="center" bgcolor="#f7f7f7" class="thHead">
+   31:                 <span  class="hy">产业</span>
+   32                  <span class="xq">县区</span>
+   33              </td>
+
+/Users/lan/Sites/lishuisafe/app/views/zerenguanli/jdtj.blade.php:
+   26            <tr class="top">
+   27              <td width="91" height="65" align="center" bgcolor="#f7f7f7" class="thHead">
+   28:                 <span  class="hy">产业</span>
+   29                  <span class="xq">县区</span>
+   30              </td>
+
+/Users/lan/Sites/lishuisafe/app/views/zerenguanli/tlpgl.blade.php:
+   16                         maxlength="10" onclick="new Calendar().show(this);" readonly="readonly" value="{{ $endTime }}" /></span>
+   17                  
+   18: 			<em>产业：</em>
+   19  			<select name="way">
+   20  				<option value="1" @if ($way == 1) selected="selected" @endif>肥料</option>
+
+14 matches across 10 files
