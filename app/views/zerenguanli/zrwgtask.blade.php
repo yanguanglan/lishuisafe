@@ -67,6 +67,7 @@
     <script>
     $(".spec").on("click", function(){
     var _this = $(this);
+    _this.removeClass('spec').addClass('nomal');
     //添加
      $.post(
             "{{URL::route('zrwgtasktag')}}",
@@ -78,13 +79,14 @@
             function( data ) {     
                // if(data.status!=1) {
                 //alert(data.msg);
-                _this.removeClass('spec').addClass('nomal');
+                
              //   }
             },
             'json'
         );
     });
      $(".nomal").on("click", function(){
+        _this.removeClass('nomal').addClass('spec');
     var _this = $(this);
     //添加
      $.post(
@@ -97,7 +99,7 @@
             function( data ) {     
                // if(data.status!=1) {
                 //alert(data.msg);
-                 _this.removeClass('nomal').addClass('spec');
+                 
            // }
             },
             'json'

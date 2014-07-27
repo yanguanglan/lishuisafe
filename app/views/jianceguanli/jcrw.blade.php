@@ -6,14 +6,6 @@
 	<form>
 	<div class="search">
 		<div class="searchFl searchFl01">
-			<em>区域：</em>
-				<div class="seBox address">
-	               <select name="city">
-				                @foreach ($user_citylist as $v)
-				        <option value="{{$v->ID}}" @if ($v->ID == $city) selected="selected" @endif>{{$v->pname}}</option>
-				                @endforeach
-				      </select>
-               </div>
    <div class="calendar" style="display:inline;">
                 <em style="padding: 0;float:left;margin-top:5px;">检查时间：</em>
   <span>
@@ -43,7 +35,6 @@
 		<table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#e3e3e3">
                     <tr class="top">
                         <td width="10%" height="65" bgcolor="#efefef">任务发布</td>
-                        <td width="8%" height="65" bgcolor="#efefef">区域</td>
                         <td width="22" height="65" bgcolor="#efefef">任务标题</td>
                         <td width="8" height="65" bgcolor="#efefef">状态</td>
                         <td width="8" height="65" bgcolor="#efefef">检测性质</td>
@@ -52,8 +43,7 @@
                     </tr>
                     @foreach($result as $value)
                     <tr>
-                        <td height="39" >{{date('Y-m-d', $value->publishTime)}}</td>
-                        <td height="39" >{{$value->cityName }}</td>
+                        <td height="39" >{{date('Y-m-d', strtotime($value->publishTime))}}</td>
                         <td height="39" >{{$value->ptitle }}</td>
                         <td height="39" >@if($value->pend==0) 进行中 @else 完毕 @endif</td>
                          <td height="39" >@if($value->pitype==0) 例行检测 @elseif($value->pitype==1) 监督抽检 @else 专项检测 @endif</td>

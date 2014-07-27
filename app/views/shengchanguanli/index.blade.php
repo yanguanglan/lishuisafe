@@ -38,6 +38,7 @@
 <div class="block">
 <div class="scHead">
 	<ul>
+	<!-- 
 		<li><a href="http://www.lsnj110.gov.cn/programs/main/tszx/add.jsp">政策咨询</a></li>
 		<li><a href="http://www.lsnj110.gov.cn/html/main/nydt/">丽水新闻</a></li>
 		<li><a href="http://www.lsnj110.gov.cn/programs/zjzx/njzj.jsp">专家信箱</a></li>
@@ -47,6 +48,7 @@
 		<li><a href="http://www.zjnm.cn/mmDesktop.aspx?zid=DQDI4EYLOSOJ16VB15WL661HR8AAQ06CC82">供求信息</a></li>
 		<li><a href="http://www.lsnj110.gov.cn/html/main/tzgg/">通知公告</a></li>
 	</ul>
+	 -->
 	<p><a href="qiyeapply.html"><img src="images/scB.jpg" /></a></p>
 </div>
 <div class="scWp">
@@ -73,7 +75,7 @@
 			<li>
 				<a href="">
 					<img src="images/sc4.jpg" alt="" />
-					<p>牛羊养殖生产系统</p>
+					<p>中药材生产系统</p>
 				</a>				
 			</li>
 			<li>
