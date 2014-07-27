@@ -19,6 +19,17 @@ Route::get('/', function()
 	//dd($results);
 });
 
+Route::get('/proc', function()
+{
+	$result = DB::select(Input::get('proc'));
+
+	var_dump($result);
+	//dd(Cookie::get('account'));
+	//return View::make('index');
+	//$results = DB::select('select * from zunit');
+	//dd($results);
+});
+
 Route::get('/qiyeapply', function(){
 	return View::make('qiyeapply');	
 });
