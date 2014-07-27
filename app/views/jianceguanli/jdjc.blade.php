@@ -35,7 +35,7 @@
                </div>			
 			<input type="submit" value="统计" class="searBtn"/>
 			<input type="submit" value="Excel" class="searBtn" />
-			 
+			<input type="button" id="jcsjll" class="searBtn" value="检测数据录入" />
 		</div>	
 	</div>
 	</form>
@@ -90,7 +90,7 @@
 		$(".jdtj table tr:odd").css("backgroundColor","#ffffff"); 
 		//模态框
 			
-		$(".cont table tr td a").click(function(){
+		/*$(".cont table tr td a").click(function(){
 			$(".model").fadeIn();
 			var modelHeight=parseInt($(".model .cont").outerHeight());
 			var	winHeight=parseInt($(window).height());
@@ -101,9 +101,9 @@
 		})
 		$(".model .cont .close").click(function(){
 			$(".model").fadeOut();
-		})
+		})*/
 	})
-$(function(){
+/*$(function(){
         var d = new Date(),
         vYear = d.getFullYear(),
         vMon = d.getMonth() + 1,
@@ -112,6 +112,12 @@ $(function(){
         star=vYear+"-"+(vMon<10 ? "0" + vMon : vMon)+"-"+1;
         $("#control_date2").val(end);
         $("#control_date").val(star);	
-})	
+})	*/
+$(function(){
+        $("#jcsjll").on("click", function(){
+            	window.location.href="/jcsjll"
+        });
+})
+
 </script>
 @stop

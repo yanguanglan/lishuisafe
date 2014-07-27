@@ -45,7 +45,7 @@
             @foreach (check_type($types, $item->numInfo) as $key => $val)
             <td height="39" align="center"><a href="{{ URL::route('qyzjinfo', array('city'=>$item->cityID, 'type'=>$key, 'startDate'=>$startDate, 'endTime'=>$endTime, 'keyword'=>$keyword)) }}" target="_blank">{{ $val }}</a></td>
             @endforeach
-             <td height="39" align="center"><a href="{{ URL::route('qyzjinfo', array('city'=>$item->cityID, 'type'=>0, 'startDate'=>$startDate, 'endTime'=>$endTime, 'keyword'=>$keyword)) }}" target="_blank">{{ $item->num }}</a></td>
+             <td height="39" align="center"><a href="{{ URL::route('qyzjinfo', array('city'=>$item->cityID, 'type'=>0, 'startDate'=>$startDate, 'endTime'=>$endTime, 'keyword'=>$keyword)) }}" target="_blank">{{ $item->totalNum }}</a></td>
           </tr>
           @endforeach
         </table>

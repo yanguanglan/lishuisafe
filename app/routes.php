@@ -27,6 +27,9 @@ Route::get('/suggestions', function(){
 	return View::make('suggestions');	
 });
 
+Route::get('/jcsjll', function(){
+	return View::make('jctjll');	
+});
 
 Route::get('/shengchanguanli', array('as'=>'shengchanguanli', function()
 {
@@ -630,7 +633,7 @@ Route::group(array('prefix' => 'jianceguanli', 'before' => 'auth.zerenguanli'), 
 		$res = Input::get('res', '');
 		$user_citylist = get_user_citylist();
 		$user_type = get_user_type();
-		$result = DB::select('EXEC proc_monitor_sample_random_test_type_info ?, ?, ?, ?, ?,　?, ?', array(Session::get('userid'), $city, $startDate, $endTime, $usertype, $institutionID, $res));
+		$result = DB::select('EXEC proc_monitor_sample_random_test_type_info ?, ?, ?, ?, ?, ?, ?', array(Session::get('userid'), $city, $startDate, $endTime, $usertype, $institutionID, $res));
 
 		return View::make('jianceguanli.jdjcsh')->with('city', $city)->with('usertype', $usertype)->with('startDate', $startDate)->with('endTime', $endTime)->with('result', $result)->with('user_citylist', $user_citylist)->with('user_type', $user_type);
 	}));
@@ -659,7 +662,7 @@ Route::group(array('prefix' => 'jianceguanli', 'before' => 'auth.zerenguanli'), 
 		$res = Input::get('res', '');
 		$user_citylist = get_user_citylist();
 		$user_type = get_user_type();
-		$result = DB::select('EXEC proc_monitor_sample_send_test_type_info ?, ?, ?, ?, ?,　?, ?', array(Session::get('userid'), $city, $startDate, $endTime, $usertype, $institutionID, $res));
+		$result = DB::select('EXEC proc_monitor_sample_send_test_type_info ?, ?, ?, ?, ?, ?, ?', array(Session::get('userid'), $city, $startDate, $endTime, $usertype, $institutionID, $res));
 
 		return View::make('jianceguanli.qysjsh')->with('city', $city)->with('usertype', $usertype)->with('startDate', $startDate)->with('endTime', $endTime)->with('result', $result)->with('user_citylist', $user_citylist)->with('user_type', $user_type);
 	}));
@@ -719,7 +722,7 @@ Route::group(array('prefix' => 'jianceguanli', 'before' => 'auth.zerenguanli'), 
 		$secTypeID = Input::get('secTypeID', '');
 		$res = Input::get('res', '');
 		$user_citylist = get_user_citylist();
-		$result = DB::select('EXEC proc_monitor_comprehensive_type_info ?, ?, ?, ?, ?,　?, ?', array(Session::get('userid'), $city, $startDate, $endTime, $secTypeID, $res));
+		$result = DB::select('EXEC proc_monitor_comprehensive_type_info ?, ?, ?, ?, ?, ?', array(Session::get('userid'), $city, $startDate, $endTime, $secTypeID, $res));
 
 		return View::make('jianceguanli.zhtjsh')->with('city', $city)->with('startDate', $startDate)->with('endTime', $endTime)->with('result', $result)->with('user_citylist', $user_citylist);
 	}));

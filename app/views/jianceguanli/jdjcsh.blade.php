@@ -9,7 +9,7 @@
 			<em>区域：</em>
 				<div class="seBox address">
 	               <select name="city">
-				                @foreach ($user_citylist() as $v)
+				                @foreach ($user_citylist as $v)
 				        <option value="{{$v->ID}}" @if ($v->ID == $city) selected="selected" @endif>{{$v->pname}}</option>
 				                @endforeach
 				      </select>
@@ -28,7 +28,7 @@
 			<em>样品产业：</em>
 				<div class="seBox check">
 	                 <select name="usertype">
-				                @foreach ($user_type() as $v)
+				                @foreach ($user_type as $v)
 				        <option value="{{$v->ID}}" @if ($v->ID == $usertype) selected="selected" @endif>{{$v->pname}}</option>
 				                @endforeach
 				      </select>
@@ -55,16 +55,15 @@
 
                     </tr>                    @foreach($result as $value)
                     <tr>
-                        <td height="39" >{{date('Y-m-d', $value->testTime)}}</td>
+                        <td height="39" >{{date('Y-m-d', strtotime($value->testTime))}}</td>
                         <td height="39" >{{$value->cityName }}</td>
                         <td height="39" >{{$value->testInstitution }}</td>
-                         <td height="39" >{{$value->cityName }}</td>
                         <td height="39" >{{$value->companyName }}</td>
                          <td height="39" >{{get_pwhere($value->pwhere) }}</td>
                         <td height="39" >{{$value->secTypeName }}</td>
                          <td height="39" >{{$value->productName }}</td>
                         <td height="39" >{{$value->pxiangmu }}</td>
-                         <td height="39" >{{@if($value->pend==1) 合格 @else 不合格 @endif }}</td>
+                         <td height="39" >@if($value->pend==1) 合格 @else 不合格 @endif</td>
                         <td height="39" >{{$value->pafter }}</td>
                     </tr>
                     @endforeach
@@ -72,24 +71,6 @@
 	</div>
 </div>
 <!--/end 防治统计-->
-
-<div class="model">
-	<div class="cont w85">
-		<div class="close"><img src="images/xx.png"/></div>
-		<div class="articel">
-			<h1>根据安排对丽水整个区域的茶叶制品进</h1>
-			<div class="des">
-				<p>检测性质：例行监测</p>
-			</div>
-			<div class="articleInfo">
-				<p>根据安排对丽水整个区域的茶叶制品进根据安排对丽水整个区域的茶叶制品进根据安排对丽水整个区域的茶叶制品进根据安排对丽水整个区域的茶叶制品进根据安排对丽水整个区域的茶叶制品进根据安排对丽水整个区域的茶叶制品进根据安排对丽水整个区域的茶叶制品进根据安排对丽水整个区域的茶叶制品进根据安排对丽水整个区域的茶叶制品进根据安排对丽水整个区域的茶叶制品进根据安排对丽水整个区域的茶叶制品进根据安排对丽水整个区域的茶叶制品进根据安排对丽水整个区域的茶叶制品进根据安排对丽水整个区域的茶叶制品进根据安排对丽水整个区域的茶叶制品进根据安排对丽水整个区域的茶叶制品进根据安排对丽水整个区域的茶叶制品进根据安排对丽水整个区域的茶叶制品进</p>
-				<p>根据安排对丽水整个区域的茶叶制品进根据安排对丽水整个区域的茶叶制品进根据安排对丽水整个区域的茶叶制品进根据安排对丽水整个区域的茶叶制品进根据安排对丽水整个区域的茶叶制品进根据安排对丽水整个区域的茶叶制品进根据安排对丽水整个区域的茶叶制品进根据安排对丽水整个区域的茶叶制品进根据安排对丽水整个区域的茶叶制品进根据安排对丽水整个区域的茶叶制品进根据安排对丽水整个区域的茶叶制品进根据安排对丽水整个区域的茶叶制品进根据安排对丽水整个区域的茶叶制品进根据安排对丽水整个区域的茶叶制品进根据安排对丽水整个区域的茶叶制品进根据安排对丽水整个区域的茶叶制品进根据安排对丽水整个区域的茶叶制品进根据安排对丽水整个区域的茶叶制品进</p>
-				<p>根据安排对丽水整个区域的茶叶制品进根据安排对丽水整个区域的茶叶制品进根据安排对丽水整个区域的茶叶制品进根据安排对丽水整个区域的茶叶制品进根据安排对丽水整个区域的茶叶制品进根据安排对丽水整个区域的茶叶制品进根据安排对丽水整个区域的茶叶制品进根据安排对丽水整个区域的茶叶制品进根据安排对丽水整个区域的茶叶制品进根据安排对丽水整个区域的茶叶制品进根据安排对丽水整个区域的茶叶制品进根据安排对丽水整个区域的茶叶制品进根据安排对丽水整个区域的茶叶制品进根据安排对丽水整个区域的茶叶制品进根据安排对丽水整个区域的茶叶制品进根据安排对丽水整个区域的茶叶制品进根据安排对丽水整个区域的茶叶制品进根据安排对丽水整个区域的茶叶制品进</p>
-			</div>
-		</div>
-	</div>
-</div>
-</div>
 <!--/end wrap-->
 <script type="text/javascript">
 	$(function(){
@@ -111,7 +92,7 @@
 			$(".model").fadeOut();
 		})
 	})
-$(function(){
+/*$(function(){
         var d = new Date(),
         vYear = d.getFullYear(),
         vMon = d.getMonth() + 1,
@@ -120,6 +101,6 @@ $(function(){
         star=vYear+"-"+(vMon<10 ? "0" + vMon : vMon)+"-"+1;
         $("#control_date2").val(end);
         $("#control_date").val(star);	
-})	
+})	*/
 </script>
 @stop

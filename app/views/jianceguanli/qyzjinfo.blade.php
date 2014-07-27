@@ -43,9 +43,9 @@
                         <td height="39" >{{$value->secTypeName}}</td>
                         <td height="39" >{{$value->psalepc}}</td>
                         <td height="39" >{{$value->pzzpc}}</td>
-                        <td height="39" >{{date('Y-m-d', $value->ptime)}}</td>
-                        <td height="39" >{{$value->pcshi $value->unitName}}</td>
-                        <td height="39" >{{@if($value->pend==1) 合格 @else 不合格 @endif}}</td>
+                        <td height="39" >{{date('Y-m-d', strtotime($value->ptime))}}</td>
+                        <td height="39" >{{$value->pcshi}}{{$value->unitName}}</td>
+                        <td height="39" >@if($value->pend==1) 合格 @else 不合格 @endif</td>
                         <td height="39" >{{$value->pafter}}</td>
                     </tr>
                     @endforeach

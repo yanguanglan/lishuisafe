@@ -45,7 +45,7 @@
                         <td height="39" align="center">{{$value->totalNum }}</td>
                         <td height="39" align="center"><a href="{{ URL::route('zhtjsh', array( 'res'=>0, 'startDate'=>$startDate, 'endTime'=>$endTime, 'secTypeID'=>$value->secTypeID, 'city'=>$city)) }}">{{$value->noQualifiedNum }}</a></td>
                         <td height="39" align="center">{{ 100*($value->qualifiedNum/$value->totalNum)}}%</td>
-                        <td height="39" ><td height="39" align="center"  ><a >查看</a></td></td>
+                        <td height="39" align="center"  ><a >查看</a></td></td>
                     </tr>
                     @endforeach
                 </table>
@@ -78,7 +78,7 @@
 		$(".jdtj table tr:odd").css("backgroundColor","#ffffff"); 
 		//模态框
 			
-		$(".cont table tr td a").click(function(){
+		/*$(".cont table tr td a").click(function(){
 			$(".model").fadeIn();
 			var modelHeight=parseInt($(".model .cont").outerHeight());
 			var	winHeight=parseInt($(window).height());
@@ -89,9 +89,9 @@
 		})
 		$(".model .cont .close").click(function(){
 			$(".model").fadeOut();
-		})
+		})*/
 	})
-$(function(){
+/*$(function(){
         var d = new Date(),
         vYear = d.getFullYear(),
         vMon = d.getMonth() + 1,
@@ -100,6 +100,6 @@ $(function(){
         star=vYear+"-"+(vMon<10 ? "0" + vMon : vMon)+"-"+1;
         $("#control_date2").val(end);
         $("#control_date").val(star);	
-})	
+})	*/
 </script>
 @stop

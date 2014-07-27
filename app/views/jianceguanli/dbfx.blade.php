@@ -61,7 +61,7 @@
 			$(".model").fadeOut();
 		})
 	})
-$(function(){
+/*$(function(){
         var d = new Date(),
         vYear = d.getFullYear(),
         vMon = d.getMonth() + 1,
@@ -70,6 +70,6 @@ $(function(){
         star=vYear+"-"+(vMon<10 ? "0" + vMon : vMon)+"-"+1;
         $("#control_date2").val(end);
         $("#control_date").val(star);	
-})	
+})	*/
 </script>
 @stop

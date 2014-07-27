@@ -38,33 +38,33 @@
 		</div>	
 	</div>
 	</form>
+
 	<div class="cont jdtj white">
 		<table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#e3e3e3">
                       <tr class="top">
-                        <td height="65" bgcolor="#efefef">检测日期</td>
+
+                      	<td height="65" bgcolor="#efefef">检测日期</td>
                         <td height="65" bgcolor="#efefef">区域</td>
                         <td height="65" bgcolor="#efefef">检测机构</td>
                        <td height="65" bgcolor="#efefef">被检单位</td>
-                        <td height="65" bgcolor="#efefef">抽样地点</td>
+                        <td height="65" bgcolor="#efefef">送检人</td>
                         <td height="65" bgcolor="#efefef">样品产业</td>
                       
                         <td height="65" bgcolor="#efefef">样品名称</td>
                         <td height="65" bgcolor="#efefef">检测项目 </td>
                          <td height="65" bgcolor="#efefef">检测值 </td>
                         <td height="65" bgcolor="#efefef">检测结论</td>
-
                     </tr>                    @foreach($result as $value)
                     <tr>
-                        <td height="39" >{{date('Y-m-d', $value->testTime)}}</td>
+                        <td height="39" >{{date('Y-m-d', strtotime($value->testTime))}}</td>
                         <td height="39" >{{$value->cityName }}</td>
                         <td height="39" >{{$value->testInstitution }}</td>
-                         <td height="39" >{{$value->cityName }}</td>
-                        <td height="39" >{{$value->companyName }}</td>
-                         <td height="39" >{{get_pwhere($value->pwhere) }}</td>
+                         <td height="39" >{{$value->companyName }}</td>
+                        <td height="39" >{{$value->psongjian }}</td>
                         <td height="39" >{{$value->secTypeName }}</td>
                          <td height="39" >{{$value->productName }}</td>
                         <td height="39" >{{$value->pxiangmu }}</td>
-                         <td height="39" >{{@if($value->pend==1) 合格 @else 不合格 @endif }}</td>
+                         <td height="39" >@if($value->pend==1) 合格 @else 不合格 @endif</td>
                         <td height="39" >{{$value->pafter }}</td>
                     </tr>
                     @endforeach
@@ -111,7 +111,7 @@
 			$(".model").fadeOut();
 		})
 	})
-$(function(){
+/*$(function(){
         var d = new Date(),
         vYear = d.getFullYear(),
         vMon = d.getMonth() + 1,
@@ -120,6 +120,6 @@ $(function(){
         star=vYear+"-"+(vMon<10 ? "0" + vMon : vMon)+"-"+1;
         $("#control_date2").val(end);
         $("#control_date").val(star);	
-})	
+})	*/
 </script>
 @stop
