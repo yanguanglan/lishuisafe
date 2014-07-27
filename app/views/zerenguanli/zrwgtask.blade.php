@@ -86,8 +86,9 @@
         );
     });
      $(".nomal").on("click", function(){
-        _this.removeClass('nomal').addClass('spec');
+        
     var _this = $(this);
+    _this.removeClass('nomal').addClass('spec');
     //添加
      $.post(
             "{{URL::route('zrwgtasktag')}}",
