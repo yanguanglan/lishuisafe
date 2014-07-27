@@ -25,7 +25,7 @@
                        maxlength="10" onclick="new Calendar().show(this);" readonly="readonly" value="{{ $endTime }}" /></span> 
       </div> 
 	 
-			<em>样品行业：</em>
+			<em>样品产业：</em>
 				<div class="seBox check">
 	                 <select name="usertype">
 				                @foreach ($user_type as $v)
@@ -44,7 +44,7 @@
                     <tr class="top">
                         <td height="65" bgcolor="#efefef">检测机构</td>
                         <td height="65" bgcolor="#efefef">区域</td>
-                        <td height="65" bgcolor="#efefef">行业</td>
+                        <td height="65" bgcolor="#efefef">产业</td>
                         <td height="65" bgcolor="#efefef">检测次数</td>
                         <td height="65" bgcolor="#efefef">合格次数</td>
                         <td height="65" bgcolor="#efefef">不合格次数 </td>

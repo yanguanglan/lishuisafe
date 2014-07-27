@@ -37,7 +37,7 @@
                         <td height="65" bgcolor="#efefef">检测机构</td>
                        <td height="65" bgcolor="#efefef">被检单位</td>
                         <td height="65" bgcolor="#efefef">抽样地点</td>
-                        <td height="65" bgcolor="#efefef">样品行业</td>
+                        <td height="65" bgcolor="#efefef">样品产业</td>
                       
                         <td height="65" bgcolor="#efefef">样品名称</td>
                         <td height="65" bgcolor="#efefef">检测项目 </td>
