@@ -23,6 +23,11 @@ Route::get('/qiyeapply', function(){
 	return View::make('qiyeapply');	
 });
 
+Route::get('/suggestions', function(){
+	return View::make('suggestions');	
+});
+
+
 Route::get('/shengchanguanli', array('as'=>'shengchanguanli', function()
 {
 	//dd(Cookie::get('account'));

@@ -77,7 +77,7 @@
 		</div>
 		<div class="proR">
 			<ul>
-				<li><a href="{{ URL::route('zeren.login') }}"><img src="{{ URL::asset('images/button1.jpg') }}"></a></li>
+				<li><a href="/suggestions"><img src="{{ URL::asset('images/button1.jpg') }}"></a></li>
 				<li><a href="/qiyeapply"><img src="{{ URL::asset('images/button2.jpg') }}"></a></li>
 				<li><a href="{{ URL::route('jiance.login') }}"><img src="{{ URL::asset('images/button3.jpg') }}"></a></li>
 				<li><a href="{{ URL::route('zeren.login') }}"><img src="{{ URL::asset('images/button4.jpg') }}"></a></li>
