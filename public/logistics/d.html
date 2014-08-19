@@ -2,73 +2,33 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>畅顺达物流客户端</title>
 <style type="text/css">
-.wrapper {
-	/*border: solid 1px #666;	
-	padding: 5px 10px;*/
-	margin: 40px;
-}
-
-.viewing-area span {
-	color: #666;
-	display: none;
-}
-
-/* max-width */
-@media screen and (max-width: 600px) {
-	.one {
-		background: #F9C;
-	}
-	span.lt600 {
-		display: inline-block;
-	}
-}
-
-/* min-width */
-@media screen and (min-width: 900px) {
-	.two {
-		background: #F90;
-	}
-	span.gt900 {
-		display: inline-block;
-	}
-}
-
-/* min-width & max-width */
-@media screen and (min-width: 600px) and (max-width: 900px) {
-	.three {
-		background: #9CF;
-	}
-	span.bt600-900 {
-		display: inline-block;
-	}
-}
-
-/* max device width */
-@media screen and (max-device-width: 480px) {
-	.iphone {
-		/*background: #ccc;*/
-	}
-}
-
-p {
+body { 
+	background:#fffffa; 
+} 
+ 
+#title {
 	color:red;
-	font-size:22px;
+	font-size:20px;
 }
+
+#suport {
+	color:red;
+	font-size:13px;
+}
+
 </style>
 </head>
 
-<body bgcolor="#fffffa">
-	<div class="wrapper iphone">
-		<div align="center">
-			<p align="center" id="ecc">畅顺达物流</p><br>
-			<img align="middle" src="./view_show_1.png" width="252px"><br><br><br>
-			<a href="itms-services://?action=download-manifest&url=http://lishui.lianying.co/logistics/d.plist"><img src="./iphone_download.png" width="150px"></a>
-			<a href="http://lishui.lianying.co/logistics/Wuliuok9.apk"><img src="./android_download.png" width="150px"></a>
-		</div>
+<body>
+	<div align="center">
+		<p id="title">畅顺达物流</p>
+		<img align="middle" src="./view_show_1.png" width="222px"><br><br>
+		<a href="itms-services://?action=download-manifest&url=http://lishui.lianying.co/logistics/d.plist"><img src="./iphone_download.png" width="110px"></a>
+		<a href="http://lishui.lianying.co/logistics/Wuliuok9.apk"><img src="./android_download.png" width="110px"></a>
+		<p id="suport">技术支持：<a href="http://www.51lianying.com" target="_blank">我要联赢</a></p>
 	</div>
-
-	<!--<p align="center">技术支持：<a href="http://www.51lianying.com" target="_blank">我要联赢</a></p>-->
 </body>
 </html>
